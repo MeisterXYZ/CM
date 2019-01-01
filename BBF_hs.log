@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.7)  1 JAN 2019 15:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.7)  1 JAN 2019 16:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1331,8 +1331,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 204.
  (./BBF_hs.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 204.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 204.
-Package rerunfilecheck Info: File `BBF_hs.out' has not changed.
-(rerunfilecheck)             Checksum: E0BD875A6BE4DE33516AC5FDD53883B3;949.
+
+
+Package rerunfilecheck Warning: File `BBF_hs.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `BBF_hs.out':
+(rerunfilecheck)             Before: E0BD875A6BE4DE33516AC5FDD53883B3;949
+(rerunfilecheck)             After:  0B71D2966CD5C9BA136545DB826C2017;996.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 204.
  )
 (\end occurred inside a group at level 1)
@@ -1357,7 +1364,7 @@ f-dist/fonts/type1/nowacki/iwona/iwonab.pfb></usr/local/texlive/2017/texmf-dist
 /fonts/type1/nowacki/iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts
 /type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
 urw/palatino/uplr8a.pfb>
-Output written on BBF_hs.pdf (4 pages, 185456 bytes).
+Output written on BBF_hs.pdf (4 pages, 187966 bytes).
 PDF statistics:
  129 PDF objects out of 1000 (max. 8388607)
  112 compressed objects within 2 object streams

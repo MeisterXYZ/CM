@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  9 JAN 2019 13:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  9 JAN 2019 17:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1343,86 +1343,98 @@ Package pdftex.def Info: Figures/Drum_Fig1.png used on input line 200.
 (pdftex.def)             Requested size: 185.0pt x 58.19632pt.
 LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <9> not available
 (Font)              Font shape `T1/iwona/b/n' tried instead on input line 201.
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--242
+ [3 <./Figures/Drum_Fig1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 254--256
 
  []
 
-[3 <./Figures/Drum_Fig1.png>]
-<Figures/Tuba_Fig1.png, id=112, 184.69pt x 72.27pt>
+<Figures/Tuba_Fig1.png, id=115, 184.69pt x 72.27pt>
 File: Figures/Tuba_Fig1.png Graphic file (type png)
 
 <use Figures/Tuba_Fig1.png>
-Package pdftex.def Info: Figures/Tuba_Fig1.png used on input line 261.
+Package pdftex.def Info: Figures/Tuba_Fig1.png used on input line 275.
 (pdftex.def)             Requested size: 92.5pt x 36.19554pt.
 
-<Figures/Tuba_Fig2.png, id=113, 337.26pt x 104.39pt>
+<Figures/Tuba_Fig2.png, id=116, 337.26pt x 104.39pt>
 File: Figures/Tuba_Fig2.png Graphic file (type png)
 
 <use Figures/Tuba_Fig2.png>
-Package pdftex.def Info: Figures/Tuba_Fig2.png used on input line 275.
+Package pdftex.def Info: Figures/Tuba_Fig2.png used on input line 289.
 (pdftex.def)             Requested size: 92.5pt x 28.63007pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--286
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
+
+ []
+
+[4 <./Figures/Tuba_Fig1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 301--304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--290
+Underfull \hbox (badness 10000) in paragraph at lines 305--307
 
  []
 
-[4 <./Figures/Tuba_Fig1.png> <./Figures/Tuba_Fig2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 291--293
-
- []
-
-<Figures/Posaune_Fig1.png, id=131, 205.76875pt x 59.22125pt>
+<Figures/Posaune_Fig1.png, id=134, 205.76875pt x 59.22125pt>
 File: Figures/Posaune_Fig1.png Graphic file (type png)
 
 <use Figures/Posaune_Fig1.png>
-Package pdftex.def Info: Figures/Posaune_Fig1.png used on input line 306.
+Package pdftex.def Info: Figures/Posaune_Fig1.png used on input line 320.
 (pdftex.def)             Requested size: 92.5pt x 26.6222pt.
- [5 <./Figures/Posaune_Fig1.png>]
-<Figures/Bass_Fig1.png, id=151, 1115.16624pt x 157.58875pt>
+ [5 <./Figures/Tuba_Fig2.png> <./Figures/Posaune_Fig1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 350--352
+
+ []
+
+<Figures/Bass_Fig1.png, id=152, 1115.16624pt x 157.58875pt>
 File: Figures/Bass_Fig1.png Graphic file (type png)
 
 <use Figures/Bass_Fig1.png>
-Package pdftex.def Info: Figures/Bass_Fig1.png used on input line 364.
+Package pdftex.def Info: Figures/Bass_Fig1.png used on input line 377.
 (pdftex.def)             Requested size: 370.0pt x 52.28578pt.
-
-<Figures/Bass_Fig2.png, id=152, 298.11375pt x 154.5775pt>
+ [6 <./Figures/Bass_Fig1.png>]
+<Figures/Bass_Fig2.png, id=175, 298.11375pt x 154.5775pt>
 File: Figures/Bass_Fig2.png Graphic file (type png)
 
 <use Figures/Bass_Fig2.png>
-Package pdftex.def Info: Figures/Bass_Fig2.png used on input line 386.
+Package pdftex.def Info: Figures/Bass_Fig2.png used on input line 406.
 (pdftex.def)             Requested size: 111.00113pt x 57.556pt.
- [6 <./Figures/Bass_Fig1.png> <./Figures/Bass_Fig2.png>] [7] (./BBF_hs.bbl
+
+Underfull \hbox (badness 10000) in paragraph at lines 427--429
+
+ []
+
+[7 <./Figures/Bass_Fig2.png>] [8] (./BBF_hs.bbl
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 8.50006pt on input line 5.
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 427.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 427.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 461.
+ [9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 461.
  (./BBF_hs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 427.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 427.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 461.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 461.
 Package rerunfilecheck Info: File `BBF_hs.out' has not changed.
 (rerunfilecheck)             Checksum: 08B47A7410DE480D79A5138C3DB82BD3;1201.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 427.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 461.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18085 strings out of 492995
- 312311 string characters out of 6132703
- 678013 words of memory out of 5000000
+ 18110 strings out of 492995
+ 312674 string characters out of 6132703
+ 711013 words of memory out of 5000000
  21245 multiletter control sequences out of 15000+600000
  88996 words of font info for 109 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 61i,23n,86p,8817b,14788s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,23n,86p,8817b,14816s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
 }{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/l
 ocal/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}</usr/local/
@@ -1435,10 +1447,10 @@ ype1/nowacki/iwona/iwonabi.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
 nowacki/iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/pa
 latino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/
 uplr8a.pfb>
-Output written on BBF_hs.pdf (8 pages, 281323 bytes).
+Output written on BBF_hs.pdf (9 pages, 282974 bytes).
 PDF statistics:
- 250 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 84 named destinations out of 1000 (max. 500000)
+ 284 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
+ 109 named destinations out of 1000 (max. 500000)
  18604 words of extra memory for PDF output out of 20736 (max. 10000000)
 

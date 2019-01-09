@@ -202,7 +202,7 @@ treibender Grundrhytmus, steigende Lautstärke BD
 \end{figure}
 
 \begin{lstlisting}
-d1 $ sound "[bd hh bd hh]*2"
+d1 $ sound "[bd hh]*4"
 \end{lstlisting}
 
 \noindent \textbf{Figur 2}\\
@@ -213,7 +213,21 @@ Wie 1 und 2, noch mehr Fills
 
 \noindent \textbf{Figur 4}\\
 Wie 1, keine Fills auf hh,
-Triolen auf rim
+zyklische Bewegung auf rim: Angenommen 5Schläge Pro Takt.
+
+
+\begin{lstlisting}
+d1 $ sound "[[bd hh]*4, rm*5]"
+d1 $ sound "[[bd hh]*4, rm rm rm rm ~]"
+\end{lstlisting}
+
+um einen Cycle draus zu machen rand nutzen:
+
+\begin{lstlisting}
+d1 $ sound "[[bd hh]*4, rm rm rm rm rm?]"
+\end{lstlisting}
+
+
 
 \noindent \textbf{Figur 5}\\
 Nur Triolen auf Rim
@@ -300,7 +314,7 @@ schlagen, blasen(impulsartig,durchgehend), spielen(tief, hoch)
 \subsection{Instrument 5: Posaune}
 \subsubsection{Figuren}
 \textbf{Figur 1}\\
-Figur über einen Takt. Kurzes,tonloses Pusten in die Posaune. Stoßweise gespielt als rhythmisches Element auf letze Achtelnote im Takt.\\
+Figur über einen Takt. Kurzes, tonloses Pusten in die Posaune. Stoßweise gespielt als rhythmisches Element auf letzte Achtelnote im Takt.\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.25\columnwidth]{Posaune_Fig1} 
@@ -333,7 +347,8 @@ Ruhige Parts, Hektik (schnell gespielte Töne)
 
 \subsection{Instrument 7: Chello}
 \subsubsection{Figuren}
-...
+{\color{red}\textbf{TODO}}
+(Hierzu Studio-Version hören)\\
 
 \subsubsection{Klangbild}
 Ruhige Parts, Hektik (schnell gespielte Töne)
@@ -375,6 +390,13 @@ d1 $ midinote "[[48 48][47 48 ~ ~]]" # s "moog" # cut 1
 d1 $ midinote "[[58 57][56 57 ~ ~]]" # s "moog" # cut 1
 --1 Takte
 d1 $ midinote "[[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
+
+---Verbunden:
+d1 $ slow 8 $ fastcat [midinote "[[55 55][54 55 ~ ~]]*2" # s "moog" # cut 1,
+midinote "[[50 50][49 50 ~ ~]]*2" # s "moog" # cut 1,
+midinote "[[48 48][47 48 ~ ~]]*2" # s "moog" # cut 1,
+midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
+]
 \end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
@@ -404,8 +426,22 @@ Kür: Ggf. selbst Sample erzeugen
 \section{Performance}
 TODO:\\
 Spuren per Stack verbinden?\\
-Problem: nur d1 bis d9\\
-Konzept für Ablauf Performance?
+
+\begin{lstlisting}
+--10 Instruments:
+p "i1" $ sound "bd sd:1"
+p "i2" $ sound "hh hh hh hh"
+p "i3" $ sound "hh hh hh hh"
+p "i4" $ sound "hh hh hh hh"
+p "i5" $ sound "hh hh hh hh"
+p "i6" $ sound "hh hh hh hh"
+p "i7" $ sound "hh hh hh hh"
+p "i8" $ sound "hh hh hh hh"
+p "i9" $ sound "hh hh hh hh"
+p "i10" $ sound "hh hh hh hh"
+\end{lstlisting}
+Konzept für Ablauf Performance?\\
+Wie mehrtaktige Figuren mit every zusammenfassen?
 
 
 \pagebreak

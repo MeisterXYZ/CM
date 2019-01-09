@@ -129,7 +129,7 @@ BCOR5mm, % Binding correction
 %----------------------------------------------------------------------------------------
 \section{Abstract}\
 Raph: \\
-TODO: Wirkung? Klar machen!\\
+{\color{red}\textbf{TODO}} Wirkung? Klar machen!\\
 
 \textbf{BrandtBrauerFrick.hs}
 
@@ -165,12 +165,20 @@ Dazu Berücksichtigung dass sich Tidal zur Live-Vorführung eignen würde.
 
 \section{Analyse des Stücks Pretend - Allgemein}\
 Raph.\\
-TODO: bpm, Tonart, Score bzw. Logic-Screenshot $\rightarrow$ wann was?
+{\color{red}\textbf{TODO}}: bpm, Tonart, Score bzw. Logic-Screenshot $\rightarrow$ wann was?\\
+
+\noindent Tempo: 130bpm.
+\begin{lstlisting}
+setcps (130/60/4)
+\end{lstlisting}
+
 
 \section{Analyse des Stücks Pretend}\
 Im folgenden Abschnitt sollen die zehn Instrumentalisten untersucht werden.
 
 \subsection{Instrument 0: Was ist pro Instrument TODO?}
+{\color{red}\textbf{TODO}}: Nach Bearbeitung Hilfskapitel entfernen.\\
+
 Raph.\\
 Welche Figuren?
 - Welche Wirkung?
@@ -180,89 +188,212 @@ Nico\\
 Wie klingt das Instrument?\\
 - Wie klingt das live? Einzelne Bestandteile? (Marimba gespielt mit Holzsticks und verschiedene Kuhglocken)
 - Wie klingt das in welcher Figur? (zB. BD laut, leise)
-- Welchen Klang wählen (evaluation - SD-Instrument nutzbar?, WAV suchen/selber aufnehmen, Instrument coden)
+- Welchen Klang wählen (evaluation - SD-Instrument nutzbar?, WAV suchen/selber aufnehmen, Instrument coden)\\
 
 \subsection{Instrument 1: Schlagzeug}
-Welche Figuren noch bisschen offen.
-Figur2 -> hh geschlossen und offen
-Fig 3-> Triolen auf rim
+\subsubsection{Figuren}
 
-Töne: hh, bd (dumpf, wenig knackig)
-bd wird lauter
+\textbf{Figur 1}\\
+treibender Grundrhytmus, steigende Lautstärke BD
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.5\columnwidth]{Drum_Fig1} 
+	\caption{Schlagzeug Figur 1}
+\end{figure}
+
+\begin{lstlisting}
+d1 $ sound "[bd hh bd hh]*2"
+\end{lstlisting}
+
+\noindent \textbf{Figur 2}\\
+Wie 1 mit Fills
+
+\noindent \textbf{Figur 3}\\
+Wie 1 und 2, noch mehr Fills
+
+\noindent \textbf{Figur 4}\\
+Wie 1, keine Fills auf hh,
+Triolen auf rim
+
+\noindent \textbf{Figur 5}\\
+Nur Triolen auf Rim
+
+\noindent \textbf{Figur 6}\\
+Wie 4, kräftig gespielt
+
+\noindent \textbf{Figur 7}\\
+Treibentder Rhytmus, viele Fills -> Was analoges zu Figur 3\\
+\textbf{Block mit Figur 6}
+
+\noindent \textbf{Figur 8}\\
+Wie 4 aber ohne BD\\
+\textbf{Block mit Figur 6}
+
+\subsubsection{Klangbild}
+Töne: hh, bd (dumpf, wenig knackig)\\
+bd wird lauter\\
 rim
 
 
 \subsection{Instrument 2: Pauken}
-Figuren:
-nur eine Figur vorne
+\subsubsection{Figuren}
+{\color{red}\textbf{TODO}}
+(Hierzu Studio-Version hören)\\
 
-Töne:
+\subsubsection{Klangbild}
 3 Kesselpauken
 
 \subsection{Instrument 3: Marimba}
-Figuren:
+\subsubsection{Figuren}
+{\color{red}\textbf{TODO}}\\
+Aufbau beschreiben mit Glocken.\\
 Random-Funktion benötigt
 
-Töne:
-Holzsticks auf Marimba in verschiednenen Tonhöhen wobei eher Rythmisch als melodisch eingesetzt, dazu Kuh-Glocken bereitstellen für Random-Funktion
+\subsubsection{Klangbild}
+Holzsticks auf Marimba in verschiednenen Tonhöhen wobei eher rhythmisch als melodisch eingesetzt, dazu Kuh-Glocken bereitstellen für Random-Funktion
 
 \subsection{Instrument 4: Tuba}
-Figuren:
-...
+\subsubsection{Figuren}
+\textbf{Figur 1}\\
+Figur über einen Takt. Schlag auf Tuba-Mundstück als rhythmisches Element auf zweite Zählzeit im Takt.\\
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.25\columnwidth]{Tuba_Fig1} 
+	\caption{Tuba Figur 1}
+\end{figure}
 
-Töne:
-schlagen, blasen(impulsartig,durchgehend), spielen
+\begin{lstlisting}
+d1 $ sound "[~ sn ~ ~]"
+\end{lstlisting}
+
+\subsubsection{Figuren}
+\textbf{Figur 2}\\
+Figur über 2 Takte. Instrumentalist bläst in die Tuba ohne dass die Lippen vibrieren, um ein Rauschen zu erzeugen. Pause am Ende der Figur als Atempause angenommen. 
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.25\columnwidth]{Tuba_Fig2} 
+	\caption{Tuba Figur 2}
+\end{figure}
+
+\begin{lstlisting}
+--Idee: sound, der 2 Takte dauert alle 2 Takte 1x anpsielen
+d1 $ sound "blasesoundTuba"
+\end{lstlisting}
+
+\noindent\textbf{Figur 3}\\
+Wie Figur 1, hier allerdings kurzes tonloses Pusten stoßweise gespielt anstelle von Schlag auf Mundstück.\\
+
+\noindent\textbf{Figur 4}\\
+{\color{red}\textbf{TODO}}\\
+Tiefe Töne durch Tuba, Tonhöhe nicht entscheidend und fast nicht mehr wahrnehmbar. Gefühl von Bedrohung. Rollt langsam an\\
+
+\noindent\textbf{Figur 5}\\
+Wie Figur 4, kräftig ausgespielt.\\
+
+\noindent\textbf{Figur 6}\\
+Wie Figur 5, maximal kraftvoll ausgespielt. Eine Oktave höher gespielt daher Tonhöhe der einzelnen Töne gut erkennbar. 
+
+\subsubsection{Klangbild}
+schlagen, blasen(impulsartig,durchgehend), spielen(tief, hoch)
 
 \subsection{Instrument 5: Posaune}
-Figuren:
-...
+\subsubsection{Figuren}
+\textbf{Figur 1}\\
+Figur über einen Takt. Kurzes,tonloses Pusten in die Posaune. Stoßweise gespielt als rhythmisches Element auf letze Achtelnote im Takt.\\
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.25\columnwidth]{Posaune_Fig1} 
+	\caption{Posaune Figur 1}
+\end{figure}
 
-Töne:
+\begin{lstlisting}
+d1 $ sound "[][[][~ sn]]"
+\end{lstlisting}
+
+
+\noindent\textbf{Figur 2}\\
+Erzeugen von Rauschen analog zu Figur 2 - Tuba. Dabei Lautstärke zum Ende des Stückes hin zunehmend.
+\begin{lstlisting}
+--Idee: sound, der 2 Takte dauert alle 2 Takte 1x anpsielen
+--Frage: Lautstaerke?
+d1 $ sound "blasesoundPosaune"
+\end{lstlisting}
+
+\subsubsection{Klangbild}
 blasen(impulsartig,durchgehend)
 
 \subsection{Instrument 6: Violine}
-Figuren:
+\subsubsection{Figuren}
 ...
 
-Töne:
+\subsubsection{Klangbild}
 Ruhige Parts, Hektik (schnell gespielte Töne)
 
 
 \subsection{Instrument 7: Chello}
-Figuren:
+\subsubsection{Figuren}
 ...
 
-Töne:
+\subsubsection{Klangbild}
 Ruhige Parts, Hektik (schnell gespielte Töne)
 
 
 \subsection{Instrument 8: Harfe}
-Figuren:
+\subsubsection{Figuren}
 ....
 
-Töne:
+\subsubsection{Klangbild}
 ...
 
 \subsection{Instrument 9: Flügel}
-Figuren:
+\subsubsection{Figuren}
 
-Töne:
+\subsubsection{Klangbild}
 ...
 
 
 \subsection{Instrument 10: Moog Syntheziser}
-Figuren:
-...
-
-Töne:
-...
-
-
+\subsubsection{Figuren}
 \textbf{Figur 1}\\
 Basslauf über 8 Takte\\
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=1\columnwidth]{Bass_Fig1} 
+	\caption{Moog Figur 1}
+\end{figure}
+
+\begin{lstlisting}
+---Arbeitsstand
+--2Takte
+d1 $ midinote "[[55 55][54 55 ~ ~]]" # s "moog" # cut 1
+--2Takte
+d1 $ midinote "[[50 50][49 50 ~ ~]]" # s "moog" # cut 1
+--2Takte
+d1 $ midinote "[[48 48][47 48 ~ ~]]" # s "moog" # cut 1
+--1 Takte
+d1 $ midinote "[[58 57][56 57 ~ ~]]" # s "moog" # cut 1
+--1 Takte
+d1 $ midinote "[[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
+\end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
 Basslauf über einen Takt
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.3\columnwidth]{Bass_Fig2} 
+	\caption{Moog Figur 2}
+\end{figure}
+
+\begin{lstlisting}
+---Arbeitsstand
+d1 $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
+\end{lstlisting}
+
+
+
+\subsubsection{Klangbild}
+...
 
 
 \section{optional: Gesang}
@@ -273,6 +404,7 @@ Kür: Ggf. selbst Sample erzeugen
 \section{Performance}
 TODO:\\
 Spuren per Stack verbinden?\\
+Problem: nur d1 bis d9\\
 Konzept für Ablauf Performance?
 
 

@@ -199,7 +199,7 @@ Wie klingt das Instrument?\\
 treibender Grundrhytmus, steigende Lautstärke BD
 \begin{figure}[h]
 	\centering 
-	\includegraphics[width=0.5\columnwidth]{Drum_Fig1} 
+	\includegraphics[width=0.35\columnwidth]{Drum_Fig1} 
 	\caption{Schlagzeug Figur 1}
 \end{figure}
 
@@ -229,7 +229,14 @@ um einen Cycle draus zu machen rand nutzen:
 d1 $ sound "[[bd hh]*4, rm rm rm rm rm?]"
 \end{lstlisting}
 
+oder
 
+\begin{lstlisting}
+d1 $ slow 2 $ stack [
+sound "[bd hh]*8",
+fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
+]
+\end{lstlisting}
 
 \noindent \textbf{Figur 5}\\
 Nur Triolen auf Rim
@@ -358,13 +365,57 @@ Ruhige Parts, Hektik (schnell gespielte Töne)
 
 \subsection{Instrument 8: Harfe}
 \subsubsection{Figuren}
-....
+\textbf{Figur 1}\\
+{\color{red}\textbf{TODO}} Starke Annahme - hier vllt was mit Random aus Skala nehmen machen.
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.5\columnwidth]{Harp_Fig1} 
+	\caption{Harfe Figur 1}
+\end{figure}
 
 \subsubsection{Klangbild}
 ...
 
 \subsection{Instrument 9: Flügel}
 \subsubsection{Figuren}
+\textbf{Figur 1}\\
+Nur ein Tiefer Ton.
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.3\columnwidth]{Flug_Fig1} 
+	\caption{Flügel Figur 1}
+\end{figure}
+
+\noindent \textbf{Figur 2}\\
+{\color{red}\textbf{TODO}}
+
+\noindent \textbf{Figur 3}\\
+....
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\columnwidth]{Flug_Fig3} 
+	\caption{Flügel Figur 3}
+\end{figure}
+
+
+\noindent \textbf{Figur 4}\\
+....
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\columnwidth]{Flug_Fig4a} 
+	\includegraphics[width=0.9\columnwidth]{Flug_Fig4b} 
+	\includegraphics[width=0.9\columnwidth]{Flug_Fig4c} 
+	\includegraphics[width=0.9\columnwidth]{Flug_Fig4d} 
+	\caption{Flügel Figur 4}
+\end{figure}
+
+\noindent \textbf{Figur 5}\\
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\columnwidth]{Flug_Fig5} 
+	\caption{Flügel Figur 5}
+\end{figure}
+
 
 \subsubsection{Klangbild}
 ...

@@ -397,14 +397,28 @@ Ruhige Parts, Hektik (schnell gespielte Töne)
 	\caption{Harfe Figur 1}
 \end{figure}
 
-{\color{red}\textbf{TODO}}Code\\
+\begin{lstlisting}
+d1 $ slow 2 $ stack [
+	midinote "[74 72]*4" # s "gtr", 
+	midinote "[62 60]*4" # s "gtr", 
+	slow 2 $ fastcat [
+		midinote "70 69" # s "gtr", 
+		midinote "67" # s "gtr",
+		midinote "70 69" # s "gtr", 
+		midinote "66" # s "gtr"    
+	]
+]
+\end{lstlisting}
+
+
 
 \subsubsection{Klangbild}
 ...
 
 \subsection{Instrument 9: Flügel}
 \subsubsection{Figuren}
-\textbf{Figur 1}\\
+{\color{orange}\textbf{WIP}} \\
+\noindent\textbf{Figur 1}\\
 Nur ein Tiefer Ton.
 \begin{figure}[h]
 	\centering 
@@ -426,6 +440,7 @@ Nur ein Tiefer Ton.
 	\caption{Flügel Figur 3}
 \end{figure}
 {\color{red}\textbf{TODO}}Code\\
+\pagebreak
 
 \noindent \textbf{Figur 4}\\
 {\color{red}\textbf{TODO}}Beschreibung\\
@@ -437,7 +452,16 @@ Nur ein Tiefer Ton.
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig4d} 
 	\caption{Flügel Figur 4}
 \end{figure}
-{\color{red}\textbf{TODO}}Code\\
+\begin{lstlisting}
+d1 $ slow 8 $ fastcat [
+midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74  ~ ~ 67 ~ " # s "superpiano",
+midinote "~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69  ~ ~ 67 ~ " # s "superpiano",
+midinote "~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72  ~ ~ 67 ~ " # s "superpiano",
+midinote "~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70  ~ ~ 66 ~ " # s "superpiano"
+]
+\end{lstlisting}
+{\color{green}\textbf{OK}} \\
+
 
 \noindent \textbf{Figur 5}\\
 \begin{figure}[h]
@@ -445,7 +469,10 @@ Nur ein Tiefer Ton.
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig5} 
 	\caption{Flügel Figur 5}
 \end{figure}
-{\color{red}\textbf{TODO}}Code\\
+\begin{lstlisting}
+d1 $ slow 2 $ midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74  ~ ~ 67 ~ " # s "superpiano"
+\end{lstlisting}
+{\color{green}\textbf{OK}} \\
 
 \subsubsection{Klangbild}
 ...

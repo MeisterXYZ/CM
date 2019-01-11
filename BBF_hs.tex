@@ -206,6 +206,7 @@ treibender Grundrhytmus, steigende Lautstärke BD
 
 \begin{lstlisting}
 d1 $ sound "[bd hh]*4"
+Nicos Code: d1 $ whenmod 200 100 (|*|gain "0.8 0.7 0.8 0.7 0.8 0.7 0.8 0.7" ) $ sound "[bd hh]*4" # gain "0.5 0.7 0.5 0.7 0.5 0.7 0.5 0.7" # midinote 58
 \end{lstlisting}
 
 \noindent \textbf{Figur 2}\\
@@ -306,6 +307,7 @@ Figur über einen Takt. Schlag auf Tuba-Mundstück als rhythmisches Element auf 
 
 \begin{lstlisting}
 d1 $ sound "[~ sn ~ ~]"
+Code Nico: d1 $ sound "~ bd ~ ~" # midinote 15
 \end{lstlisting}
 
 \subsubsection{Figuren}
@@ -322,6 +324,8 @@ Figur über 2 Takte. Instrumentalist bläst in die Tuba ohne dass die Lippen vib
 --Idee: sound, der 2 Takte dauert alle 2 Takte 1x anpsielen
 d1 $ sound "blasesoundTuba"
 \end{lstlisting}
+
+Nico: geht nicht da kein sound mit gleichbleibender schwingung
 
 \noindent\textbf{Figur 3}\\
 Wie Figur 1, hier allerdings kurzes tonloses Pusten stoßweise gespielt anstelle von Schlag auf Mundstück.\\

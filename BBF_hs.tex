@@ -194,6 +194,7 @@ Wie klingt das Instrument?\\
 
 \subsection{Instrument 1: Schlagzeug}
 \subsubsection{Figuren}
+{\color{orange}\textbf{WIP}} \\
 
 \textbf{Figur 1}\\
 treibender Grundrhytmus, steigende Lautstärke BD
@@ -208,15 +209,16 @@ d1 $ sound "[bd hh]*4"
 \end{lstlisting}
 
 \noindent \textbf{Figur 2}\\
-Wie 1 mit Fills
+Wie 1 mit Fills\\
+{\color{red}\textbf{TODO}} Logic, Noten, Code oder Absicht und Programmlogik\\
 
 \noindent \textbf{Figur 3}\\
-Wie 1 und 2, noch mehr Fills
+Wie 1 und 2, noch mehr Fills\\
+{\color{red}\textbf{TODO}} Logic, Noten, Code oder Absicht und Programmlogik\\
 
 \noindent \textbf{Figur 4}\\
 Wie 1, keine Fills auf hh,
 zyklische Bewegung auf rim: Angenommen 5Schläge Pro Takt.
-
 
 \begin{lstlisting}
 d1 $ sound "[[bd hh]*4, rm*5]"
@@ -239,18 +241,31 @@ fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
 \end{lstlisting}
 
 \noindent \textbf{Figur 5}\\
-Nur Triolen auf Rim
+Nur Triolen auf Rim.
+\begin{lstlisting}
+d1 $ slow 2 $ fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
+\end{lstlisting}
+
 
 \noindent \textbf{Figur 6}\\
-Wie 4, kräftig gespielt
+Wie Figur 4 aber kräftig gespielt.\\
 
 \noindent \textbf{Figur 7}\\
 Treibentder Rhytmus, viele Fills -> Was analoges zu Figur 3\\
-\textbf{Block mit Figur 6}
+{\color{red}\textbf{TODO}} Logic, Noten, Code oder Absicht und Programmlogik\\
+
+\noindent Im Ablauf: \textbf{Block mit Figur 6}\\
 
 \noindent \textbf{Figur 8}\\
-Wie 4 aber ohne BD\\
-\textbf{Block mit Figur 6}
+Wie 4 aber ohne BD.
+\begin{lstlisting}
+d1 $ slow 2 $ stack [
+sound "[~ hh]*8",
+fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
+]
+\end{lstlisting}
+
+\noindent Im Ablauf: \textbf{Block mit Figur 6}
 
 \subsubsection{Klangbild}
 Töne: hh, bd (dumpf, wenig knackig)\\
@@ -260,6 +275,7 @@ rim
 
 \subsection{Instrument 2: Pauken}
 \subsubsection{Figuren}
+{\color{red}\textbf{OFFEN}} \\
 {\color{red}\textbf{TODO}}
 (Hierzu Studio-Version hören)\\
 
@@ -268,6 +284,7 @@ rim
 
 \subsection{Instrument 3: Marimba}
 \subsubsection{Figuren}
+{\color{red}\textbf{OFFEN}} \\
 {\color{red}\textbf{TODO}}\\
 Aufbau beschreiben mit Glocken.\\
 Random-Funktion benötigt
@@ -277,7 +294,9 @@ Holzsticks auf Marimba in verschiednenen Tonhöhen wobei eher rhythmisch als mel
 
 \subsection{Instrument 4: Tuba}
 \subsubsection{Figuren}
-\textbf{Figur 1}\\
+{\color{orange}\textbf{WIP}} \\
+
+\noindent\textbf{Figur 1}\\
 Figur über einen Takt. Schlag auf Tuba-Mundstück als rhythmisches Element auf zweite Zählzeit im Takt.\\
 \begin{figure}[h]
 	\centering 
@@ -308,21 +327,24 @@ d1 $ sound "blasesoundTuba"
 Wie Figur 1, hier allerdings kurzes tonloses Pusten stoßweise gespielt anstelle von Schlag auf Mundstück.\\
 
 \noindent\textbf{Figur 4}\\
-{\color{red}\textbf{TODO}}\\
 Tiefe Töne durch Tuba, Tonhöhe nicht entscheidend und fast nicht mehr wahrnehmbar. Gefühl von Bedrohung. Rollt langsam an\\
+{\color{red}\textbf{TODO}} Logic, Noten, Code\\
 
 \noindent\textbf{Figur 5}\\
 Wie Figur 4, kräftig ausgespielt.\\
 
 \noindent\textbf{Figur 6}\\
-Wie Figur 5, maximal kraftvoll ausgespielt. Eine Oktave höher gespielt daher Tonhöhe der einzelnen Töne gut erkennbar. 
+Wie Figur 5, maximal kraftvoll ausgespielt. Eine Oktave höher gespielt daher Tonhöhe der einzelnen Töne gut erkennbar.\\
+{\color{red}\textbf{TODO}} Code
 
 \subsubsection{Klangbild}
 schlagen, blasen(impulsartig,durchgehend), spielen(tief, hoch)
 
 \subsection{Instrument 5: Posaune}
 \subsubsection{Figuren}
-\textbf{Figur 1}\\
+{\color{green}\textbf{FERTIG}} \\
+
+\noindent\textbf{Figur 1}\\
 Figur über einen Takt. Kurzes, tonloses Pusten in die Posaune. Stoßweise gespielt als rhythmisches Element auf letzte Achtelnote im Takt.\\
 \begin{figure}[h]
 	\centering 
@@ -348,6 +370,7 @@ blasen(impulsartig,durchgehend)
 
 \subsection{Instrument 6: Violine}
 \subsubsection{Figuren}
+{\color{red}\textbf{OFFEN}} \\
 ...
 
 \subsubsection{Klangbild}
@@ -356,7 +379,7 @@ Ruhige Parts, Hektik (schnell gespielte Töne)
 
 \subsection{Instrument 7: Chello}
 \subsubsection{Figuren}
-{\color{red}\textbf{TODO}}
+{\color{red}\textbf{OFFEN}} \\
 (Hierzu Studio-Version hören)\\
 
 \subsubsection{Klangbild}
@@ -365,13 +388,16 @@ Ruhige Parts, Hektik (schnell gespielte Töne)
 
 \subsection{Instrument 8: Harfe}
 \subsubsection{Figuren}
-\textbf{Figur 1}\\
+{\color{green}\textbf{vorerst FERTIG}} \\
+\noindent\textbf{Figur 1}\\
 {\color{red}\textbf{TODO}} Starke Annahme - hier vllt was mit Random aus Skala nehmen machen.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.5\columnwidth]{Harp_Fig1} 
 	\caption{Harfe Figur 1}
 \end{figure}
+
+{\color{red}\textbf{TODO}}Code\\
 
 \subsubsection{Klangbild}
 ...
@@ -386,20 +412,23 @@ Nur ein Tiefer Ton.
 	\caption{Flügel Figur 1}
 \end{figure}
 
+{\color{red}\textbf{TODO}}Code\\
+
 \noindent \textbf{Figur 2}\\
-{\color{red}\textbf{TODO}}
+{\color{red}\textbf{TODO}}Logic, Noten, Code\\
+
 
 \noindent \textbf{Figur 3}\\
-....
+{\color{red}\textbf{TODO}}Beschreibung\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig3} 
 	\caption{Flügel Figur 3}
 \end{figure}
-
+{\color{red}\textbf{TODO}}Code\\
 
 \noindent \textbf{Figur 4}\\
-....
+{\color{red}\textbf{TODO}}Beschreibung\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig4a} 
@@ -408,6 +437,7 @@ Nur ein Tiefer Ton.
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig4d} 
 	\caption{Flügel Figur 4}
 \end{figure}
+{\color{red}\textbf{TODO}}Code\\
 
 \noindent \textbf{Figur 5}\\
 \begin{figure}[h]
@@ -415,7 +445,7 @@ Nur ein Tiefer Ton.
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig5} 
 	\caption{Flügel Figur 5}
 \end{figure}
-
+{\color{red}\textbf{TODO}}Code\\
 
 \subsubsection{Klangbild}
 ...
@@ -423,8 +453,10 @@ Nur ein Tiefer Ton.
 
 \subsection{Instrument 10: Moog Syntheziser}
 \subsubsection{Figuren}
-\textbf{Figur 1}\\
-Basslauf über 8 Takte\\
+{\color{green}\textbf{vorerst FERTIG}} \\
+
+\noindent\textbf{Figur 1}\\
+Basslauf über 8 Takte.\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=1\columnwidth]{Bass_Fig1} 
@@ -453,7 +485,7 @@ midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
 \end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
-Basslauf über einen Takt
+Basslauf über einen Takt.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Bass_Fig2} 

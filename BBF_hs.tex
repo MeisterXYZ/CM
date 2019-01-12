@@ -155,12 +155,12 @@ Tidal oder Euterpea. Dabei Orientierung an der Live-Aufführung
 
 \section{Tidal oder Euterpea}\
 Nico\\
-Dieses Thema soll sich um die Evaluation zwischen Tidal und Eutherpea handeln.\b
+Dieses Thema soll sich um die Evaluation zwischen Tidal und Eutherpea handeln.\\
 Unsere Entscheidung Tidal zu nehmen beruht gewiss nicht auf einer zufälligen Entscheidung. In diese Entscheidung ist der Programmieraufwand, vorhandenen Informationen
-und die Möglichkeit den Synthesizer zu erweitern.\b
+und die Möglichkeit den Synthesizer zu erweitern.\\
 Bei dem Programmieraufwand wird sehr schnell klar, dass durch das Lied \textit{Pretent} von BrandBrauerFrick Tidal besser geeignet ist als Euterpea. Der erste Gesichtspunkt
 der betrachtet wurde ist die Repetetivität des Songs, welcher in Euterpea zwar auch umsetzbar ist aber in Tidal von Anfang an gegeben ist, da Tidal die Sounds immer in einem
-Loop abspielt. Bei den vorhandenen Informationen stellt sich heraus, dass es keine Offiziellen Notenblätter für das Lied Onlinegibt, wodurch Euterpea etwas an Bedeutung verliert, da Euterpea für genaue Notenbestimmungen perfekt geeignet wäre. Da dieser Fakt aber nicht vorliegt, kann das selbe Maß an Genauigkeit auch mit Tidal erreicht werden.\b
+Loop abspielt. Bei den vorhandenen Informationen stellt sich heraus, dass es keine Offiziellen Notenblätter für das Lied Onlinegibt, wodurch Euterpea etwas an Bedeutung verliert, da Euterpea für genaue Notenbestimmungen perfekt geeignet wäre. Da dieser Fakt aber nicht vorliegt, kann das selbe Maß an Genauigkeit auch mit Tidal erreicht werden.\\
 Der letzte und für uns wichtigste Punkt war die Erweiterbarkeit der Sounds. Die Wichtigkeit darin besteht in der entfremdeten Benutzung der Musikinstrumente in dem Lied.
 In Eutherpea haben wir nach einiger Recherche keinen weg gefunden Sounds hinzuzufügen um diese später zu verwenden. In Tidal allerdings existiert diese Möglichkeit mittels
 des Befehl \textit{}. Mit diesem Befehl lässt sich ein Verzeichnis in Tidal integrieren.
@@ -240,6 +240,8 @@ sound "[bd hh]*8",
 fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
 ]
 \end{lstlisting}
+
+Nico: selber bauen da keine hölzernen klänge vorhanden sind
 
 \noindent \textbf{Figur 5}\\
 Nur Triolen auf Rim.
@@ -325,7 +327,7 @@ Figur über 2 Takte. Instrumentalist bläst in die Tuba ohne dass die Lippen vib
 d1 $ sound "blasesoundTuba"
 \end{lstlisting}
 
-Nico: geht nicht da kein sound mit gleichbleibender schwingung
+Nico: geht nicht da kein sound mit gleichbleibender schwingung (scheibenwischer)
 
 \noindent\textbf{Figur 3}\\
 Wie Figur 1, hier allerdings kurzes tonloses Pusten stoßweise gespielt anstelle von Schlag auf Mundstück.\\
@@ -342,7 +344,16 @@ Wie Figur 5, maximal kraftvoll ausgespielt. Eine Oktave höher gespielt daher To
 {\color{red}\textbf{TODO}} Code
 
 \subsubsection{Klangbild}
-schlagen, blasen(impulsartig,durchgehend), spielen(tief, hoch)
+schlagen, blasen(impulsartig,durchgehend), spielen(tief, hoch)\\
+\begin{lstlisting}
+Nico: d1 $ sound "[sax ~ ~ hh]" # speed 0.35 # midinote 55 # gain "[1 0]" # cut 1 \\
+d1 $ sound "[trump ~ ~ hh]" # speed 0.05 # midinote 55 # gain "[0.7 0]" # cut 1\\\\
+
+das ist das nächste was ich an den sound rankomme
+da wir aber noch 3 weitere gute tubasounds brauchen würde ich die mir denke auch lieber ziehen wollen
+\end{lstlisting}
+
+
 
 \subsection{Instrument 5: Posaune}
 \subsubsection{Figuren}
@@ -559,6 +570,8 @@ p "i10" $ sound "hh hh hh hh"
 Konzept für Ablauf Performance?\\
 Wie mehrtaktige Figuren mit every zusammenfassen?
 
+Link zu den Soundfiles: http://virtualplaying.com/virtual-playing-orchestra/ \\
+https://rhythm-lab.com/moog-rogue-bass/
 
 \pagebreak
 

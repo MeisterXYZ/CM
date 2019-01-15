@@ -1,0 +1,171 @@
+--Instrument 1: Schlagzeug
+--f1
+p "i1" $ sound "[bd hh]*4" #gain 1.0
+
+--f2
+--f3
+
+--f4
+p "i1" $ slow 2 $ stack [
+sound "[bd hh]*8" #gain 1.0,
+fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"] #gain 1.1
+]
+
+
+p "i1" $ slow 2 $ stack [
+sound "[bd hh]*8",
+fastcat[sound "[cp cp cp cp cp]", sound "[cp cp cp ~]"]
+] #gain 1.4
+
+--f5
+p "i1" $ slow 2 $ fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
+
+--f6
+--f7
+--f8
+p "i1" $ slow 2 $ stack [
+  sound "[~ hh]*8",
+  fastcat[
+    sound "[rm rm rm rm rm]",
+    sound "[rm rm rm rm ~]"]
+]
+
+
+
+
+--Instrument 2: Pauken
+------.....
+
+
+
+
+
+--Instrument 3: Marimba
+------.....
+--glasstap
+
+
+
+
+
+--Instrument 4: Tuba
+--f1
+p "i4" $ sound "[~ cp ~ ~]" #pan 0.2
+
+hush
+
+--f2
+  --Idee: sound, der 2 Takte dauert alle 2 Takte 1x anpsielen
+p "i4" $ sound "blasesoundTuba"
+
+--f3
+--f4
+--f5
+--f6
+
+
+
+
+
+--Instrument 5: Posaune
+--f1
+p "i5" $ sound "[][[][~ cp]]" #pan 0.8
+
+--f2
+  --Idee: sound, der 2 Takte dauert alle 2 Takte 1x anpsielen
+  --Frage: Lautstaerke?
+p "i5" $ sound "blasesoundPosaune"
+
+
+
+
+
+
+
+--Instrument 6: Violine
+------.....
+
+
+
+
+
+
+--Instrument 7: Chello
+------.....
+
+
+
+
+
+
+--Instrument 8: Harfe
+--f1
+p "i8" $ slow 2 $ stack [
+	midinote "[74 72]*4" # s "gtr",
+	midinote "[62 60]*4" # s "gtr",
+	slow 2 $ fastcat [
+		midinote "70 69" # s "gtr",
+		midinote "67" # s "gtr",
+		midinote "70 69" # s "gtr",
+		midinote "66" # s "gtr"
+	]
+] #gain 0.75 #pan 0.65 #gain 0.8
+
+p "i8" $ silence
+
+
+
+
+
+
+--Instrument 9: Flügel
+--f1
+p "i9" $ slow 2 $ stack[midinote "43 " #s "superpiano", midinote "55 " #s "superpiano"]
+-- wie verknüpfen bzw. nur 1x spielen lassen?
+--kompliziert -> weglassen?
+
+--f2
+--kompliziert -> weglassen?
+
+
+--f3
+p "i9" $ slow 2 $ midinote "[86 ~][86][~] [~] " # s "superpiano"  # room 0.5 # sz 0.83 # orbit 1 #gain "<0.65 0.7 0.75 0.8>"
+
+
+--f4
+p "i9" $ slow 8 $ fastcat [
+  midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74  ~ ~ 67 ~ " # s "superpiano",
+  midinote "~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69  ~ ~ 67 ~ " # s "superpiano",
+  midinote "~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72  ~ ~ 67 ~ " # s "superpiano",
+  midinote "~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70  ~ ~ 66 ~ " # s "superpiano"
+] #gain 0.95 #pan 0.35
+
+--f5
+p "i9" $ slow 2 $ midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74  ~ ~ 67 ~ " # s "superpiano"
+
+p "i9" silence
+
+
+--Instrument 10: Moog Syntheziser
+--f1
+p "i10" $ slow 8 $ fastcat [midinote "[[55 55][54 55 ~ ~]]*2" # s "moog" # cut 1,
+midinote "[[50 50][49 50 ~ ~]]*2" # s "moog" # cut 1,
+midinote "[[48 48][47 48 ~ ~]]*2" # s "moog" # cut 1,
+midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
+]
+
+hush
+
+--f2
+--geheimwaffe
+p "i10" $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
+
+p "i10" silence
+
+
+
+
+--Gesang
+-- Idee:  d1 $ slow 2 $ fastcat[slice 8 "7" $ sound "Voc2", slice 8 "8" $ sound "Voc2" ]
+d1 $ loopAt 8 $ sound "Voc2"
+d1 $ loopAt 8 $ sound "Voc2" # room 0.65 # sz 0.8 # orbit 1 #gain 1.0

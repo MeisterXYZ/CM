@@ -78,16 +78,14 @@ p "i5" $ sound "blasesoundPosaune"
 
 
 
-
-
 --Instrument 6: Violine
 --f1
 p "i6" $ slow 16 $ fastcat [
-midinote "[82][][][][][][][75][74][82][][][][][][]" # s "gtr",
-midinote "[82][][][][][][][75][74][82][][][][][][]" # s "gtr",
-midinote "[82][][][][][][][75][74][86][][][][][87][86]" # s "gtr",
-midinote "[][90][][][][][91][90][][93][][][][][][]" # s "gtr"
-] # room 0.85 # sz 0.8 # orbit 1 #gain 0.9
+midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Vibrato:26",
+midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Vibrato:26",
+midinote "[52][][][][][][][45][44][56][][][][][57][56]" # s "Vibrato:26",
+midinote "[][60][][][][][61][60][][63][][][][][][]" # s "Vibrato:26"
+]  #gain 0.6 #cut 1 #speed 1.2-- # room 0.85 # sz 0.8 # orbit 1
 
 --f2
 p "i6" $ slow 2 $ midinote "[[86][84][82][[][84]]][82 81 79 78]" # s "gtr"
@@ -104,15 +102,15 @@ p "i7" $ silence
 --Instrument 8: Harfe
 --f1
 p "i8" $ slow 2 $ stack [
-	midinote "[74 72]*4" # s "gtr",
-	midinote "[62 60]*4" # s "gtr",
-	slow 2 $ fastcat [
-		midinote "70 69" # s "gtr",
-		midinote "67" # s "gtr",
-		midinote "70 69" # s "gtr",
-		midinote "66" # s "gtr"
-	]
-] #gain 0.75 #pan 0.65 #gain 0.8
+midinote "[67 65]*4" # s "Harp:13",
+midinote "[55 53]*4" # s "Harp:13",
+slow 2 $ fastcat [
+midinote "63 62" # s "Harp:13",
+midinote "60" # s "Harp:13",
+midinote "63 62" # s "Harp:13",
+midinote "59" # s "Harp:13"
+]
+] #gain 0.75 #pan 0.65 #gain 0.5
 
 p "i8" $ silence
 

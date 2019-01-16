@@ -166,14 +166,23 @@ In Eutherpea haben wir nach einiger Recherche keinen weg gefunden Sounds hinzuzu
 des Befehl \textit{}. Mit diesem Befehl lässt sich ein Verzeichnis in Tidal integrieren.
 %~dirt.loadSoundFiles("full/path/to/directory/*") noch in textit einfügen
 \section{Analyse des Stücks Pretend - Allgemein}\
-Raph.\\
-{\color{red}\textbf{TODO}}: bpm, Tonart, Score bzw. Logic-Screenshot $\rightarrow$ wann was?\\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
+
+\noindent Tonart: Gm\\
 
 \noindent Tempo: 130bpm.
 \begin{lstlisting}
 setcps (130/60/4)
 \end{lstlisting}
 
+\noindent Globale Struktur:
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.99\columnwidth]{GlobaleStruktur} 
+	\caption{Globale Struktur dargestellt als leere MIDI-Regionen in DAW}
+\end{figure}
+
+{\color{red}\textbf{TODO}}: Score?
 
 \section{Analyse des Stücks Pretend}\
 Im folgenden Abschnitt sollen die zehn Instrumentalisten untersucht werden.
@@ -240,7 +249,7 @@ fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
 ]
 \end{lstlisting}
 
-Nico: selber bauen da keine hölzernen klänge vorhanden sind
+
 
 \noindent \textbf{Figur 5}\\
 Nur Triolen auf Rim.
@@ -281,6 +290,7 @@ Nicos Code: d1 $ whenmod 200 100 (|*|gain "0.8 0.7 0.8 0.7 0.8 0.7 0.8 0.7" ) $ 
 
 Fig4:\\
 Sound Rim:\\
+Nico: selber bauen da keine hölzernen klänge vorhanden sind
 
 Fig6:\\
 irgendwas mit gain?\\
@@ -453,6 +463,8 @@ Ruhige Parts, Hektik (schnell gespielte Töne)
 p "i7" $ slow 2 $ midinote "[[74][][][[][75]]][74 72 75 74]" # s "gtr"
 \end{lstlisting}
 
+\noindent\textbf{Figur 2}\\
+{\color{red}\textbf{TODO}} 
 
 
 {\color{red}\textbf{TODO}} weitere Figuren im hinteren Teil des Stückes
@@ -507,8 +519,12 @@ p "i9" $ slow 2 $ stack[midinote "43 " #s "superpiano", midinote "55 " #s "super
 \end{lstlisting}
 
 \noindent \textbf{Figur 2}\\
-{\color{red}\textbf{TODO}}Logic, Noten, Code\\
-\textit{kompliziert -> weglassen?}\\
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.3\columnwidth]{Flug_Fig2} 
+	\caption{Flügel Figur 2}
+\end{figure}\\
+{\color{red}\textbf{TODO}} Code\\
 
 
 \noindent \textbf{Figur 3}\\

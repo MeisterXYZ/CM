@@ -128,10 +128,9 @@ BCOR5mm, % Binding correction
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 \section{Abstract}\
-Raph: \\
-{\color{red}\textbf{TODO}} Wirkung? Klar machen!\\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
-\textbf{BrandtBrauerFrick.hs}
+\noindent \textbf{BrandtBrauerFrick.hs}
 
 \noindent Brandt Brauer Frick ist ein Techno-Projekt aus Berlin.
 Die Basis des Projekts bilden Klänge aus dem Instrumentarium der
@@ -140,22 +139,23 @@ Ensemble auch live vorgeführt wurden.\cite{Wiki}\\
 
 \noindent Ziel des Projektes:\\
 Die Umsetzung des Songs ''Pretend'' von Brandt Brauer Frick entweder in
-Tidal oder Euterpea. Dabei Orientierung an der Live-Aufführung
-(https://www.youtube. com/watch?v=KCpLXpMB7F8).\\
-
+Tidal oder Euterpea. Eine online verfügbare Live-Aufführung \cite{YT1} soll dabei als Refernz dienen. Bei der Umsetzung soll auch Wert auf die Nachbildung der echten Instrumente und deren teilweise Zweckentfremdung gelegt werden.\\
 
 \noindent Herausforderungen:
 \begin{itemize}
+	\itemsep0em
 	\item Evaluation ob Tidal oder Euterpea genutzt werden soll:
 	\item Untersuchung der Frage ob klassische Klänge am ehesten in Euterpea oder
 	Tidal nutzbar sind. (Durch repetitiven Charakter des Liedes würde sich Tidal zur
 	Live-Vorführung eignen)
 	\item Analyse der einzelnen musikalischen Bausteine und deren Implementierung.
+	\item Zusammenfügen der erarbeiteten Bausteine zu einer Performance.
 \end{itemize}
 
 \section{Tidal oder Euterpea}\
-Nico\\
-Dieses Thema soll sich um die Evaluation zwischen Tidal und Eutherpea handeln.\\
+\textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
+
+\noindent Dieses Thema soll sich um die Evaluation zwischen Tidal und Eutherpea handeln.\\
 Unsere Entscheidung Tidal zu nehmen beruht gewiss nicht auf einer zufälligen Entscheidung. In diese Entscheidung ist der Programmieraufwand, vorhandenen Informationen
 und die Möglichkeit den Synthesizer zu erweitern.\\
 Bei dem Programmieraufwand wird sehr schnell klar, dass durch das Lied \textit{Pretent} von BrandBrauerFrick Tidal besser geeignet ist als Euterpea. Der erste Gesichtspunkt
@@ -168,45 +168,57 @@ des Befehl \textit{}. Mit diesem Befehl lässt sich ein Verzeichnis in Tidal int
 \section{Analyse des Stücks Pretend - Allgemein}\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
-\noindent Tonart: Gm\\
-
-\noindent Tempo: 130bpm.
+\noindent Die in der Live vorgeführte Version \cite{YT1} hat eine ungefähre Dauer von 7 Minuten, 15 Sekunden. Die Angabe erfolgt ungefähr, da die Aufnahme nicht mit dem ersten Takt beginnt\\
+Das Stück steht in der Tonart Gm.\\
+Über ein BPM-Measuring-Tool \cite{tempo} wurde ein Tempo von 130bpm ermittelt. In Tidal wird somit der folgende Code zur Tempo-Einstellung benötigt. 
 \begin{lstlisting}
 setcps (130/60/4)
 \end{lstlisting}
 
-\noindent Globale Struktur:
+\noindent Um die Globale Struktur des Liedes, also die Zeitliche Abfolge der Figuren der einzelnen Instrumente zu visualisieren, wurden in einer DAW leere MIDI-Blöcke innerhalb der 237 Takte erzeugt und dann F1,F2,... für die jeweilige Figur beschriftet.\\
+Dabei wurden für die ersten vier Takte eine Annahme getroffen.
+
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.99\columnwidth]{GlobaleStrukturMarkiert} 
-	\caption{Globale Struktur dargestellt als leere MIDI-Regionen in DAW mit Markierungen der Figuren}
+	\caption{Globale Struktur dargestellt als leere MIDI-Regionen in DAW mit Beschriftung der Figuren}
 \end{figure}
 
-{\color{red}\textbf{TODO}}: Score?
+\noindent Es wurde ebenfalls versucht die Abfolge mithilfe eines freien Notations-Programmes in einer Partitur darzustellen. Jedoch erwies sich die obige Darstellung als kompakter und ausreichend.
 
 \section{Analyse des Stücks Pretend}\
-Im folgenden Abschnitt sollen die zehn Instrumentalisten untersucht werden.
+Im folgenden Abschnitt sollen die zehn Instrumente untersucht werden. Dabei sind pro Instrument die folgenden Fragen zu klären:
 
-\subsection{Instrument 0: Was ist pro Instrument TODO?}
-{\color{red}\textbf{TODO}}: Nach Bearbeitung Hilfskapitel entfernen.\\
+\begin{itemize}
+	\itemsep0em
+	\item Welche Figuren werden gespielt?
+	\item Wie sind die einzelnen Figuren zu spielen?
+	\item Welcher Klänge werden pro Figur vom Instrument gespielt?
+	\item Wie lassen sich diese Klänge in den jeweiligen Figuren nachbilden?
+\end{itemize}
 
-Raph.\\
-Welche Figuren?
-- Welche Wirkung?
-- Welche Noten?\\
-
-Nico\\
-Wie klingt das Instrument?\\
-- Wie klingt das live? Einzelne Bestandteile? (Marimba gespielt mit Holzsticks und verschiedene Kuhglocken)
-- Wie klingt das in welcher Figur? (zB. BD laut, leise)
-- Welchen Klang wählen (evaluation - SD-Instrument nutzbar?, WAV suchen/selber aufnehmen, Instrument coden)\\
+%
+%\subsection{Instrument 0: Was ist pro Instrument TODO?}
+%{\color{red}\textbf{TODO}}: Nach Bearbeitung Hilfskapitel entfernen.\\
+%
+%Raph.\\
+%Welche Figuren?
+%- Welche Wirkung?
+%- Welche Noten?\\
+%
+%Nico\\
+%Wie klingt das Instrument?\\
+%- Wie klingt das live? Einzelne Bestandteile? (Marimba gespielt mit Holzsticks und verschiedene Kuhglocken)
+%- Wie klingt das in welcher Figur? (zB. BD laut, leise)
+%- Welchen Klang wählen (evaluation - SD-Instrument nutzbar?, WAV suchen/selber aufnehmen, Instrument coden)\\
 
 \subsection{Instrument 1: Schlagzeug}
 \subsubsection{Figuren}
-{\color{orange}\textbf{WIP}} \\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
-\textbf{Figur 1}\\
-treibender Grundrhytmus, steigende Lautstärke BD
+\noindent \textbf{Figur 1}\\
+TODO
+treibender Grundrhythmus steigende Lautstärke BD
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.35\columnwidth]{Drum_Fig1} 

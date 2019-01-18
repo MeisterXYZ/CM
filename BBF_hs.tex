@@ -217,8 +217,7 @@ Im folgenden Abschnitt sollen die zehn Instrumente untersucht werden. Dabei sind
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent \textbf{Figur 1}\\
-TODO
-treibender Grundrhythmus steigende Lautstärke BD
+Treibender Grundrhythmus, Base-Drum und High-Hat im Wechsel. Dabei über mehrere Takte ansteigende Lautstärke der Base-Drum.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.35\columnwidth]{Drum_Fig1} 
@@ -230,29 +229,16 @@ d1 $ sound "[bd hh]*4"
 \end{lstlisting}
 
 \noindent \textbf{Figur 2}\\
-Wie 1 mit Fills\\
-{\color{red}\textbf{TODO}} Logic, Noten, Code oder Absicht und Programmlogik\\
+Analog zu Figur 1. Dabei mehr Fills auf die High-Hat\\
+{\color{red}\textbf{TODO}} Noten, Code oder Absicht und Programmlogik\\
 
 \noindent \textbf{Figur 3}\\
-Wie 1 und 2, noch mehr Fills\\
-{\color{red}\textbf{TODO}} Logic, Noten, Code oder Absicht und Programmlogik\\
+Analog zu Figur 1 und 2. Dabei noch mehr Fills auf die High-Hat\\
+{\color{red}\textbf{TODO}} Noten, Code oder Absicht und Programmlogik\\
 
 \noindent \textbf{Figur 4}\\
-Wie 1, keine Fills auf hh,
-zyklische Bewegung auf rim: Angenommen 5Schläge Pro Takt.
-
-\begin{lstlisting}
-d1 $ sound "[[bd hh]*4, rm*5]"
-d1 $ sound "[[bd hh]*4, rm rm rm rm ~]"
-\end{lstlisting}
-
-um einen Cycle draus zu machen rand nutzen:
-
-\begin{lstlisting}
-d1 $ sound "[[bd hh]*4, rm rm rm rm rm?]"
-\end{lstlisting}
-
-oder
+Analog zu Figur 1. Dazu kommen zyklische Bewegung auf der Rim (Rand der Snare-Drum).
+Die Figur ließ sich nur schwer durch Raushören bestimmen. Es wurden daher 5 Schläge auf die Rim pro Takt als Annahme getroffen, wobei aller 2 Takte der letzte Schlag ausgelassen wird.
 
 \begin{lstlisting}
 d1 $ slow 2 $ stack [
@@ -261,26 +247,21 @@ fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
 ]
 \end{lstlisting}
 
-
-
 \noindent \textbf{Figur 5}\\
-Nur Triolen auf Rim.
+Nur die zyklische Rimclick-Bewegung aus Figur 4.
 \begin{lstlisting}
 d1 $ slow 2 $ fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
 \end{lstlisting}
 
-
 \noindent \textbf{Figur 6}\\
-Wie Figur 4 aber kräftig gespielt.\\
+Wie Figur 4, aber kräftig gespielt.\\
 
 \noindent \textbf{Figur 7}\\
-Treibentder Rhytmus, viele Fills -> Was analoges zu Figur 3\\
-{\color{red}\textbf{TODO}} Logic, Noten, Code oder Absicht und Programmlogik\\
-
-\noindent Im Ablauf: \textbf{Block mit Figur 6}\\
+Ähnlich zu Figur 3. Treibender Rhythmus, viele Fills.\\
+{\color{red}\textbf{TODO}} Noten, Code oder Absicht und Programmlogik\\
 
 \noindent \textbf{Figur 8}\\
-Wie 4 aber ohne BD.
+Wie Figur 4 aber ohne Base-Drum.
 \begin{lstlisting}
 d1 $ slow 2 $ stack [
 sound "[~ hh]*8",
@@ -288,10 +269,10 @@ fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
 ]
 \end{lstlisting}
 
-\noindent Im Ablauf: \textbf{Block mit Figur 6}
-
 \subsubsection{Klangbild}
-Bestandteile des Schlagzeuges: herkömmliches Schlagzeug\\
+\textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
+
+\noindent Bestandteile des Schlagzeuges: herkömmliches Schlagzeug\\
 Art der Synthetisierung: Da Bass Drum und High Head normal gespielt werden können die Sounds aus dem Supercollider 
 mit minimaler Anpassung benutzt werden. Lediglich die Rim aus Figur 4 muss, wegen ihres hölzernen Sounds, selbst 
 aufgenommen werden.
@@ -337,7 +318,7 @@ Holzsticks auf Marimba in verschiednenen Tonhöhen wobei eher rhythmisch als mel
 
 \subsection{Instrument 4: Tuba}
 \subsubsection{Figuren}
-{\color{orange}\textbf{WIP}} \\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
 Figur über einen Takt. Schlag auf Tuba-Mundstück als rhythmisches Element auf zweite Zählzeit im Takt.\\
@@ -370,8 +351,8 @@ d1 $ sound "blasesoundTuba"
 Wie Figur 1, hier allerdings kurzes tonloses Pusten stoßweise gespielt anstelle von Schlag auf Mundstück.\\
 
 \noindent\textbf{Figur 4}\\
-Tiefe Töne durch Tuba, Tonhöhe nicht entscheidend und fast nicht mehr wahrnehmbar. Gefühl von Bedrohung. Rollt langsam an\\
-{\color{red}\textbf{TODO}} Logic, Noten, Code\\
+Tiefe Töne durch Tuba, Tonhöhe nicht entscheidend und fast nicht mehr wahrnehmbar. Ein Gefühl von Bedrohung wird beim Hörer erzeugt. Der Ton ''rollt'' langsam an\\
+{\color{red}\textbf{TODO}} Noten, Code\\
 
 \noindent\textbf{Figur 5}\\
 Wie Figur 4, kräftig ausgespielt.\\
@@ -381,7 +362,9 @@ Wie Figur 5, maximal kraftvoll ausgespielt. Eine Oktave höher gespielt daher To
 {\color{red}\textbf{TODO}} Code
 
 \subsubsection{Klangbild}
-Bestandteile der Tuba: normale Tuba, welche aber entartet benutzt wird\\
+\textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
+
+\noindent Bestandteile der Tuba: normale Tuba, welche aber entartet benutzt wird\\
 Art der Synthetisierung: Da die Tuba ein reales Musikinstrument ist, welches in dieser Form nicht im Supercollider enthalten ist,
 werden hierfür Samples benutzt. Die Samples werden für die entartete Benutzung in Tidal so manipuliert, dass sie die Sounds
 nachempfinden.\\
@@ -409,7 +392,7 @@ Lösung:\\
 
 \subsection{Instrument 5: Posaune}
 \subsubsection{Figuren}
-{\color{green}\textbf{FERTIG}} \\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
 Figur über einen Takt. Kurzes, tonloses Pusten in die Posaune. Stoßweise gespielt als rhythmisches Element auf letzte Achtelnote im Takt.\\
@@ -455,13 +438,17 @@ Lösung:\\
 
 \subsection{Instrument 6: Violine}
 \subsubsection{Figuren}
-{\color{orange}\textbf{WIP}} \\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
+
 \noindent\textbf{Figur 1}\\
+Leicht schrill gespielte Figur mit gebrechlicher, wimmernder Wirkung. Die Figur wird gegen Ende Lauter und steigt in der Tonhöhe und erzeugt somit einen anwachsenden Spannungsbogen im Hörgefühl.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.99\columnwidth]{Violin_Fig1} 
 	\caption{Violine Figur 1}
 \end{figure}
+
+\noindent Die Noten der Figur werden oktaviert gespielt. Der Einfachheit halber wurden nur dir gut hörbaren hohen töne umgesetzt.
 
 \begin{lstlisting}
 p "i6" $ slow 16 $ fastcat [
@@ -470,9 +457,10 @@ midinote "[82][][][][][][][75][74][82][][][][][][]" # s "gtr",
 midinote "[82][][][][][][][75][74][86][][][][][87][86]" # s "gtr",
 midinote "[][90][][][][][91][90][][93][][][][][][]" # s "gtr"
 ] # room 0.85 # sz 0.8 # orbit 1 #gain 0.9
-\end{lstlisting}
+\end{lstlisting}\
 
 \noindent\textbf{Figur 2}\\
+In Tonhöhe abfallende, schnelle Figur, die Bewegung erzeugt. Diese wird im Vibrato gespielt, was die Bewegung intensiviert.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Violin_Fig2} 
@@ -483,6 +471,7 @@ midinote "[][90][][][][][91][90][][93][][][][][][]" # s "gtr"
 p "i6" $ slow 2 $ midinote "[[86][84][82][[][84]]][82 81 79 78]" # s "gtr"
 \end{lstlisting}
 
+\noindent\textbf{Figur ?}\\
 {\color{red}\textbf{TODO}} weitere Figuren im hinteren Teil des Stückes
 
 \subsubsection{Klangbild}
@@ -492,8 +481,10 @@ gegebenenfalls aus Toenen aus Samples zusammensetzen und nicht durch midinotes
 
 \subsection{Instrument 7: Chello}
 \subsubsection{Figuren}
-{\color{orange}\textbf{WIP}} \\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
+
 \noindent\textbf{Figur 1}\\
+Untermalt die bewegungsvolle Figur 2 der Violine. Ist dabei ebenso bewegungsvoll und ebenfalls mit Vibrato gespielt um den Effekt zu intensivieren.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Chello_Fig1} 
@@ -505,9 +496,9 @@ p "i7" $ slow 2 $ midinote "[[74][][][[][75]]][74 72 75 74]" # s "gtr"
 \end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
-{\color{red}\textbf{TODO}} 
+{\color{red}\textbf{TODO}} \\
 
-
+\noindent\textbf{Figur ?}\\
 {\color{red}\textbf{TODO}} weitere Figuren im hinteren Teil des Stückes
 
 \subsubsection{Klangbild}
@@ -516,7 +507,8 @@ Ruhige Parts, Hektik (schnell gespielte Töne)
 
 \subsection{Instrument 8: Harfe}
 \subsubsection{Figuren}
-{\color{green}\textbf{vorerst FERTIG}} \\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
+
 \noindent\textbf{Figur 1}\\
 {\color{red}\textbf{TODO}} Starke Annahme - hier vllt was mit Random aus Skala nehmen machen.
 \begin{figure}[h]
@@ -545,7 +537,8 @@ d1 $ slow 2 $ stack [
 
 \subsection{Instrument 9: Flügel}
 \subsubsection{Figuren}
-{\color{orange}\textbf{WIP}} \\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
+
 \noindent\textbf{Figur 1}\\
 Nur ein Tiefer Ton.
 \begin{figure}[h]
@@ -556,10 +549,10 @@ Nur ein Tiefer Ton.
 
 \begin{lstlisting}
 p "i9" $ slow 2 $ stack[midinote "43 " #s "superpiano", midinote "55 " #s "superpiano"]
--- wie verknuepfen bzw. nur 1x spielen lassen?
 \end{lstlisting}
 
 \noindent \textbf{Figur 2}\\
+Zwei gleichzeitig, kurz angespielte Töne.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Flug_Fig2} 
@@ -572,7 +565,7 @@ p "i9" $ slow 2 $ stack[midinote "43 " #s "superpiano", midinote "55 " #s "super
 {\color{red}\textbf{TODO}}Beschreibung\\
 \begin{figure}[h]
 	\centering 
-	\includegraphics[width=0.9\columnwidth]{Flug_Fig3} 
+	\includegraphics[width=0.8\columnwidth]{Flug_Fig3} 
 	\caption{Flügel Figur 3}
 \end{figure}
 \begin{lstlisting}
@@ -598,10 +591,9 @@ midinote "~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66
 midinote "~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70  ~ ~ 66 ~ " # s "superpiano"
 ]
 \end{lstlisting}
-{\color{green}\textbf{OK}} \\
-
 
 \noindent \textbf{Figur 5}\\
+{\color{red}\textbf{TODO}}Beschreibung\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig5} 
@@ -610,7 +602,7 @@ midinote "~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66
 \begin{lstlisting}
 d1 $ slow 2 $ midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74  ~ ~ 67 ~ " # s "superpiano"
 \end{lstlisting}
-{\color{green}\textbf{OK}} \\
+
 
 \subsubsection{Klangbild}
 ...
@@ -618,10 +610,11 @@ d1 $ slow 2 $ midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~
 
 \subsection{Instrument 10: Moog Syntheziser}
 \subsubsection{Figuren}
-{\color{green}\textbf{vorerst FERTIG}} \\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
 Basslauf über 8 Takte.\\
+{\color{red}\textbf{TODO}}Bessere Beschreibung\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=1\columnwidth]{Bass_Fig1} 
@@ -650,7 +643,8 @@ midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
 \end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
-Basslauf über einen Takt.
+Basslauf über einen Takt.\\
+{\color{red}\textbf{TODO}}Beschreibung\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Bass_Fig2} 
@@ -670,23 +664,8 @@ d1 $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
 \section{Performance}
 TODO:\\
 Spuren per Stack verbinden?\\
-
-\begin{lstlisting}
---10 Instruments:
-p "i1" $ sound "bd sd:1"
-p "i2" $ sound "hh hh hh hh"
-p "i3" $ sound "hh hh hh hh"
-p "i4" $ sound "hh hh hh hh"
-p "i5" $ sound "hh hh hh hh"
-p "i6" $ sound "hh hh hh hh"
-p "i7" $ sound "hh hh hh hh"
-p "i8" $ sound "hh hh hh hh"
-p "i9" $ sound "hh hh hh hh"
-p "i10" $ sound "hh hh hh hh"
-\end{lstlisting}
 Konzept für Ablauf Performance?\\
 Wie mehrtaktige Figuren mit every zusammenfassen?
-
 Link zu den Soundfiles: http://virtualplaying.com/virtual-playing-orchestra/ \\
 https://rhythm-lab.com/moog-rogue-bass/
 

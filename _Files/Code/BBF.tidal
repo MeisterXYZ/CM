@@ -146,7 +146,7 @@ p "i6" $ silence
 p "i7" $ slow 2 $ midinote "[[74][][][[][75]]][74 72 75 74]" # s "gtr"
 
 --f2
-p "i7" $ slow 4 $ midinote "[[62][[][][][63]]][62]" # s "gtr" #cut 1
+p "i7" $ slow 4 $ midinote "[[62][[][][][63]]][62]" # s "gtr" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
 
 p "i7" $ silence
 
@@ -232,6 +232,14 @@ midinote "[[50 50][49 50 ~ ~]]*2" # s "moog" # cut 1,
 midinote "[[48 48][47 48 ~ ~]]*2" # s "moog" # cut 1,
 midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
 ] #gain 1.0
+
+--f1
+p "i10" $ slow 8 $ fastcat [midinote "[[moog:1 moog:1][moog:2 moog:1 ~ ~]]*2" # s "moog" # cut 1,
+midinote "[[50 50][49 50 ~ ~]]*2" # s "moog" # cut 1,
+midinote "[[48 48][47 48 ~ ~]]*2" # s "moog" # cut 1,
+midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
+] #gain 1.0
+
 
 --f2
 --geheimwaffe

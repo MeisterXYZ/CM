@@ -139,12 +139,12 @@ Ensemble auch live vorgeführt wurden.\cite{Wiki}\\
 
 \noindent Ziel des Projektes:\\
 Die Umsetzung des Songs ''Pretend'' von Brandt Brauer Frick entweder in
-Tidal oder Euterpea. Eine online verfügbare Live-Aufführung \cite{YT1} soll dabei als Refernz dienen. Bei der Umsetzung soll auch Wert auf die Nachbildung der echten Instrumente und deren teilweise Zweckentfremdung gelegt werden.\\
+Tidal oder Euterpea. Eine online verfügbare Live-Aufführung \cite{YT1} soll dabei als Referenz dienen. Bei der Umsetzung soll auch Wert auf die Nachbildung der echten Instrumente und deren teilweise Zweckentfremdung gelegt werden.\\
 
 \noindent Herausforderungen:
 \begin{itemize}
 	\itemsep0em
-	\item Evaluation ob Tidal oder Euterpea genutzt werden soll:
+	\item Evaluation ob Tidal\cite{Tidal} oder Euterpea\cite{Euterpea} genutzt werden soll:
 	\item Untersuchung der Frage ob klassische Klänge am ehesten in Euterpea oder
 	Tidal nutzbar sind. (Durch repetitiven Charakter des Liedes würde sich Tidal zur
 	Live-Vorführung eignen)
@@ -152,10 +152,11 @@ Tidal oder Euterpea. Eine online verfügbare Live-Aufführung \cite{YT1} soll da
 	\item Zusammenfügen der erarbeiteten Bausteine zu einer Performance.
 \end{itemize}
 
-\section{Tidal oder Euterpea}\
+\section{Umsetzung in Tidal oder Euterpea}\
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
 
 \noindent Dieses Thema soll sich um die Evaluation zwischen Tidal und Eutherpea handeln.\\
+{\color{red}\textbf{TODO}}Was ist Tidal\cite{Tidal} (dazu SuperCollider\cite{SC} erklären) , was ist Euterpea\cite{Euterpea}?\\
 Unsere Entscheidung Tidal zu nehmen beruht gewiss nicht auf einer zufälligen Entscheidung. In diese Entscheidung ist der Programmieraufwand, vorhandenen Informationen
 und die Möglichkeit den Synthesizer zu erweitern.\\
 Bei dem Programmieraufwand wird sehr schnell klar, dass durch das Lied \textit{Pretent} von BrandBrauerFrick Tidal besser geeignet ist als Euterpea. Der erste Gesichtspunkt
@@ -165,37 +166,44 @@ Der letzte und für uns wichtigste Punkt war die Erweiterbarkeit der Sounds. Die
 In Eutherpea haben wir nach einiger Recherche keinen weg gefunden Sounds hinzuzufügen um diese später zu verwenden. In Tidal allerdings existiert diese Möglichkeit mittels
 des Befehl \textit{}. Mit diesem Befehl lässt sich ein Verzeichnis in Tidal integrieren.
 %~dirt.loadSoundFiles("full/path/to/directory/*") noch in textit einfügen
-\section{Analyse des Stücks Pretend - Allgemein}\
+\section{Eigenschaften des Stücks Pretend und dessen globale Struktur}\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent Die in der Live vorgeführte Version \cite{YT1} hat eine ungefähre Dauer von 7 Minuten, 15 Sekunden. Die Angabe erfolgt ungefähr, da die Aufnahme nicht mit dem ersten Takt beginnt\\
-Das Stück steht in der Tonart Gm.\\
+Per Gehör ließ sich feststellen, dass das Stück in der Tonart Gm steht.\\
 Über ein BPM-Measuring-Tool \cite{tempo} wurde ein Tempo von 130bpm ermittelt. In Tidal wird somit der folgende Code zur Tempo-Einstellung benötigt. 
 \begin{lstlisting}
 setcps (130/60/4)
 \end{lstlisting}
 
-\noindent Um die Globale Struktur des Liedes, also die Zeitliche Abfolge der Figuren der einzelnen Instrumente zu visualisieren, wurden in einer DAW leere MIDI-Blöcke innerhalb der 237 Takte erzeugt und dann F1,F2,... für die jeweilige Figur beschriftet.\\
-Dabei wurden für die ersten vier Takte eine Annahme getroffen.
+\noindent Die Globale Struktur des Liedes, also die Zeitliche Abfolge der Figuren der einzelnen Instrumente, wurde per Gehör analysiert. Dabei wurde ebenfalls die Live-Version des Liedes als Untersuchungsgegenstand verwendet. Um das Ergebnis zu visualisieren, wurden in Logic Pro\cite{Logic} (einer digital Audio-Workstation der Firma Apple) für die jeweiligen Figuren leere MIDI-Regionen innerhalb der 237 Takte erzeugt.
+Anschließend wurde das Resultat per Screenshot aufgenommen und die einzelnen Figuren mit F1,F2,... für die jeweilige Figur beschriftet.\\
+Für die ersten vier Takte wurde bei der Erstellung der MIDI-Regionen eine Annahme getroffen.
 
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.99\columnwidth]{GlobaleStrukturMarkiert} 
-	\caption{Globale Struktur dargestellt als leere MIDI-Regionen in DAW mit Beschriftung der Figuren}
+	\caption{Globale Struktur dargestellt als leere MIDI-Regionen in Logic Pro mit Beschriftung der Figuren}
 \end{figure}
 
 \noindent Es wurde ebenfalls versucht die Abfolge mithilfe eines freien Notations-Programmes in einer Partitur darzustellen. Jedoch erwies sich die obige Darstellung als kompakter und ausreichend.
 
-\section{Analyse des Stücks Pretend}\
-Im folgenden Abschnitt sollen die zehn Instrumente untersucht werden. Dabei sind pro Instrument die folgenden Fragen zu klären:
+\section{Analyse und Synthese der einzelnen Instrumente}\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
-\begin{itemize}
-	\itemsep0em
-	\item Welche Figuren werden gespielt?
-	\item Wie sind die einzelnen Figuren zu spielen?
-	\item Welcher Klänge werden pro Figur vom Instrument gespielt?
-	\item Wie lassen sich diese Klänge in den jeweiligen Figuren nachbilden?
-\end{itemize}
+\noindent Im folgenden Abschnitt sollen die zehn Instrumente synthetisiert werden. Wie in der globalen Struktur (siehe Abb. 1) zu erkennen ist, existieren in den meisten Fällen pro Instrument mehrere Figuren. Die folgenden Arbeitsschritte sollen daher pro Instrument und Figur erfolgen.
+
+\paragraph{Analyse der gespielten Tonhöhen und Rhythmen.}  Diese Analyse erfolgt per Gehör. Untersucht wird dabei die Live-Version\cite{YT1} des Stückes. Für Parts, die besonders schwierig herauszuhören sind, da z.B. das Instrument nur sehr schwer hörbar ist, werden zusätzlich eine ähnliche Studio-Version\cite{YT2} sowie eine früher Variante\cite{YT3} des Liedes für die Untersuchung herangezogen.	Das Ergebnis der Analyse soll hier als Text, welcher die Figur beschreibt und/oder mithilfe von Noten dargestellt werden. 
+
+\paragraph{Synthese von Tonhöhe und Rhythmus} Die analysierten Tonhöhen und Rhythmen sollen als Tidal Code umgesetzt werden. Dabei wird kein gesteigerter Wert auf die Auswahl eines passenden Klanges gelegt. Im Vordergrund der Betrachtung steht, dass der umgesetzte Code den analysierten Tonhöhen und Rhythmen entspricht. Vereinzelt soll hierbei auf zu überwindende Herausforderungen und genutzte Funktionen eingegangen werden.
+
+\paragraph{Klanganalyse} Per Gehör soll das Klangbild des Instrumentes in der speziellen Figur sowie die Wirkung, die durch die Figur beim Hörer erzeugt wird untersucht werden. 
+
+\paragraph{Anpassung der Klangsynthese} Unter Berücksichtigung des Analysierten Klangbildes und des bereits vorliegenden Tidal-Codes soll nun die Art der Klangsynthese derart angepasst werden, dass die Beschriebene klangliche Wirkung erzielt wird. Mögliche Arten der Anpassung sind dabei die Auswahl von Tidal-Instrumenten, Einbinden von Samples sowie Erstellen eines SuperCollider-Instrumentes.\\
+
+\noindent Auf diesem Wege sollen die Figuren aller Instrumente als ausführbarer Tidal-Code mit erwünschter klanglicher Wirkung entstehen.
+Das Verbinden der einzelnen Figuren zu einem live vorführbaren Stück soll in \textit{Kapitel 6 - Performance} beschrieben werden. 
+
 
 %
 %\subsection{Instrument 0: Was ist pro Instrument TODO?}

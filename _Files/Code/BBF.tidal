@@ -97,7 +97,6 @@ p "i4" $ slow 8 $ midinote "43 38 36 38" # s "superpiano" #cut 1 # room 0.85 # s
 p "i4" $ slow 8 $ midinote "55 50 48 50" # s "superpiano" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.9
 
 
-
 hush
 
 --Instrument 5: Posaune

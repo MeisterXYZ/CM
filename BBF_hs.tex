@@ -345,10 +345,51 @@ Art der Synthetisierung:?\\
 
 \subsection{Instrument 3: Marimba}
 \subsubsection{Figuren}
-{\color{red}\textbf{OFFEN}} \\
-{\color{red}\textbf{TODO}}\\
-Aufbau beschreiben mit Glocken.\\
-Random-Funktion benötigt
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
+
+\noindent \textbf{Figur 1}\\
+Die Tonhöhe war per Gehör nicht genau differenzierbar. Es wurde folgende Annahme getroffen.
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.5\columnwidth]{Marimba_Fig1} 
+	\caption{Marimba Figur 1}
+\end{figure}
+
+\noindent Die Tonhöhe des Sounds \verb|glasstrap| wurde mithilfe des \verb|midinote|-Ausdrucks \cite{tid6} auf die jeweils gewünschte Tonhöhe geändert.
+\begin{lstlisting}
+p1 $ slow 2 $ midinote "[~ [51 49] 51 51][~ [51 46] 51 51][~ [51 49] 51 51][~ 51 ~ 51]" # s "glasstap"
+\end{lstlisting}
+
+
+\noindent \textbf{Figur 2}\\
+In der Live-Version des Liedes ist im Video zu erkennen, dass auf der Marimba Kuhglocken (8 oder 10 Stück) in verschiedenen Tonhöhen liegen. Diese werden in der zweiten Figur auf die in der folgenden Abbildung gezeigten Zählzeit angespielt. Dabei wird Immer eine andere Tonhöhe gespielt. Das Muster in welcher Reihenfolge die Glocken gespielt werden wurde nicht weiter analysiert. Stattdessen soll das Anspielen der Glocken zur Vereinfachung randomisiert werden.
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.25\columnwidth]{Marimba_Fig2} 
+	\caption{Marimba Figur 2}
+\end{figure}
+
+\noindent Der Ausdruck \verb|irand 10| \cite{tid7} liefert einen zufälligen int-Wert von 0 bis einschließlich 9 zurück. Dieser Wert verändert in Verbindung mit dem \verb|# speed|-Ausdruck\cite{tid8} die Abspielgeschwindigkeit des \verb|can|-Samples und damit dessen Tonhöhe. So werden 9 verschiedene Kuhglocken simuliert.
+\begin{lstlisting}
+p1 $ stack [
+slow 2 $ midinote "[~ [51 49] 51 51][~ [51 46] 51 51][~ [51 49] 51 51][~ 51 ~ 51]" # s "glasstap",
+slow 2 $ midinote "[~[~~~60]~~][]" # s "can" # speed (1 + (irand 10)*0.2)
+]
+\end{lstlisting}
+
+\noindent \textbf{Figur 3}\\
+Es wurde folgende Figur per Gehör ermittelt. Dabei sind die Tonhöhen wie in Figur 1 angenommen.
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.5\columnwidth]{Marimba_Fig3} 
+	\caption{Marimba Figur 3}
+\end{figure}
+
+\noindent Umsetzung in Tidal:
+\begin{lstlisting}
+p1 $ midinote "[~ 49 51 49]*4" # s "glasstap"
+\end{lstlisting}
+
 
 \subsubsection{Klangbild}
 Bestandteile der Marimba: Eine Marimba, wobei Kuhglocken zum zufälligem Anspielen enthalten sind.
@@ -399,15 +440,29 @@ d1 $ sound "blasesoundTuba"
 Wie Figur 1, hier allerdings kurzes tonloses Pusten stoßweise gespielt anstelle von Schlag auf Mundstück.\\
 
 \noindent\textbf{Figur 4}\\
-Tiefe Töne durch Tuba, Tonhöhe nicht entscheidend und fast nicht mehr wahrnehmbar. Ein Gefühl von Bedrohung wird beim Hörer erzeugt. Der Ton ''rollt'' langsam an\\
-{\color{red}\textbf{TODO}} Noten, Code\\
+Tiefe Töne durch Tuba. Die Tonhöhe ist nahezu nicht erkennbar. Die Tonhöhe wurde jedoch durch die Analyse in Figur 6 klar. Die Töne werden langsam lauter.\\
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.7\columnwidth]{Tuba_Fig4} 
+	\caption{Tuba Figur 4}
+\end{figure}
+
+{\color{red}\textbf{TODO}} Gain Automation erklären.
+Hall erklären.
+\begin{lstlisting}
+d1 $ slow 16 $ midinote "[43 38 36 38]*2" # s "superpiano" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain "0.4 0.45 0.5 0.55 0.6 0.7 0.8 0.9"
+\end{lstlisting}
+
 
 \noindent\textbf{Figur 5}\\
 Wie Figur 4, kräftig ausgespielt.\\
 
 \noindent\textbf{Figur 6}\\
 Wie Figur 5, maximal kraftvoll ausgespielt. Eine Oktave höher gespielt daher Tonhöhe der einzelnen Töne gut erkennbar.\\
-{\color{red}\textbf{TODO}} Code
+\begin{lstlisting}
+d1 $ slow 8 $ midinote "55 50 48 50" # s "superpiano" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.9
+\end{lstlisting}
 
 \subsubsection{Klangbild}
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\

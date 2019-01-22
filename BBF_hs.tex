@@ -225,55 +225,82 @@ Das Verbinden der einzelnen Figuren zu einem live vorführbaren Stück soll in \
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent \textbf{Figur 1}\\
-Treibender Grundrhythmus, Base-Drum und High-Hat im Wechsel. Dabei über mehrere Takte ansteigende Lautstärke der Base-Drum.
+Herausgehört wurde das folgende Muster. Die Note \textit{A} steht dabei für die Base-Drum, Note \textit{Dis} für die High-Hat.
 \begin{figure}[h]
 	\centering 
-	\includegraphics[width=0.35\columnwidth]{Drum_Fig1} 
+	\includegraphics[width=0.3\columnwidth]{Drum_Fig1} 
 	\caption{Schlagzeug Figur 1}
 \end{figure}
 
+\noindent Um in Tidal pro Takt eine Figur mit 4 Schlägen auf die Base-Drum und 4 Schlägen auf die High-Hat im Wechsel zu realisieren, lässt sich eine Kombination von Gruppierung und Wiederholung\cite{tid1} verenden:
 \begin{lstlisting}
 d1 $ sound "[bd hh]*4"
 \end{lstlisting}
 
 \noindent \textbf{Figur 2}\\
-Analog zu Figur 1. Dabei mehr Fills auf die High-Hat\\
-{\color{red}\textbf{TODO}} Noten, Code oder Absicht und Programmlogik\\
+Herausgehört wurde eine Figur über 8 Takte. Dabei werden in Takt 3,7 und 8 wie nachfolgend notiert Fills auf der High-Hat gespielt.\\
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.8\columnwidth]{Drums_Fig2A} 
+	\includegraphics[width=0.8\columnwidth]{Drums_Fig2B} 
+	\caption{Schlagzeug Figur 2}
+\end{figure}
+
+\noindent Die Umsetzung in Tidal der einzelnen Takte ohne Fills erfolgt analog zu Figur 1. In den Takten mit Fills werden auf einige Zählzeiten Base-Drum und High-Hat gleichzeitig gespielt. Dies kann in Tidal durch die Nutzung von   \verb1stack1 \cite{tid2} umgesetzt werden. Über den \verb1cat1-Ausdruck\cite{tid3} werden die acht Figuren hintereinander gespielt, was den Cycle auf die gewünschte Länge von acht Takten verlängert. Es ergibt sich folgender Code.
+
+\begin{lstlisting}
+d1 $  cat [
+sound "[[bd hh]*4]",
+sound "[[bd hh]*4]",
+stack [ sound "[bd ~]*4", sound "[~ hh ~ hh][~ [hh hh] hh hh]" ],
+sound "[[bd hh]*4]",
+sound "[[bd hh]*4]",
+sound "[[bd hh]*4]",
+stack [ sound "[bd ~]*4", sound "[~ hh ~ hh][~ [hh hh] hh hh]" ],
+stack [ sound "[bd ~]*4", sound "[~ hh ~ hh][~ [hh hh] [hh hh] hh]" ]
+]
+\end{lstlisting}
 
 \noindent \textbf{Figur 3}\\
-Analog zu Figur 1 und 2. Dabei noch mehr Fills auf die High-Hat\\
-{\color{red}\textbf{TODO}} Noten, Code oder Absicht und Programmlogik\\
+Herausgehört wurde die folgende Figur mit zwei Takten Länge. Die Note \textit{Fes} steht dabei für eine geöffnete High-Hat.
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.5\columnwidth]{Drums_Fig3} 
+	\caption{Schlagzeug Figur 1}
+\end{figure}
+
+\noindent In Tidal wurde die Figur hintereinander in Gruppierungen geschrieben und per \verb1slow 21\cite{tid4} auf die Länge von zwei Takten gestreckt.
+\begin{lstlisting}
+d1 $  slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh] bd hh]"
+\end{lstlisting}
 
 \noindent \textbf{Figur 4}\\
 Analog zu Figur 1. Dazu kommen zyklische Bewegung auf der Rim (Rand der Snare-Drum).
-Die Figur ließ sich nur schwer durch Raushören bestimmen. Es wurden daher 5 Schläge auf die Rim pro Takt als Annahme getroffen, wobei aller 2 Takte der letzte Schlag ausgelassen wird.
+Die Figur ließ sich nur schwer durch Raushören bestimmen. Es wurden daher 5 Schläge auf die Rim pro Takt als Annahme getroffen, wobei aller 2 Takte der letzte Schlag ausgelassen wird.\\
 
+\noindent Dies realisiert der folgende Tidal-Code.
 \begin{lstlisting}
-d1 $ slow 2 $ stack [
-sound "[bd hh]*8",
-fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
+d1 $ stack [
+sound "[bd hh]*4",
+cat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"] 
 ]
 \end{lstlisting}
 
 \noindent \textbf{Figur 5}\\
 Nur die zyklische Rimclick-Bewegung aus Figur 4.
 \begin{lstlisting}
-d1 $ slow 2 $ fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
+d1 $ cat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
 \end{lstlisting}
 
-\noindent \textbf{Figur 6}\\
-Wie Figur 4, aber kräftig gespielt.\\
-
-\noindent \textbf{Figur 7}\\
-Ähnlich zu Figur 3. Treibender Rhythmus, viele Fills.\\
-{\color{red}\textbf{TODO}} Noten, Code oder Absicht und Programmlogik\\
+\noindent \textbf{Figur 6 und 7}\\
+Figur 6 wie Figur 4 und Figur 7 wie Figur 3. Jeweils kräftiger gespielt. Dies wird später in der Performance mit einem \verb1# gain1-Ausdruck\cite{tid5} zum Regulieren der Lautstärke des gespielten Samples umgesetzt.\\
 
 \noindent \textbf{Figur 8}\\
 Wie Figur 4 aber ohne Base-Drum.
 \begin{lstlisting}
-d1 $ slow 2 $ stack [
-sound "[~ hh]*8",
-fastcat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
+d1 $ stack [
+sound "[~ hh]*4" ,
+cat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"] 
 ]
 \end{lstlisting}
 

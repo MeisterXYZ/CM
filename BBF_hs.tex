@@ -716,18 +716,40 @@ d1 $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
 \subsubsection{Klangbild}
 Bestandteile des Moogs: Keyboard, PC, Mischboard\\
 Art der Synthetisierung: Der Moog wird von uns selbst im SuperCollider Programmiert, da ein Moog relativ leicht selbst zu Programmieren ist.
-Des weiteren wollen wir uns damit die Option offen halten anstatt eines Moogs eine Bassline zu benutzen.\\
+Des weiteren wollen wir uns damit die Option offen halten anstatt eines Moogs eine Bassline zu benutzen.\\ \\
+
+Für die Synthetisierung des Moogs mussten einige kleine Teilschritte unternommen werden. Zuerst die Syntetisierung des Moogs im SuperCollider.\\
+Dazu wurde folgender Code geschrieben:
+\begin{lstlisting}
+x=(
+SynthDef(\moog, {
+	arg freq=102, width=0.5, mul=0.5, freq2=300, q=0.2, mode=0;
+	var moog ;
+	
+		moog=BMoog.ar(Pulse.ar(freq,width,  mul),freq2, q, mode, mul:0.2);
+		
+		
+		Out.ar(0, moog);
+		Out.ar(1, moog);
+	
+}).play
+)
+\end{lstlisting}
+Als nächstes muss dieser Sound aus dem SuperCollider aufgenommen werden. Dies geht mit dem Befehl \textit{Server.default.record;}.\\
+Der dritte und letzte Schritt war das zuschneiden der Audisamples. Dazu wurde Audacity benutzt. Danach kann dann der Code für die einzelnen Figuren angepasst werden.\\
 \noindent\textbf{Figur 1}\\
-Sound:?\\
 Lösung:\\
 \begin{lstlisting}
-\\
+p "i10" $ slow 8 $ fastcat [sound "[[BBFMoog:5 BBFMoog:5][BBFMoog:4 BBFMoog:5 ~ ~]]*2" # cut 1 ,
+sound "[[BBFMoog:3 BBFMoog:3 ][BBFMoog:2 BBFMoog:3 ~ ~]]*2" # cut 1,
+sound "[[BBFMoog:1 BBFMoog:1 ][BBFMoog:0 BBFMoog:1 ~ ~]]*2" # cut 1,
+sound "[[BBFMoog:7 BBFMoog:6 ][BBFMoog:5 BBFMoog:6 ~ ~]]  [[BBFMoog:6 ~][BBFMoog:5 ~ BBFMoog:6 ~ ~]]" # cut 1
+] #gain 1.5
 \end{lstlisting}
 \noindent\textbf{Figur 2}\\
-Sound:?\\
 Lösung:\\
 \begin{lstlisting}
-\\
+p "i10" $ sound "[[[[BBFMoog:3 ~ ~ BBFMoog:3]][~ BBFMoog:3]][BBFMoog:5 BBFMoog:6 BBFMoog:8 BBFMoog:7]]" # cut 1 # gain 1.5
 \end{lstlisting}
 
 \section{Performance}

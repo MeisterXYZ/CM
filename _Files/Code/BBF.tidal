@@ -193,7 +193,7 @@ hush
 
 p "i8" $ silence
 
-
+d1 $ sound [BBFMoog]
 
 
 
@@ -227,23 +227,18 @@ p "i9" silence
 
 --Instrument 10: Moog Syntheziser
 --f1
-p "i10" $ slow 8 $ fastcat [midinote "[[55 55][54 55 ~ ~]]*2" # s "moog" # cut 1,
-midinote "[[50 50][49 50 ~ ~]]*2" # s "moog" # cut 1,
-midinote "[[48 48][47 48 ~ ~]]*2" # s "moog" # cut 1,
-midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
-] #gain 1.0
+p "i10" $ slow 8 $ fastcat [sound "[[BBFMoog:5 BBFMoog:5][BBFMoog:4 BBFMoog:5 ~ ~]]*2" # cut 1 ,
+sound "[[BBFMoog:3 BBFMoog:3 ][BBFMoog:2 BBFMoog:3 ~ ~]]*2" # cut 1,
+sound "[[BBFMoog:1 BBFMoog:1 ][BBFMoog:0 BBFMoog:1 ~ ~]]*2" # cut 1,
+sound "[[BBFMoog:7 BBFMoog:6 ][BBFMoog:5 BBFMoog:6 ~ ~]]  [[BBFMoog:6 ~][BBFMoog:5 ~ BBFMoog:6 ~ ~]]" # cut 1
+] #gain 1.5
 
---f1
-p "i10" $ slow 8 $ fastcat [midinote "[[moog:1 moog:1][moog:2 moog:1 ~ ~]]*2" # s "moog" # cut 1,
-midinote "[[50 50][49 50 ~ ~]]*2" # s "moog" # cut 1,
-midinote "[[48 48][47 48 ~ ~]]*2" # s "moog" # cut 1,
-midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
-] #gain 1.0
 
+hush
 
 --f2
 --geheimwaffe
-p "i10" $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
+p "i10" $ sound "[[[[BBFMoog:3 ~ ~ BBFMoog:3]][~ BBFMoog:3]][BBFMoog:5 BBFMoog:6 BBFMoog:8 BBFMoog:7]]" # cut 1 # gain 1.5
 
 p "i10" silence
 

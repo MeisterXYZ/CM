@@ -410,7 +410,7 @@ Holzsticks auf Marimba in verschiednenen Tonhöhen wobei eher rhythmisch als mel
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
-Figur über einen Takt. Schlag auf Tuba-Mundstück als rhythmisches Element auf zweite Zählzeit im Takt.\\
+Es wurde eine Figur über einen Takt ermittelt, in der ein Schlag auf das Mundstück der Tube als rhythmisches Element auf zweite Zählzeit im Takt erfolgt.\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.25\columnwidth]{Tuba_Fig1} 
@@ -423,7 +423,7 @@ d1 $ sound "[~ sn ~ ~]"
 
 \subsubsection{Figuren}
 \textbf{Figur 2}\\
-Figur über 2 Takte. Instrumentalist bläst in die Tuba ohne dass die Lippen vibrieren, um ein Rauschen zu erzeugen. Pause am Ende der Figur als Atempause angenommen. 
+Es wurde eine Figur über 2 Takte ermittelt. Instrumentalist bläst in dieser Figur in die Tuba ohne dass die Lippen vibrieren, um ein Rauschen zu erzeugen. Am Ende der Figur wurde eine Pause als Atempause angenommen. 
 
 \begin{figure}[h]
 	\centering 
@@ -431,16 +431,16 @@ Figur über 2 Takte. Instrumentalist bläst in die Tuba ohne dass die Lippen vib
 	\caption{Tuba Figur 2}
 \end{figure}
 
+\noindent Für die Umsetzung wird ein Sample benötigt, welches über die Dauer von zwei Takten reicht. Um dieses nur aller 2 Takte abzuspielen damit sich mehre Instanzen des Samples nicht überlagern kann der Ausdruck \verb|loopAt 2| \cite{tid9} verwendet werden.
 \begin{lstlisting}
---Idee: sound, der 2 Takte dauert alle 2 Takte 1x anpsielen
-d1 $ sound "blasesoundTuba"
+d1 $ loopAt 2 $ sound "blasesoundTuba"
 \end{lstlisting}
 
 \noindent\textbf{Figur 3}\\
-Wie Figur 1, hier allerdings kurzes tonloses Pusten stoßweise gespielt anstelle von Schlag auf Mundstück.\\
+Analyse-Ergebnis: Wie Figur 1, hier allerdings kurzes tonloses Pusten stoßweise gespielt anstelle von Schlag auf Mundstück. Code analog zu Figur 1.\\
 
 \noindent\textbf{Figur 4}\\
-Tiefe Töne durch Tuba. Die Tonhöhe ist nahezu nicht erkennbar. Die Tonhöhe wurde jedoch durch die Analyse in Figur 6 klar. Die Töne werden langsam lauter.\\
+Analyse-Ergebnis: Tiefe Töne durch Tuba. Die Tonhöhe ist nahezu nicht erkennbar. Die Tonhöhe wurde jedoch durch die Analyse in Figur 6 ableitbar. Die gespielten Töne werden über den Verlauf von zwei Durchläufen der Figur langsam lauter.\\
 
 \begin{figure}[h]
 	\centering 
@@ -448,20 +448,22 @@ Tiefe Töne durch Tuba. Die Tonhöhe ist nahezu nicht erkennbar. Die Tonhöhe wu
 	\caption{Tuba Figur 4}
 \end{figure}
 
-{\color{red}\textbf{TODO}} Gain Automation erklären.
-Hall erklären.
+\noindent Das lauter Werden der Töne über die Dauer von zwei Durchläufe der Figur wurde mit einem Pattern realisiert, welches dem \verb|# gain|-Effekt übergeben wurde.\cite{tid10} Um die lang ausgehaltenen Noten umzusetzen, wurde auf den Ausdruck ein Hall angewendet, wobei \verb|# room| die Lautstärke des Halls und \verb|# sz| die Größe des hallenden Raumes bedingt. \verb|# orbit 1| wird genutzt, um die ansonsten globale Wirkung des Hall-Effektes auf den vorangegangenen Ausdruck zu beschränken. \cite{tid11} 
+
 \begin{lstlisting}
-d1 $ slow 16 $ midinote "[43 38 36 38]*2" # s "superpiano" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain "0.4 0.45 0.5 0.55 0.6 0.7 0.8 0.9"
+d1 $ slow 16 $ midinote "[43 38 36 38]*2" # s "superpiano" # room 0.85 # sz 0.8 # orbit 1 #gain "0.4 0.45 0.5 0.55 0.6 0.7 0.8 0.9"
 \end{lstlisting}
 
 
 \noindent\textbf{Figur 5}\\
-Wie Figur 4, kräftig ausgespielt.\\
+Herausgehört wurde eine Figur analog zu Figur 4, jedoch kräftig gespielt.\\
 
 \noindent\textbf{Figur 6}\\
-Wie Figur 5, maximal kraftvoll ausgespielt. Eine Oktave höher gespielt daher Tonhöhe der einzelnen Töne gut erkennbar.\\
+Herausgehört wurde eine Figur analog zu Figur 5, jedoch maximal kraftvoll ausgespielt. Dabei werden die Töne jeweils eine Oktave höher gespielt, was die Tonhöhe der einzelnen Töne gut erkennbar macht.\\
+
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
-d1 $ slow 8 $ midinote "55 50 48 50" # s "superpiano" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.9
+d1 $ slow 8 $ midinote "55 50 48 50" # s "superpiano" # room 0.85 # sz 0.8 # orbit 1
 \end{lstlisting}
 
 \subsubsection{Klangbild}
@@ -498,24 +500,23 @@ Lösung:\\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
-Figur über einen Takt. Kurzes, tonloses Pusten in die Posaune. Stoßweise gespielt als rhythmisches Element auf letzte Achtelnote im Takt.\\
+Herausgehört wurde eine Figur über einen Takt. In der Figur erfolgt ein kurzes, tonloses Pusten in die Posaune. Dieses wird Stoßweise gespielt und als rhythmisches Element auf letzte Achtelnote im Takt eingesetzt.\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.25\columnwidth]{Posaune_Fig1} 
 	\caption{Posaune Figur 1}
 \end{figure}
 
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
 d1 $ sound "[][[][~ sn]]"
 \end{lstlisting}
 
 
 \noindent\textbf{Figur 2}\\
-Erzeugen von Rauschen analog zu Figur 2 - Tuba. Dabei Lautstärke zum Ende des Stückes hin zunehmend.
+Zu hören ist, dass die Figur ein Rauschen analog zur Figur 2 der Tuba umfasst. Der Code gestaltet sich entsprechend.
 \begin{lstlisting}
---Idee: sound, der 2 Takte dauert alle 2 Takte 1x anpsielen
---Frage: Lautstaerke?
-d1 $ sound "blasesoundPosaune"
+d1 $ loopAt 2 $ sound "blasesoundPosaune"
 \end{lstlisting}
 
 \subsubsection{Klangbild}
@@ -544,34 +545,35 @@ Lösung:\\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
-Leicht schrill gespielte Figur mit gebrechlicher, wimmernder Wirkung. Die Figur wird gegen Ende Lauter und steigt in der Tonhöhe und erzeugt somit einen anwachsenden Spannungsbogen im Hörgefühl.
+Herausgehört wurde die folgende Figur über 16 Takte.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.99\columnwidth]{Violin_Fig1} 
 	\caption{Violine Figur 1}
 \end{figure}
 
-\noindent Die Noten der Figur werden oktaviert gespielt. Der Einfachheit halber wurden nur dir gut hörbaren hohen töne umgesetzt.
+\noindent Die Noten der Figur werden oktaviert gespielt. Der Einfachheit halber wurden nur die gut hörbaren hohen töne umgesetzt. Um jeweils einen Ton zu einem Zeitpunkt zu hören, werden die abgespielten Samples mithilfe des Ausdrucks \verb|# cut 1| immer dann gestoppt, sobald sie für den nächsten Ton abgespielt werden.\cite{tid12}
 
 \begin{lstlisting}
-p "i6" $ slow 16 $ fastcat [
+d1 $ slow 4 $ cat [
 midinote "[82][][][][][][][75][74][82][][][][][][]" # s "gtr",
 midinote "[82][][][][][][][75][74][82][][][][][][]" # s "gtr",
 midinote "[82][][][][][][][75][74][86][][][][][87][86]" # s "gtr",
 midinote "[][90][][][][][91][90][][93][][][][][][]" # s "gtr"
-] # room 0.85 # sz 0.8 # orbit 1 #gain 0.9
+] #cut 1 # room 0.85 # sz 0.8 # orbit 1 
 \end{lstlisting}\
 
 \noindent\textbf{Figur 2}\\
-In Tonhöhe abfallende, schnelle Figur, die Bewegung erzeugt. Diese wird im Vibrato gespielt, was die Bewegung intensiviert.
+Analyse-Ergebnis:
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Violin_Fig2} 
 	\caption{Violine Figur 2}
 \end{figure}
 
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
-p "i6" $ slow 2 $ midinote "[[86][84][82][[][84]]][82 81 79 78]" # s "gtr"
+$ slow 2 $ midinote "[[86][84][82][[][84]]][82 81 79 78]" # s "gtr" #cut 1 # room 0.85 # sz 0.8 # orbit 1
 \end{lstlisting}
 
 \noindent\textbf{Figur ?}\\
@@ -602,19 +604,30 @@ Lösung:\\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
-Untermalt die bewegungsvolle Figur 2 der Violine. Ist dabei ebenso bewegungsvoll und ebenfalls mit Vibrato gespielt um den Effekt zu intensivieren.
+Analyse-Ergebnis:
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Chello_Fig1} 
 	\caption{Chello Figur 1}
 \end{figure}
 
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
-p "i7" $ slow 2 $ midinote "[[74][][][[][75]]][74 72 75 74]" # s "gtr"
+p1 $ slow 2 $ midinote "[[74][][][[][75]]][74 72 75 74]" # s "gtr" #cut 1 # room 0.85 # sz 0.8 # orbit 1
 \end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
-{\color{red}\textbf{TODO}} \\
+Analyse-Ergebnis:
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.3\columnwidth]{Chello_Fig2} 
+	\caption{Chello Figur 2}
+\end{figure}
+
+\noindent Umsetzung in Tidal:
+\begin{lstlisting}
+p1 $ slow 4 $ midinote "[[62][[][][][63]]][62]" # s "gtr" #cut 1 # room 0.85 # sz 0.8 # orbit 1
+\end{lstlisting}
 
 \noindent\textbf{Figur ?}\\
 {\color{red}\textbf{TODO}} weitere Figuren im hinteren Teil des Stückes
@@ -628,24 +641,25 @@ Ruhige Parts, Hektik (schnell gespielte Töne)
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
-{\color{red}\textbf{TODO}} Starke Annahme - hier vllt was mit Random aus Skala nehmen machen.
+Die Rhythmik sowie die Tonhöhe der zweitaktigen Figur ließen sich nicht ohne weiteres bestimmen. Zur Reduzierung des Arbeitsaufwandes wurde für die Figur die folgende Annahme getroffen. 
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Harp_Fig1} 
 	\caption{Harfe Figur 1}
 \end{figure}
 
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
-d1 $ slow 2 $ stack [
-	midinote "[74 72]*4" # s "gtr", 
-	midinote "[62 60]*4" # s "gtr", 
-	slow 2 $ fastcat [
-		midinote "70 69" # s "gtr", 
-		midinote "67" # s "gtr",
-		midinote "70 69" # s "gtr", 
-		midinote "66" # s "gtr"    
-	]
-]
+d1 $ stack [
+  midinote "[74 72]*2" # s "gtr",
+  midinote "[62 60]*2" # s "gtr",
+  cat [
+    midinote "70 69" # s "gtr",
+    midinote "67" # s "gtr",
+    midinote "70 69" # s "gtr",
+    midinote "66" # s "gtr"
+  ]
+] 
 \end{lstlisting}
 
 
@@ -666,41 +680,48 @@ Lösung:\\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
-Nur ein Tiefer Ton.
+Analyse-Ergebnis:
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Flug_Fig1} 
 	\caption{Flügel Figur 1}
 \end{figure}
-
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
-p "i9" $ slow 2 $ stack[midinote "43 " #s "superpiano", midinote "55 " #s "superpiano"]
+p1 $ slow 2 $ stack[midinote "43 " #s "superpiano", midinote "55 " #s "superpiano"]
 \end{lstlisting}
 
 \noindent \textbf{Figur 2}\\
-Zwei gleichzeitig, kurz angespielte Töne.
+Analyse-Ergebnis:
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Flug_Fig2} 
 	\caption{Flügel Figur 2}
 \end{figure}\\
-{\color{red}\textbf{TODO}} Code\\
-
+\noindent Umsetzung in Tidal:
+\begin{lstlisting}
+p1 $ slow 2 $ stack[
+  midinote "[[][[][][][67]][][]][]" #s "superpiano",
+  midinote "[[][[][][][62]][][]] []" #s "superpiano"
+] # room 0.5 # sz 0.83 # orbit 1
+\end{lstlisting}
 
 \noindent \textbf{Figur 3}\\
-{\color{red}\textbf{TODO}}Beschreibung\\
+Analyse-Ergebnis:
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.8\columnwidth]{Flug_Fig3} 
 	\caption{Flügel Figur 3}
 \end{figure}
+
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
-p "i9" $ slow 2 $ midinote "[86 ~][86][~] [~] " # s "superpiano"  # room 0.5 # sz 0.83 # orbit 1 #gain "<0.65 0.7 0.75 0.8>"
+p1 $ slow 2 $ midinote "[86 ~][86][~] [~] " # s "superpiano"  # room 0.5 # sz 0.83 # orbit 1 #gain "<0.65 0.7 0.75 0.8>"
 \end{lstlisting}
 
 
 \noindent \textbf{Figur 4}\\
-{\color{red}\textbf{TODO}}Beschreibung\\
+Analyse-Ergebnis:
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig4a} 
@@ -709,8 +730,10 @@ p "i9" $ slow 2 $ midinote "[86 ~][86][~] [~] " # s "superpiano"  # room 0.5 # s
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig4d} 
 	\caption{Flügel Figur 4}
 \end{figure}
+
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
-d1 $ slow 8 $ fastcat [
+d1 $ slow 2 $ cat [
 midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74  ~ ~ 67 ~ " # s "superpiano",
 midinote "~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69  ~ ~ 67 ~ " # s "superpiano",
 midinote "~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72  ~ ~ 67 ~ " # s "superpiano",
@@ -719,12 +742,14 @@ midinote "~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66
 \end{lstlisting}
 
 \noindent \textbf{Figur 5}\\
-{\color{red}\textbf{TODO}}Beschreibung\\
+Analyse-Ergebnis:
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.9\columnwidth]{Flug_Fig5} 
 	\caption{Flügel Figur 5}
 \end{figure}
+
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
 d1 $ slow 2 $ midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74  ~ ~ 67 ~ " # s "superpiano"
 \end{lstlisting}
@@ -758,50 +783,35 @@ Lösung:\\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent\textbf{Figur 1}\\
-Basslauf über 8 Takte.\\
-{\color{red}\textbf{TODO}}Bessere Beschreibung\\
+Herausgehört wurde der folgende Basslauf über acht Takte.\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=1\columnwidth]{Bass_Fig1} 
 	\caption{Moog Figur 1}
 \end{figure}
 
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
----Arbeitsstand
---2Takte
-d1 $ midinote "[[55 55][54 55 ~ ~]]" # s "moog" # cut 1
---2Takte
-d1 $ midinote "[[50 50][49 50 ~ ~]]" # s "moog" # cut 1
---2Takte
-d1 $ midinote "[[48 48][47 48 ~ ~]]" # s "moog" # cut 1
---1 Takte
-d1 $ midinote "[[58 57][56 57 ~ ~]]" # s "moog" # cut 1
---1 Takte
-d1 $ midinote "[[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
-
----Verbunden:
-d1 $ slow 8 $ fastcat [midinote "[[55 55][54 55 ~ ~]]*2" # s "moog" # cut 1,
-midinote "[[50 50][49 50 ~ ~]]*2" # s "moog" # cut 1,
-midinote "[[48 48][47 48 ~ ~]]*2" # s "moog" # cut 1,
-midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" # cut 1
-]
+d1 $ slow 2 $ cat [
+  midinote "[[55 55][54 55 ~ ~]]*2" # s "moog",
+  midinote "[[50 50][49 50 ~ ~]]*2" # s "moog",
+  midinote "[[48 48][47 48 ~ ~]]*2" # s "moog",
+  midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog" 
+] # cut 1
 \end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
-Basslauf über einen Takt.\\
-{\color{red}\textbf{TODO}}Beschreibung\\
+Herausgehört wurde der folgende Basslauf über einen Takt.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Bass_Fig2} 
 	\caption{Moog Figur 2}
 \end{figure}
 
+\noindent Umsetzung in Tidal:
 \begin{lstlisting}
----Arbeitsstand
 d1 $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
 \end{lstlisting}
-
-
 
 \subsubsection{Klangbild}
 Bestandteile des Moogs: Keyboard, PC, Mischboard\\
@@ -843,6 +853,39 @@ p "i10" $ sound "[[[[BBFMoog:3 ~ ~ BBFMoog:3]][~ BBFMoog:3]][BBFMoog:5 BBFMoog:6
 \end{lstlisting}
 
 \section{Performance}
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
+
+Bis jetzt nur alle instrumente einzeln.
+Soll: Verbinden dass Performance analog Globale Struktur Abb 1 rauskommt.
+Umsetzung erster Ansatz: jedes Instrument bekommt eigenen Kanal. 
+Mit \verb|p "i10"| möglich.
+Problem: Zu einem Zeitpunkt der Ausführung nur ein Instrument beeinflussbar. Nicht cool für wenn mehr umbricht als nur 1 instrument.
+
+Also: Parts nachempfinden. 
+Dazu einzelne Blöcke bauen.
+in Blöcken spielbar mit Parametern.
+
+Zur Ausführung im Block wenn sich mehr ändert: Mit Kommentar-Funktion siehe mute instruments \cite{tid13} Dazu alles was mut-bar sein soll in eigene Zeile. Um alles zu sehen in Atom soft Break aktivieren \cite{atom1}. 
+
+Exemplarisch sollen erste zwei Blöcke beschrieben werden.
+
+Part 1
+\begin{lstlisting}
+...
+\end{lstlisting}
+
+
+Innerhalb des Parts an gain drehen um Lautstärke-Anstieg BD von Drums live zu reaalisien.
+Einkommentieren von Tuba. 
+Einkommentieren von zweitem Zeil. Daher dieser Teil 
+
+Part 2
+\begin{lstlisting}
+...
+\end{lstlisting}
+
+
+
 TODO:\\
 Spuren per Stack verbinden?\\
 Konzept für Ablauf Performance?\\

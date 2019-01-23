@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  22 JAN 2019 20:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  23 JAN 2019 11:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1497,7 +1497,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 442--444
 
  []
 
-<Figures/Tuba_Fig4.png, id=235, 654.445pt x 100.375pt>
+<Figures/Tuba_Fig4.png, id=236, 654.445pt x 100.375pt>
 File: Figures/Tuba_Fig4.png Graphic file (type png)
 
 <use Figures/Tuba_Fig4.png>
@@ -1514,231 +1514,230 @@ Underfull \hbox (badness 10000) in paragraph at lines 461--463
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--479
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 483--486
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 491--494
+Underfull \hbox (badness 10000) in paragraph at lines 478--481
 
  []
 
 [9 <./Figures/Tuba_Fig4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
+Underfull \hbox (badness 10000) in paragraph at lines 485--488
 
  []
 
-<Figures/Posaune_Fig1.png, id=252, 205.76875pt x 59.22125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 493--496
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+
+ []
+
+<Figures/Posaune_Fig1.png, id=254, 205.76875pt x 59.22125pt>
 File: Figures/Posaune_Fig1.png Graphic file (type png)
 
 <use Figures/Posaune_Fig1.png>
-Package pdftex.def Info: Figures/Posaune_Fig1.png used on input line 504.
+Package pdftex.def Info: Figures/Posaune_Fig1.png used on input line 506.
 (pdftex.def)             Requested size: 92.5pt x 26.6222pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 528--531
+Underfull \hbox (badness 10000) in paragraph at lines 529--532
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 535--538
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 544--545
+Underfull \hbox (badness 10000) in paragraph at lines 536--539
 
  []
 
 [10 <./Figures/Posaune_Fig1.png>]
-<Figures/Violin_Fig1.png, id=271, 1391.1975pt x 114.4275pt>
-File: Figures/Violin_Fig1.png Graphic file (type png)
-
-<use Figures/Violin_Fig1.png>
-Package pdftex.def Info: Figures/Violin_Fig1.png used on input line 550.
-(pdftex.def)             Requested size: 366.30203pt x 30.12758pt.
-
-<Figures/Violin_Fig2.png, id=272, 425.59pt x 107.40125pt>
-File: Figures/Violin_Fig2.png Graphic file (type png)
-
-<use Figures/Violin_Fig2.png>
-Package pdftex.def Info: Figures/Violin_Fig2.png used on input line 569.
-(pdftex.def)             Requested size: 111.00113pt x 28.01215pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 581--588
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
 
  []
 
+<Figures/Violin_Fig1.png, id=272, 1391.1975pt x 114.4275pt>
+File: Figures/Violin_Fig1.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--594
+<use Figures/Violin_Fig1.png>
+Package pdftex.def Info: Figures/Violin_Fig1.png used on input line 551.
+(pdftex.def)             Requested size: 366.30203pt x 30.12758pt.
+
+<Figures/Violin_Fig2.png, id=274, 425.59pt x 107.40125pt>
+File: Figures/Violin_Fig2.png Graphic file (type png)
+
+<use Figures/Violin_Fig2.png>
+Package pdftex.def Info: Figures/Violin_Fig2.png used on input line 570.
+(pdftex.def)             Requested size: 111.00113pt x 28.01215pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 583--590
 
  []
 
 [11 <./Figures/Violin_Fig1.png> <./Figures/Violin_Fig2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 602--603
+Underfull \hbox (badness 10000) in paragraph at lines 593--596
 
  []
 
-<Figures/Chello_Fig1.png, id=294, 406.51875pt x 116.435pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
+
+ []
+
+<Figures/Chello_Fig1.png, id=297, 406.51875pt x 116.435pt>
 File: Figures/Chello_Fig1.png Graphic file (type png)
 
 <use Figures/Chello_Fig1.png>
-Package pdftex.def Info: Figures/Chello_Fig1.png used on input line 608.
+Package pdftex.def Info: Figures/Chello_Fig1.png used on input line 610.
 (pdftex.def)             Requested size: 111.00113pt x 31.79141pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 616--618
+<Figures/Chello_Fig2.png, id=298, 344.28625pt x 102.3825pt>
+File: Figures/Chello_Fig2.png Graphic file (type png)
+
+<use Figures/Chello_Fig2.png>
+Package pdftex.def Info: Figures/Chello_Fig2.png used on input line 623.
+(pdftex.def)             Requested size: 111.00113pt x 33.00833pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 641--642
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 628--629
-
- []
-
-<Figures/Harp_Fig1.png, id=295, 438.63875pt x 120.45pt>
+[12 <./Figures/Chello_Fig1.png> <./Figures/Chello_Fig2.png>]
+<Figures/Harp_Fig1.png, id=318, 438.63875pt x 120.45pt>
 File: Figures/Harp_Fig1.png Graphic file (type png)
 
 <use Figures/Harp_Fig1.png>
-Package pdftex.def Info: Figures/Harp_Fig1.png used on input line 634.
+Package pdftex.def Info: Figures/Harp_Fig1.png used on input line 647.
 (pdftex.def)             Requested size: 111.00113pt x 30.48pt.
- [12 <./Figures/Chello_Fig1.png> <./Figures/Harp_Fig1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 654--659
+
+Underfull \hbox (badness 10000) in paragraph at lines 668--673
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 666--667
+Underfull \hbox (badness 10000) in paragraph at lines 680--681
 
  []
 
-<Figures/Flug_Fig1.png, id=318, 341.275pt x 123.46124pt>
+<Figures/Flug_Fig1.png, id=319, 341.275pt x 123.46124pt>
 File: Figures/Flug_Fig1.png Graphic file (type png)
 
 <use Figures/Flug_Fig1.png>
-Package pdftex.def Info: Figures/Flug_Fig1.png used on input line 672.
+Package pdftex.def Info: Figures/Flug_Fig1.png used on input line 686.
 (pdftex.def)             Requested size: 111.00113pt x 40.15456pt.
-
-<Figures/Flug_Fig2.png, id=319, 306.14375pt x 92.345pt>
+ [13 <./Figures/Harp_Fig1.png> <./Figures/Flug_Fig1.png>] <Figures/Flug_Fig2.pn
+g, id=345, 306.14375pt x 92.345pt>
 File: Figures/Flug_Fig2.png Graphic file (type png)
 
 <use Figures/Flug_Fig2.png>
-Package pdftex.def Info: Figures/Flug_Fig2.png used on input line 684.
+Package pdftex.def Info: Figures/Flug_Fig2.png used on input line 698.
 (pdftex.def)             Requested size: 111.00113pt x 33.4823pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--688
-
- []
-
-<Figures/Flug_Fig3.png, id=320, 1088.065pt x 128.48pt>
+<Figures/Flug_Fig3.png, id=346, 1088.065pt x 128.48pt>
 File: Figures/Flug_Fig3.png Graphic file (type png)
 
 <use Figures/Flug_Fig3.png>
-Package pdftex.def Info: Figures/Flug_Fig3.png used on input line 694.
+Package pdftex.def Info: Figures/Flug_Fig3.png used on input line 713.
 (pdftex.def)             Requested size: 296.00113pt x 34.95276pt.
+
+<Figures/Flug_Fig4a.png, id=347, 823.075pt x 103.38625pt>
+File: Figures/Flug_Fig4a.png Graphic file (type png)
+
+<use Figures/Flug_Fig4a.png>
+Package pdftex.def Info: Figures/Flug_Fig4a.png used on input line 727.
+(pdftex.def)             Requested size: 332.99774pt x 41.82703pt.
+
+<Figures/Flug_Fig4b.png, id=348, 777.90625pt x 65.24374pt>
+File: Figures/Flug_Fig4b.png Graphic file (type png)
+
+<use Figures/Flug_Fig4b.png>
+Package pdftex.def Info: Figures/Flug_Fig4b.png used on input line 728.
+(pdftex.def)             Requested size: 332.99774pt x 27.92981pt.
+
+<Figures/Flug_Fig4c.png, id=349, 735.74875pt x 73.27374pt>
+File: Figures/Flug_Fig4c.png Graphic file (type png)
+
+<use Figures/Flug_Fig4c.png>
+Package pdftex.def Info: Figures/Flug_Fig4c.png used on input line 729.
+(pdftex.def)             Requested size: 332.99774pt x 33.16405pt.
+
+<Figures/Flug_Fig4d.png, id=350, 705.63625pt x 70.2625pt>
+File: Figures/Flug_Fig4d.png Graphic file (type png)
+
+<use Figures/Flug_Fig4d.png>
+Package pdftex.def Info: Figures/Flug_Fig4d.png used on input line 730.
+(pdftex.def)             Requested size: 332.99774pt x 33.15738pt.
+ [14 <./Figures/Flug_Fig2.png> <./Figures/Flug_Fig3.png> <./Figures/Flug_Fig4a.
+png> <./Figures/Flug_Fig4b.png> <./Figures/Flug_Fig4c.png> <./Figures/Flug_Fig4
+d.png>]
+<Figures/Flug_Fig5.png, id=378, 837.1275pt x 90.3375pt>
+File: Figures/Flug_Fig5.png Graphic file (type png)
+
+<use Figures/Flug_Fig5.png>
+Package pdftex.def Info: Figures/Flug_Fig5.png used on input line 748.
+(pdftex.def)             Requested size: 332.99774pt x 35.93448pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 759--765
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 768--771
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 774--777
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 783--784
+
+ []
+
+<Figures/Bass_Fig1.png, id=379, 1115.16624pt x 157.58875pt>
+File: Figures/Bass_Fig1.png Graphic file (type png)
+
+<use Figures/Bass_Fig1.png>
+Package pdftex.def Info: Figures/Bass_Fig1.png used on input line 789.
+(pdftex.def)             Requested size: 370.0pt x 52.28578pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figures/Flug_Fig4a.png, id=321, 823.075pt x 103.38625pt>
-File: Figures/Flug_Fig4a.png Graphic file (type png)
-
-<use Figures/Flug_Fig4a.png>
-Package pdftex.def Info: Figures/Flug_Fig4a.png used on input line 706.
-(pdftex.def)             Requested size: 332.99774pt x 41.82703pt.
-
-<Figures/Flug_Fig4b.png, id=322, 777.90625pt x 65.24374pt>
-File: Figures/Flug_Fig4b.png Graphic file (type png)
-
-<use Figures/Flug_Fig4b.png>
-Package pdftex.def Info: Figures/Flug_Fig4b.png used on input line 707.
-(pdftex.def)             Requested size: 332.99774pt x 27.92981pt.
-
-<Figures/Flug_Fig4c.png, id=323, 735.74875pt x 73.27374pt>
-File: Figures/Flug_Fig4c.png Graphic file (type png)
-
-<use Figures/Flug_Fig4c.png>
-Package pdftex.def Info: Figures/Flug_Fig4c.png used on input line 708.
-(pdftex.def)             Requested size: 332.99774pt x 33.16405pt.
-
-<Figures/Flug_Fig4d.png, id=324, 705.63625pt x 70.2625pt>
-File: Figures/Flug_Fig4d.png Graphic file (type png)
-
-<use Figures/Flug_Fig4d.png>
-Package pdftex.def Info: Figures/Flug_Fig4d.png used on input line 709.
-(pdftex.def)             Requested size: 332.99774pt x 33.15738pt.
- [13 <./Figures/Flug_Fig1.png> <./Figures/Flug_Fig2.png>] <Figures/Flug_Fig5.pn
-g, id=347, 837.1275pt x 90.3375pt>
-File: Figures/Flug_Fig5.png Graphic file (type png)
-
-<use Figures/Flug_Fig5.png>
-Package pdftex.def Info: Figures/Flug_Fig5.png used on input line 725.
-(pdftex.def)             Requested size: 332.99774pt x 35.93448pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 734--740
-
- []
-
-[14 <./Figures/Flug_Fig3.png> <./Figures/Flug_Fig4a.png> <./Figures/Flug_Fig4b.
-png> <./Figures/Flug_Fig4c.png> <./Figures/Flug_Fig4d.png> <./Figures/Flug_Fig5
-.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 743--746
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 749--752
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 758--759
-
- []
-
-<Figures/Bass_Fig1.png, id=371, 1115.16624pt x 157.58875pt>
-File: Figures/Bass_Fig1.png Graphic file (type png)
-
-<use Figures/Bass_Fig1.png>
-Package pdftex.def Info: Figures/Bass_Fig1.png used on input line 765.
-(pdftex.def)             Requested size: 370.0pt x 52.28578pt.
-
-<Figures/Bass_Fig2.png, id=372, 298.11375pt x 154.5775pt>
+[15 <./Figures/Flug_Fig5.png>]
+<Figures/Bass_Fig2.png, id=399, 298.11375pt x 154.5775pt>
 File: Figures/Bass_Fig2.png Graphic file (type png)
 
 <use Figures/Bass_Fig2.png>
-Package pdftex.def Info: Figures/Bass_Fig2.png used on input line 795.
+Package pdftex.def Info: Figures/Bass_Fig2.png used on input line 807.
 (pdftex.def)             Requested size: 111.00113pt x 57.556pt.
- [15 <./Figures/Bass_Fig1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 807--810
+
+Underfull \hbox (badness 10000) in paragraph at lines 819--822
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 807--810
+Underfull \hbox (badness 10000) in paragraph at lines 819--822
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 828--832
+Underfull \hbox (badness 10000) in paragraph at lines 840--844
 
  []
 
-[16 <./Figures/Bass_Fig2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 839--841
+[16 <./Figures/Bass_Fig1.png> <./Figures/Bass_Fig2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 851--853
 
  []
 
 
-Overfull \hbox (129.02968pt too wide) in paragraph at lines 846--852
+Overfull \hbox (129.02968pt too wide) in paragraph at lines 858--864
 \T1/pplj/m/n/10 Wie mehr-tak-ti-ge Fi-gu-ren mit eve-ry zu-sam-men-fas-sen? Lin
 k zu den So-und-fi-les: http://virtualplaying.com/virtual-
  []
@@ -1756,28 +1755,28 @@ Underfull \hbox (badness 6608) in paragraph at lines 45--48
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 867.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 879.
  [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 867.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 879.
  (./BBF_hs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 867.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 867.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 879.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 879.
 Package rerunfilecheck Info: File `BBF_hs.out' has not changed.
 (rerunfilecheck)             Checksum: 1EF22377CB49DF7C7E0E6E93FC41B11A;1101.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 867.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 879.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18389 strings out of 492995
- 317649 string characters out of 6132703
- 709439 words of memory out of 5000000
- 21357 multiletter control sequences out of 15000+600000
+ 18394 strings out of 492995
+ 317712 string characters out of 6132703
+ 716550 words of memory out of 5000000
+ 21365 multiletter control sequences out of 15000+600000
  97492 words of font info for 115 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 61i,23n,86p,8817b,14801s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,23n,86p,8817b,14825s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
 }{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/l
 ocal/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}</usr/local/
@@ -1791,10 +1790,10 @@ wacki/iwona/iwonabi.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/nowacki
 /iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/
 uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/uplr8a.
 pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on BBF_hs.pdf (18 pages, 704942 bytes).
+Output written on BBF_hs.pdf (18 pages, 715215 bytes).
 PDF statistics:
- 564 PDF objects out of 1000 (max. 8388607)
- 475 compressed objects within 5 object streams
- 250 named destinations out of 1000 (max. 500000)
- 20224 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 570 PDF objects out of 1000 (max. 8388607)
+ 479 compressed objects within 5 object streams
+ 246 named destinations out of 1000 (max. 500000)
+ 20229 words of extra memory for PDF output out of 20736 (max. 10000000)
 

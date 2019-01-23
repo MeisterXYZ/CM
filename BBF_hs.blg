@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: BBF_hs.aux
 The style file: unsrt.bst
 Database file #1: biblo.bib.bib
-You've used 17 entries,
+You've used 21 entries,
             1791 wiz_defined-function locations,
-            507 strings with 5024 characters,
-and the built_in function-call counts, 1875 in all, are:
-= -- 170
-> -- 17
+            520 strings with 5387 characters,
+and the built_in function-call counts, 2311 in all, are:
+= -- 210
+> -- 21
 < -- 0
-+ -- 17
++ -- 21
 - -- 0
 * -- 2
-:= -- 198
-add.period$ -- 51
-call.type$ -- 17
-change.case$ -- 17
+:= -- 242
+add.period$ -- 63
+call.type$ -- 21
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 85
-empty$ -- 307
+cite$ -- 21
+duplicate$ -- 105
+empty$ -- 379
 format.name$ -- 0
-if$ -- 494
+if$ -- 610
 int.to.chr$ -- 0
-int.to.str$ -- 17
+int.to.str$ -- 21
 missing$ -- 0
-newline$ -- 88
+newline$ -- 108
 num.names$ -- 0
-pop$ -- 136
+pop$ -- 168
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 50
+skip$ -- 62
 stack$ -- 0
 substring$ -- 0
-swap$ -- 17
+swap$ -- 21
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
 while$ -- 0
-width$ -- 19
-write$ -- 155
+width$ -- 23
+write$ -- 191

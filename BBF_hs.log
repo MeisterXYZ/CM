@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  25 JAN 2019 13:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  25 JAN 2019 13:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1342,12 +1342,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 191--193
 
  []
 
+[3 <./Figures/GlobaleStrukturMarkiert.png>]
 LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <10> not available
 (Font)              Font shape `T1/iwona/b/n' tried instead on input line 196.
 LaTeX Font Info:    Font shape `T1/iwona/bx/sc' in size <10> not available
 (Font)              Font shape `T1/iwona/b/sc' tried instead on input line 196.
 
-[3 <./Figures/GlobaleStrukturMarkiert.png>]
+
 Overfull \hbox (1.05518pt too wide) in paragraph at lines 198--199
 [] []\T1/iwona/bx/sc/10/80ls syn-the-se von ton-hö-he und rhyth-mus[] \T1/pplj/
 m/n/10 Die ana-ly-sier-ten Ton-hö-hen und Rhyth-
@@ -1416,13 +1417,10 @@ File: Figures/Drums_Fig2B.png Graphic file (type png)
 <use Figures/Drums_Fig2B.png>
 Package pdftex.def Info: Figures/Drums_Fig2B.png used on input line 245.
 (pdftex.def)             Requested size: 296.00113pt x 27.43858pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+ [4 <./Figures/Drum_Fig1.png>]
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 8.50006pt on input line 249.
-[4 <./Figures/Drum_Fig1.png>]
+
 
 Package xcolor Warning: Incompatible color definition on input line 253.
 
@@ -2101,13 +2099,12 @@ Package xcolor Warning: Incompatible color definition on input line 292.
 
 Package xcolor Warning: Incompatible color definition on input line 292.
 
-
+[5 <./Figures/Drums_Fig2A.png> <./Figures/Drums_Fig2B.png> <./Figures/Drums_Fig
+3.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 295--297
 
  []
 
-[5 <./Figures/Drums_Fig2A.png> <./Figures/Drums_Fig2B.png> <./Figures/Drums_Fig
-3.png>]
 
 Package xcolor Warning: Incompatible color definition on input line 302.
 
@@ -2761,12 +2758,9 @@ File: Figures/Marimba_Fig2.png Graphic file (type png)
 <use Figures/Marimba_Fig2.png>
 Package pdftex.def Info: Figures/Marimba_Fig2.png used on input line 388.
 (pdftex.def)             Requested size: 92.5pt x 30.92422pt.
- [7 <./Figures/Marimba_Fig1.png> <./Figures/Marimba_Fig2.png>]
-
-Package xcolor Warning: Incompatible color definition on input line 395.
 
 
-Package xcolor Warning: Incompatible color definition on input line 395.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package xcolor Warning: Incompatible color definition on input line 395.
@@ -2870,6 +2864,13 @@ Package xcolor Warning: Incompatible color definition on input line 395.
 
 Package xcolor Warning: Incompatible color definition on input line 395.
 
+
+Package xcolor Warning: Incompatible color definition on input line 395.
+
+
+Package xcolor Warning: Incompatible color definition on input line 395.
+
+[7 <./Figures/Marimba_Fig1.png>]
 
 Package xcolor Warning: Incompatible color definition on input line 396.
 
@@ -2978,8 +2979,8 @@ Package xcolor Warning: Incompatible color definition on input line 442.
 
 Package xcolor Warning: Incompatible color definition on input line 442.
 
-[8 <./Figures/Marimba_Fig3.png>]
-<Figures/Tuba_Fig2.png, id=243, 337.26pt x 104.39pt>
+[8 <./Figures/Marimba_Fig2.png> <./Figures/Marimba_Fig3.png>]
+<Figures/Tuba_Fig2.png, id=241, 337.26pt x 104.39pt>
 File: Figures/Tuba_Fig2.png Graphic file (type png)
 
 <use Figures/Tuba_Fig2.png>
@@ -3005,7 +3006,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 463--465
 
  []
 
-<Figures/Tuba_Fig4.png, id=245, 654.445pt x 100.375pt>
+<Figures/Tuba_Fig4.png, id=243, 654.445pt x 100.375pt>
 File: Figures/Tuba_Fig4.png Graphic file (type png)
 
 <use Figures/Tuba_Fig4.png>
@@ -3298,7 +3299,7 @@ Package pdftex.def Info: Figures/Posaune_Fig1.png used on input line 527.
 (pdftex.def)             Requested size: 92.5pt x 26.6222pt.
 
 
-Package xcolor Warning: Incompatible color definition on input line 533.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package xcolor Warning: Incompatible color definition on input line 533.
@@ -3315,7 +3316,10 @@ Package xcolor Warning: Incompatible color definition on input line 533.
 
 Package xcolor Warning: Incompatible color definition on input line 533.
 
-[10 <./Figures/Posaune_Fig1.png>]
+
+Package xcolor Warning: Incompatible color definition on input line 533.
+
+[10]
 
 Package xcolor Warning: Incompatible color definition on input line 540.
 
@@ -3383,6 +3387,7 @@ Package xcolor Warning: Incompatible color definition on input line 582.
 
 Package xcolor Warning: Incompatible color definition on input line 582.
 
+[11 <./Figures/Posaune_Fig1.png> <./Figures/Violin_Fig1.png>]
 
 Package xcolor Warning: Incompatible color definition on input line 583.
 
@@ -3419,8 +3424,7 @@ Package xcolor Warning: Incompatible color definition on input line 584.
 
 Package xcolor Warning: Incompatible color definition on input line 584.
 
-[11 <./Figures/Violin_Fig1.png>]
-<Figures/Violin_Fig2.png, id=307, 425.59pt x 107.40125pt>
+<Figures/Violin_Fig2.png, id=304, 425.59pt x 107.40125pt>
 File: Figures/Violin_Fig2.png Graphic file (type png)
 
 <use Figures/Violin_Fig2.png>
@@ -3478,7 +3482,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 627--628
 
  []
 
-<Figures/Chello_Fig1.png, id=308, 406.51875pt x 116.435pt>
+<Figures/Chello_Fig1.png, id=305, 406.51875pt x 116.435pt>
 File: Figures/Chello_Fig1.png Graphic file (type png)
 
 <use Figures/Chello_Fig1.png>
@@ -3488,44 +3492,44 @@ Package pdftex.def Info: Figures/Chello_Fig1.png used on input line 633.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 639.
-
 [12 <./Figures/Violin_Fig2.png>]
-<Figures/Chello_Fig2.png, id=326, 344.28625pt x 102.3825pt>
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+
+Package xcolor Warning: Incompatible color definition on input line 639.
+
+<Figures/Chello_Fig2.png, id=324, 344.28625pt x 102.3825pt>
 File: Figures/Chello_Fig2.png Graphic file (type png)
 
 <use Figures/Chello_Fig2.png>
@@ -3555,7 +3559,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 665--666
 
  []
 
-<Figures/Harp_Fig1.png, id=327, 438.63875pt x 120.45pt>
+<Figures/Harp_Fig1.png, id=325, 438.63875pt x 120.45pt>
 File: Figures/Harp_Fig1.png Graphic file (type png)
 
 <use Figures/Harp_Fig1.png>
@@ -6947,10 +6951,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 960.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 19112 strings out of 492995
- 326911 string characters out of 6132703
+ 19113 strings out of 492995
+ 326927 string characters out of 6132703
  755508 words of memory out of 5000000
- 21988 multiletter control sequences out of 15000+600000
+ 21989 multiletter control sequences out of 15000+600000
  100980 words of font info for 119 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  66i,23n,86p,8817b,14897s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -6967,7 +6971,7 @@ wacki/iwona/iwonabi.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/nowacki
 /iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/
 uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/uplr8a.
 pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on BBF_hs.pdf (22 pages, 729237 bytes).
+Output written on BBF_hs.pdf (22 pages, 737707 bytes).
 PDF statistics:
  691 PDF objects out of 1000 (max. 8388607)
  595 compressed objects within 6 object streams

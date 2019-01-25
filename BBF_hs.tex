@@ -202,7 +202,7 @@ Für die ersten vier Takte wurde bei der Erstellung der MIDI-Regionen eine Annah
 \paragraph{Anpassung der Klangsynthese} Unter Berücksichtigung des Analysierten Klangbildes und des bereits vorliegenden Tidal-Codes soll nun die Art der Klangsynthese derart angepasst werden, dass die Beschriebene klangliche Wirkung erzielt wird. Mögliche Arten der Anpassung sind dabei die Auswahl von Tidal-Instrumenten, Einbinden von Samples sowie Erstellen eines SuperCollider-Instrumentes.\\
 
 \noindent Auf diesem Wege sollen die Figuren aller Instrumente als ausführbarer Tidal-Code mit erwünschter klanglicher Wirkung entstehen.
-Das Verbinden der einzelnen Figuren zu einem live vorführbaren Stück soll in \textit{Kapitel 6 - Performance} beschrieben werden. 
+Das Verbinden der einzelnen Figuren zu einem live vorführbaren Stück soll in \textit{Kapitel 5 - Performance} beschrieben werden. 
 
 
 %
@@ -881,55 +881,69 @@ p "i10" $ sound "[[[[BBFMoog:3 ~ ~ BBFMoog:3]][~ BBFMoog:3]][BBFMoog:5 BBFMoog:6
 \section{Performance}
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
-Bis jetzt nur alle instrumente einzeln.
-Soll: Verbinden dass Performance analog Globale Struktur Abb 1 rauskommt.
-Umsetzung erster Ansatz: jedes Instrument bekommt eigenen Kanal. 
-Mit \verb|p "i10"| möglich.
-Problem: Zu einem Zeitpunkt der Ausführung nur ein Instrument beeinflussbar. Nicht cool für wenn mehr umbricht als nur 1 instrument.
+\noindent Nachdem die einzelnen Figuren aller Instrumente durch das vorangegangene Kapitel als Tidal-Code umgesetzt sind, soll nun die vorführbare Performance aus den einzelnen Teilen zusammengesetzt werden. Dabei soll im Wesentlichen die in Abbildung 1 gezeigte globale Struktur des Liedes nachempfunden werden.\\
+Ein erster gedanklicher Ansatz bei der Umsetzung bestand in der Nutzung von mehreren Tidal-Connections. Tidal stellt 16 Verbindungen zum SuperDirt-Synthesizer bereit\cite{tid14}, daher kann jedes Instrument auf einer separaten Verbindung gespielt werden. Durch das Auswerten einzelner Zeilen während der Vorführung lassen sich somit die Figuren pro Instrument um- und abschalten. Der Code der Performance würde sich wie folgt darstellen.
 
-Also: Parts nachempfinden. 
-Dazu einzelne Blöcke bauen.
-in Blöcken spielbar mit Parametern.
+\begin{lstlisting}
+d1 $ --Tidal-Code Drum-Figur 1
+d1 $ --Tidal-Code Drum-Figur 2
+d1 $ --Tidal-Code Drum-Figur n
+d1 $ silence
+...
+d2 $ --Tidal-Code Marimba-Figur 1
+d2 $ --Tidal-Code Marimba-Figur 2
+d2 $ silence
+...
+d9 $ --Tidal-Code Moog Figur 2
+d9 $ silence
+\end{lstlisting}
 
-Zur Ausführung im Block wenn sich mehr ändert: Mit Kommentar-Funktion siehe mute instruments \cite{tid13} Dazu alles was mut-bar sein soll in eigene Zeile. Um alles zu sehen in Atom Einstellungen - Editor - Soft Wrap aktivieren \cite{atom1}. 
+\noindent Dabei ergibt sich jedoch das Problem, dass pro Zeitpunkt immer nur eine Änderung für ein Instrument ausgewertet werden kann. In der angestrebten Performance finden jedoch zu einzelnen Zeitpunkten mehrere Änderungen statt. So wird zum Beispiel beim Übergang von Part 4 in Part 5 der Bass (Moog-Synthesizer) pausiert, während Piano, Harfe und Marimba zeitgleich eine neue Figur zu spielen beginnen.\\
 
-Exemplarisch sollen erste zwei Blöcke beschrieben werden.
+\noindent Um mehrere Instrumente innerhalb einer Code-Auswertung dazuzuschalten oder muten zu können, wurde die Implementierung der Performance an die in der Tidal Userbase beschriebene Vorgehensweise für das Stummschalten einzelner Instrumente angepasst.\cite{tid13} Dazu wurden für alle Instrumente dieselbe Tidal-Connection \verb|d1| genutzt und die einzelnen Figuren mithilfe des \verb|stack|-Ausdruck miteinander verbunden. Dabei wurden alle Parts, die abschaltbar sein sollen in eine eigene Zeile geschrieben. Über die Nutzung des Tasten-Kurzbefehls für das Aus- bzw. Einkommentieren einzelner Zeilen im Code-Editor und das erneute Auswerten des gesamten Befehls, lassen sich somit einzelne Bestandteile in kurzer Zeit muten und wieder aktivieren.\\
+Als Code-Editor wurde Atom verwendet. Um in Atom den gesamten Code des Ausdrucks trotz langer Zeilen im Bild zu behalten, muss im Einstellungsmenü unter dem Menüpunkt \textit{Editor} über das Setzen des Kontrollkästchens \textit{Soft Wrap} der Zeilenumbruch aktiviert werden.\cite{atom1}. \\
 
-Part 1
+\noindent Um das Vorgehen für das Dazu- und Umschalten einzelner Spuren zu illustrieren, soll zunächst der Code für den ersten Part gezeigt und dessen Verwendung beschrieben werden.
 
 \lstset{
 	numbers=left,
 }
 \lstinputlisting[language=Haskell]{Figures/part1.hs}
 
+\noindent Zunächst wird der Code ausgeführt und die Performance beginnt.
+Entsprechend der globalen Struktur (Abbildung 1) wird nach einigen Durchläufen Figur 1 der Posaune gestartet. Dazu wird die Kommentierung der Zeile 13 per Tastenkurzbefehl aufgehoben und der gesamte Ausdruck ebenfalls per Tastenkurzbefehl erneut ausgewertet. Nach weiteren Durchläufen wechselt die Marimba von Figur 1 zu Figur 2. Diese Figuren unterscheiden sich den gespielten Kuhglocken. Der Code für diese befindet sich in Zeile 8. Folglich muss zum gewünschten Zeitpunkt Zeile 8 ent-kommentiert und erneut ausgewertet werden.\\
+Im Code zu Part 1 findet sich für die Schlagzeugspur in Zeile 4 ein Ausdruck \verb|# gain 0.4|. Dieser soll genutzt werden um über das Vergrößern des Parameters in den ersten Takten von Part 1 live die Lautstärke der Schlagzeug-Figur anwachsen zu lassen, um die ansteigende BD nachzuempfinden. Zudem finden sich in der Performance vereinzelt weitere genutzte Effekte. So werden zum Beispiel die Figuren der Tuba und der Posaune mithilfe des \verb|#pan|-Effektes\cite{tid15} im Stereo-Kanal nach links und rechts verschoben um den Gesamtklang der Performance zu verbessern.\\
 
-Innerhalb des Parts an gain drehen um Lautstärke-Anstieg BD von Drums live zu reaalisien.
-Einkommentieren von Tuba. 
-Einkommentieren von zweitem Zeil. Daher dieser Teil 
+\noindent Das hohe Maß von wiederkehrenden und gleichbleibenden Figuren kann genutzt werden, um mehrere Parts des Liedes in einem Ausdruck zusammenzufassen. Dies wird im nachfolgend skizzierten Ausdruck für Part 2,3 und 4 deutlich. 
 
-Part 2  TODO: Update
 \lstinputlisting[language=Haskell]{Figures/part2.hs}
 
-Marimba 2 muss nicht verändert werden - eine Zeile 
-Gain-Regler eingebaut um Verhältnis zwischen einzelnen Instrumenten zu regulieren.
-Ebenfalls \verb|# pan| Effekte \cite{tid14} genutzt um Panning und damit hübscheren Gesamtmix...
-Beschreiben Toggle Ablauf.
-Piano-Figuren zur einfacheren Handhabung weiter verlängert Figuren einzelner Töne auf 8 Takte.
+\noindent Dabei sind alle vorkommenden Figuren eines Instrumentes jeweils untereinander geschrieben. Entsprechend der globalen Struktur ist pro Wechsel der Parts die Kommentierung per Tastenkurzbefehl derartig anzupassen, dass nur die gewünschten Figuren als Code ausgewertet werden. Zur besseren Übersichtlichkeit während der Performance sind alle gleichbleibenden Figuren im unteren Teil (im Auszug ab Zeile 18) zusammengefasst.\\
+
+\noindent Der vollständige Code der Performance findet sich in der digitalen Anlage.
 
 
+\section{Gesang}\
+\textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 
-TODO:\\
-Spuren per Stack verbinden?\\
-Konzept für Ablauf Performance?\\
-Wie mehrtaktige Figuren mit every zusammenfassen?
-Link zu den Soundfiles: http://virtualplaying.com/virtual-playing-orchestra/ \\
-https://rhythm-lab.com/moog-rogue-bass/
-
-
-Kapitel 7 = letztes Kapitel = Kür = Gesang und wie mit in Performance handeln?
+\noindent Herausforderung: Auftakt.\\
+Lösung für Live-Vorführung mit ordentlich Timing.
+\begin{lstlisting}
+...add some code
+\end{lstlisting}
+Lösung: Integration in Performance Code: Sample 16 Takte hat aber Auftakt. 16 Takte Figur mit Start auf Takt 16. Nur 1x Auswerten. Durch wechsel im Ausdruck für Parts realisiert.
+\begin{lstlisting}
+...add some code
+\end{lstlisting}
 
 \pagebreak
+
+
+%Link zu den Soundfiles: http://virtualplaying.com/virtual-playing-orchestra/, https://rhythm-lab.com/moog-rogue-bass/
+
+
+
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY

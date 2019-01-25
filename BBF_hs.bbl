@@ -108,6 +108,12 @@ Tidal userbase - cut.
 \newblock \url{https://tidalcycles.org/index.php/cut}.
 \newblock Zugriff: 23.01.2019.
 
+\bibitem{tid14}
+Tidal userbase - play a single sample.
+\newblock
+  \url{https://tidalcycles.org/index.php/Tutorial#Play_a_Single_Sample}.
+\newblock Zugriff: 25.01.2019.
+
 \bibitem{tid13}
 Tidal userbase - muting functions.
 \newblock \url{https://tidalcycles.org/index.php/Muting_functions}.
@@ -117,5 +123,10 @@ Tidal userbase - muting functions.
 Atom discuss: Turn on line wrap.
 \newblock \url{https://discuss.atom.io/t/turn-on-line-wrap/1627}.
 \newblock Zugriff: 23.01.2019.
+
+\bibitem{tid15}
+Tidal userbase - pan.
+\newblock \url{https://tidalcycles.org/index.php/pan}.
+\newblock Zugriff: 25.01.2019.
 
 \end{thebibliography}

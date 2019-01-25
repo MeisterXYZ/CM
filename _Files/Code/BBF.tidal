@@ -53,23 +53,23 @@ p "i1" $ silence
 --Instrument 2: Pauken
 ------.....
 
-hush
 
 
 --Instrument 3: Marimba
 --f1
-p "i3" $ slow 2 $ midinote "[~ [51 49] 51 51][~ [51 46] 51 51][~ [51 49] 51 51][~ 51 ~ 51]" # s "glasstap"
---oder
---d1 $ slow 2 $ midinote "[~ [65 63] 65 65][~ [65 60] 65 65][~ [65 63] 65 65][~ 65 ~ 65]" # s "ab"
+p "i3" $ slow 2 $ midinote "[~ [59 57] 59 59][~ [59 54] 59 59][~ [59 57] 59 59][~ 59 ~ 59]" # s "Marimba" # room 0.5
 
 --f2
 p "i3" $ stack [
-  slow 2 $ midinote "[~ [51 49] 51 51][~ [51 46] 51 51][~ [51 49] 51 51][~ 51 ~ 51]" # s "glasstap",
-  slow 2 $ midinote "[~[~~~60]~~][]" # s "can" # speed (1 + (irand 10)*0.2)
+  slow 2 $ midinote "[~ [59 57] 59 59][~ [59 54] 59 59][~ [59 57] 59 59][~ 59 ~ 59]" # s "Marimba" # room 0.5,
+  slow 2 $ sound "[ ~ [ ~ ~ ~ Glocken ] ~ ~ ][]" # n (irand 11) # cut 1
 ]
 
+
+hush
+
 --f3
-p "i3" $ midinote "[~ 49 51 49]*4" # s "glasstap" #gain 1.6
+p "i3" $ midinote "[~ 57 59 57]*4" # s "Marimba" #gain 1.6
 
 p "i3" $ silence
 
@@ -81,14 +81,14 @@ p "i4" $ sound "[~ cp ~ ~]" #pan 0.2
 hush
 
 --f2
-p "i4" $ loopAt 2 $ sound "blasesoundTuba"
+p "i4" $ loopAt 2 $ sound "Atmen" #room 1
 
 --f3
-p "i4" $ sound "[~ cp ~ ~]" #pan 0.2
+p "i4" $ sound "[~ Tuba ~ ~]" # room 0.4 # gain 1.1
 
 --f4
 p "i4" $ slow 16 $ midinote "[43 38 36 38]*2" # s "superpiano" # room 0.85 # sz 0.8 # orbit 1 #gain "0.4 0.45 0.5 0.55 0.6 0.7 0.8 0.9"
-
+Tuba:20
 --f5
 p "i4" $ slow 8 $ midinote "43 38 36 38" # s "superpiano" # room 0.85 # sz 0.8 # orbit 1 #gain 0.9
 

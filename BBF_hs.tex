@@ -412,20 +412,79 @@ p1 $ midinote "[~ 49 51 49]*4" # s "glasstap"
 
 
 \subsubsection{Klangbild}
-{\color{red}\textbf{TODO}} Raphas antwort+ Figuren 1,2,3
 Bestandteile der Marimba: Eine Marimba, wobei Kuhglocken zum zufälligem Anspielen enthalten sind.
 Art der Synthetisierung: Da keine hölzernen Klänge im SuperCollider enthalten sind müssen diese selbst aufgenommen werden. Dies geschieht mittels 
-Holzsticks die auf einen hölzernen Untergrund geschlagen werden.\\
+einem von \textit{SuperCollider Code} stammenden Code.{\color{red}\textbf{TODO}} Link einfügen\\
+Für die Synthetisierung der Marimba mussten einige kleine Teilschritte unternommen werden. Zuerst die Syntetisierung des Moogs im SuperCollider.\\
+Dazu wurde folgender Code von \textit{SuperCollider Code}{\color{red}\textbf{TODO}} Link einfügen kopiert und leicht abgewandelt, sodass er mer unseren Anforderungen entspricht:
+\begin{lstlisting}
+(
+SynthDef(\bell, {
+	|fs=1, t60=1, pitchy=1, amp=0.25, gate=1|
+	var sig, exciter;
+	//exciter = Impulse.ar(0);
+	exciter = WhiteNoise.ar() * EnvGen.ar(Env.perc(0.001, 0.05), gate) * 0.25;
+	sig = Klank.ar(
+		`[
+			[1, 2, 2.803, 3.871, 5.074, 7.81, 10.948, 14.421],   // freqs
+			[1, 0.044, 0.891, 0.0891, 0.794, 0.1, 0.281, 0.079], // amplitudes
+			[1, 0.205, 1, 0.196, 0.339, 0.047, 0.058, 0.047]*t60     // ring times
+		],
+		exciter,
+		freqscale:fs*pitchy);
+	sig = FreeVerb.ar(sig) * amp;
+	DetectSilence.ar(sig, 0.001, 0.5, doneAction:2);
+	Out.ar(0, sig!2);
+}).add
+)
+
+
+(
+Pbind(
+	\instrument, \bell,
+	\fs, 60.midicps,
+	\t60, 0.45,
+	\pitchy, 1.75,
+	\dur, 0.25
+).play;)
+
+(
+Pbind(
+	\instrument, \bell,
+	\fs, Pseq( (60..72), 1).midicps,
+	\t60, 3,
+	\pitchy, 2,
+	\dur, 1
+).play;
+)
+
+\end{lstlisting}
+Wobei der erste Teil des Codes einen Ton erzeugt welcher Vergleichbar ist mit dem Kratzen auf einem Microphone.\\
+Der zweite Teil ändert den ersten Sound so ab, sodass dieser mehr Hölzern klingt und der dritte Teil ist für den Sound der Glocken aus Figur 2.\\
+Als nächstes muss dieser Sound aus dem SuperCollider aufgenommen werden. Dies geht mit dem Befehl \textit{Server.default.record;}.\\
+Der dritte Schritt war das zuschneiden der Audisamples. Dazu wurde Audacity{\color{red}\textbf{TODO}} Link einfügen benutzt. Audacity ist ein kostenlosen Audioschnitt-, Editierungs- und Aufnahmeprogramm. Im Anschluss kann dann der Code für die einzelnen Figuren angepasst werden.\\
 \noindent \textbf{Figur 1}\\
-Sound Marimba: Die Marimba wird am Anfang des Stücks relativ dominant, im gegensatz zu den restlichen Instrumenten gespiel\\
+Sound Marimba: Die Marimba wird am Anfang des Stücks relativ dominant, im gegensatz zu den restlichen Instrumenten, gespiel\\
 Lösung:\\
 \begin{lstlisting}
-
+p "i3" $ slow 2 $ midinote "[~ [59 57] 59 59][~ [59 54] 59 59][~ [59 57] 59 59][~ 59 ~ 59]" # s "Marimba" # room 0.5
 \end{lstlisting}
 \noindent \textbf{Figur 2}\\
 Sound Marimba: Wird nur schwach angespielt wodurch sie in diesem Teil in den Hintergrund tritt.
-Holzsticks auf Marimba in verschiednenen Tonhöhen wobei eher rhythmisch als melodisch eingesetzt, dazu Kuh-Glocken bereitstellen für Random-Funktion
-
+Holzsticks auf Marimba in verschiednenen Tonhöhen wobei eher rhythmisch als melodisch eingesetzt, dazu Kuh-Glocken bereitstellen für Random-Funktion.\\
+Lösung:\\
+\begin{lstlisting}
+p "i3" $ stack [
+  slow 2 $ midinote "[~ [59 57] 59 59][~ [59 54] 59 59][~ [59 57] 59 59][~ 59 ~ 59]" # s "Marimba" # room 0.5,
+  slow 2 $ sound "[ ~ [ ~ ~ ~ Glocken ] ~ ~ ][]" # n (irand 11) # cut 1
+]
+\end{lstlisting}
+\noindent \textbf{Figur 3}\\
+Sound Marimba: In der dritten Figur ist die Marimba nur sehr dezent im Hintergrund zu hören. Sie dient in dieser Figur lediglich als Taktgeber.\\
+Lösung:\\
+\begin{lstlisting}
+p "i3" $ midinote "[~ 57 59 57]*4" # s "Marimba"
+\end{lstlisting}
 \subsection{Instrument 4: Tuba}
 \subsubsection{Figuren}
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
@@ -489,12 +548,12 @@ d1 $ slow 8 $ midinote "55 50 48 50" # s "superpiano" # room 0.85 # sz 0.8 # orb
 
 \subsubsection{Klangbild}
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
-{\color{red}\textbf{TODO}} Figur 2+3 Raphas antwort Restlichen Figuren machen\\
+{\color{red}\textbf{TODO}}Restlichen Figuren machen\\
 \noindent Bestandteile der Tuba: normale Tuba, welche aber entartet benutzt wird\\
 Art der Synthetisierung: Da die Tuba ein reales Musikinstrument ist, welches in dieser Form nicht im Supercollider enthalten ist,
 werden hierfür Samples benutzt. Die Samples werden für die entartete Benutzung in Tidal so manipuliert, dass sie die Sounds
 nachempfinden.\\
-Für Figur 2 werden eigene Samples aufgenommen. Den Sound soll ein Handscheibenwischer mit einem hohlen Griff erzeugen.
+Für Figur 2 wurde mit weit gespreitzten Nasenflügeln ausgeatmet und für Figur 3 wurde ein Handscheibenwischer mit hohlem Griff angespielt.\\
 
 \noindent\textbf{Figur 1}\\
  Sound: In dieser Figur wird auf das Mundstück der Tuba geschlagen. Der erzeugte Ton hört sich in etwa an wie eine Base Drum ohne Bass.\\
@@ -505,16 +564,17 @@ d1 $ sound "~ bd ~ ~" # midinote 15
 
 \noindent\textbf{Figur 2}\\
 Sound: ähnlich eines Reifens der Luft verliert\\
-Lösung:\\
+Lösung:Der Hall sorgt dafür, dass sich der Sound nach einem größerem Gegenstand und nicht nach einer Nase anhört.\\
 \begin{lstlisting}
-Nico: d1 $ sound "[sax ~ ~ hh]" # speed 0.35 # midinote 55 # gain "[1 0]" # cut 1 \\
-d1 $ sound "[trump ~ ~ hh]" # speed 0.05 # midinote 55 # gain "[0.7 0]" # cut 1\\
+p "i4" $ loopAt 2 $ sound "Atmen" # room 1
 \end{lstlisting}
 
 \noindent\textbf{Figur 3}\\
 Sound: Wie Sound aus Figur 2 aber mit mehr Druck und nicht durchgehend.\\
-Lösung:\\
-
+Lösung: \textit{Room} und \textit{Gain} haben hier den selben Effekt wie in Figur 2\\
+\begin{lstlisting}
+p "i4" $ sound "[~ Tuba ~ ~]" # room 0.4 # gain 1.1
+\end{lstlisting}
 
 \subsection{Instrument 5: Posaune}
 \subsubsection{Figuren}
@@ -840,6 +900,7 @@ d1 $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
 \end{lstlisting}
 
 \subsubsection{Klangbild}
+{\color{red}\textbf{TODO}} Nochmal umschreiben wegen Marimba
 Bestandteile des Moogs: Keyboard, PC, Mischboard\\
 Art der Synthetisierung: Der Moog wird von uns selbst im SuperCollider Programmiert, da ein Moog relativ leicht selbst zu Programmieren ist.
 Des weiteren wollen wir uns damit die Option offen halten anstatt eines Moogs eine Bassline zu benutzen.\\ \\

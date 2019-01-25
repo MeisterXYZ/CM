@@ -120,13 +120,6 @@ midinote "[52][][][][][][][45][44][56][][][][][57][56]" # s "Violine:5",
 midinote "[][60][][][][][61][60][][63][][][][][][]" # s "Violine:5"
 ]  #gain 0.5 #cut 1 #speed 1.2 # sz 0.8 # orbit 1 # room 0.85
 
----Gegenvorschlag:
-p "i6" $ slow 4 $ cat [
-midinote "[58][][][][][][][51][50][58][][][][][][]" # s "Vibrato:26",
-midinote "[58][][][][][][][51][50][58][][][][][][]" # s "Vibrato:26",
-midinote "[58][][][][][][][51][50][62][][][][][63][62]" # s "Vibrato:26",
-midinote "[][66][][][][][67][66][][69][][][][][][]" # s "Vibrato:26"
-] #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
 
 p "i6" $ slow 4 $ cat [
 midinote "[82][][][][][][][75][74][82][][][][][][]" # s "gtr",
@@ -138,22 +131,20 @@ midinote "[][90][][][][][91][90][][93][][][][][][]" # s "gtr"
 
 
 --f2
-p "i6" $ slow 2 $ midinote "[[86][84][82][[][84]]][82 81 79 78]" # s "gtr" #cut 1 # room 0.85 # sz 0.8 # orbit 1
-
---updated
-p "i6" $ slow 2 $ midinote "[[62][60][58][[][60]]][58 57 55 54]" # s "Vibrato:26" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
+p "i6" $ slow 2 $ midinote "[[62][60][58][[][60]]][58 57 55 54]" # s "Violine:6" #cut 1 # room 0.85 # sz 0.8 # orbit 1 # speed 1.5
 
 p "i6" $ silence
 
 --Instrument 7: Chello
 --f1
-p "i7" $ slow 2 $ midinote "[[74][][][[][75]]][74 72 75 74]" # s "gtr" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
+p "i7" $ slow 2 $ midinote "[[54][][][[][55]]][54 52 55 54]" # s "Cello:1" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
 
 --f2
-p "i7" $ slow 4 $ midinote "[[62][[][][][63]]][62]" # s "gtr" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
+p "i7" $ slow 4 $ midinote "[[42][[][][][43]]][42]" # s "Cello:2" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
 
 p "i7" $ silence
 
+hush
 
 --Instrument 8: Harfe
 --f1

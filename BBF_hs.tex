@@ -412,7 +412,7 @@ p1 $ midinote "[~ 49 51 49]*4" # s "glasstap"
 
 
 \subsubsection{Klangbild}
-Bestandteile der Marimba: Eine Marimba, wobei Kuhglocken zum zufälligem Anspielen enthalten sind.
+Bestandteile der Marimba: Eine Marimba, wobei Kuhglocken zum zufälligem Anspielen enthalten sind.\\
 Art der Synthetisierung: Da keine hölzernen Klänge im SuperCollider enthalten sind müssen diese selbst aufgenommen werden. Dies geschieht mittels 
 einem von \textit{SuperCollider Code} stammenden Code.{\color{red}\textbf{TODO}} Link einfügen\\
 Für die Synthetisierung der Marimba mussten einige kleine Teilschritte unternommen werden. Zuerst die Syntetisierung des Moogs im SuperCollider.\\
@@ -470,8 +470,8 @@ Lösung:\\
 p "i3" $ slow 2 $ midinote "[~ [59 57] 59 59][~ [59 54] 59 59][~ [59 57] 59 59][~ 59 ~ 59]" # s "Marimba" # room 0.5
 \end{lstlisting}
 \noindent \textbf{Figur 2}\\
-Sound Marimba: Wird nur schwach angespielt wodurch sie in diesem Teil in den Hintergrund tritt.
-Holzsticks auf Marimba in verschiednenen Tonhöhen wobei eher rhythmisch als melodisch eingesetzt, dazu Kuh-Glocken bereitstellen für Random-Funktion.\\
+Sound: Wird nur schwach angespielt wodurch sie in diesem Teil in den Hintergrund tritt.
+Holzsticks auf Marimba in verschiedenen Tonhöhen wobei eher rhythmisch als melodisch eingesetzt, dazu Kuh-Glocken bereitstellen für Random-Funktion.\\
 Lösung:\\
 \begin{lstlisting}
 p "i3" $ stack [
@@ -480,7 +480,7 @@ p "i3" $ stack [
 ]
 \end{lstlisting}
 \noindent \textbf{Figur 3}\\
-Sound Marimba: In der dritten Figur ist die Marimba nur sehr dezent im Hintergrund zu hören. Sie dient in dieser Figur lediglich als Taktgeber.\\
+Sound: In der dritten Figur ist die Marimba nur sehr dezent im Hintergrund zu hören. Sie dient in dieser Figur lediglich als Taktgeber.\\
 Lösung:\\
 \begin{lstlisting}
 p "i3" $ midinote "[~ 57 59 57]*4" # s "Marimba"
@@ -548,7 +548,6 @@ d1 $ slow 8 $ midinote "55 50 48 50" # s "superpiano" # room 0.85 # sz 0.8 # orb
 
 \subsubsection{Klangbild}
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
-{\color{red}\textbf{TODO}}Restlichen Figuren machen\\
 \noindent Bestandteile der Tuba: normale Tuba, welche aber entartet benutzt wird\\
 Art der Synthetisierung: Da die Tuba ein reales Musikinstrument ist, welches in dieser Form nicht im Supercollider enthalten ist,
 werden hierfür Samples benutzt. Die Samples werden für die entartete Benutzung in Tidal so manipuliert, dass sie die Sounds
@@ -574,6 +573,21 @@ Sound: Wie Sound aus Figur 2 aber mit mehr Druck und nicht durchgehend.\\
 Lösung: \textit{Room} und \textit{Gain} haben hier den selben Effekt wie in Figur 2\\
 \begin{lstlisting}
 p "i4" $ sound "[~ Tuba ~ ~]" # room 0.4 # gain 1.1
+\end{lstlisting}
+\noindent\textbf{Figur 4, 5, 6}\\
+Sound: Die Tuba wird in Figur 4 mit absteigender Lautstärke gespielt. In Figur 5 und 6 wird sie mit gleichbleibender Lautstärke gespielt wobei jedoch die Lautstärke
+zwischen den Figuren ansteigt.\\
+Lösung Figur 4:\\
+\begin{lstlisting}
+p "i4" $ slow 16 $ sound "[TubaOrch:20 TubaOrch:20 TubaOrch:20 TubaOrch:20]*2" # cut 1 #gain " 0.8 0.75 0.7 0.65 0.6 0.5 0.5 0.5"
+\end{lstlisting}
+Lösung Figur 5:\\
+\begin{lstlisting}
+p "i4" $ slow 16 $ sound "[TubaOrch:20 TubaOrch:20 TubaOrch:20 TubaOrch:20]*2" # cut 1 
+\end{lstlisting}
+Lösung Figur 6:\\
+\begin{lstlisting}
+p "i4" $ slow 16 $ sound "[TubaOrch:20 TubaOrch:20 TubaOrch:20 TubaOrch:20]*2" # cut 1 #gain 1.3
 \end{lstlisting}
 
 \subsection{Instrument 5: Posaune}
@@ -601,25 +615,22 @@ d1 $ loopAt 2 $ sound "blasesoundPosaune"
 \end{lstlisting}
 
 \subsubsection{Klangbild}
-{\color{red}\textbf{TODO}}Figur 1+2 antwort Rapha warten\\
-Bestandteile der Posaune: normale Posaune, welche aber entartet benutzt wird\\
+Bestandteile der Posaune: normale Posaune, welche aber entartet benutzt wird.\\
 Art der Synthetisierung: Da die Posaune ein reales Musikinstrument ist, welches in dieser Form nicht im Supercollider enthalten ist,
-werden hierfür Samples benutzt. Die Samples werden für die entartete Benutzung in Tidal so manipuliert, dass sie die Sounds
-nachempfinden.\\
-Für Figur 2 werden eigene Samples aufgenommen. Den Sound soll ein Handscheibenwischer mit einem hohlen Griff erzeugen.
+werden hierfür Samples benutzt. Die Samples werden eigens dafür aufgenommen. Die Sound werden wie bei der Tuba erzeugt.
 
 \noindent\textbf{Figur 1}\\
  Sound: In dieser Figur wird auf das Mundstück der Posaune stoßartig angespielt.\\
 Lösung:\\
 \begin{lstlisting}
-\\
+p "i5" $ sound "[][[][~ Posaune]]" # room 0.3 # gain 1.1
 \end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
 Sound: ähnlich zu Figur 3 der Tuba allerdings mit weniger tief.\\
-Lösung:\\
+Lösung: Für die geringere Tiefe des Sounds wurde der Hall der Posaune angepasst \\
 \begin{lstlisting}
-\\
+p "i5" $ loopAt 2 $ sound "Atmen" #room 0.7 # gain 1.1
 \end{lstlisting}
 
 \subsection{Instrument 6: Violine}
@@ -662,22 +673,29 @@ $ slow 2 $ midinote "[[86][84][82][[][84]]][82 81 79 78]" # s "gtr" #cut 1 # roo
 {\color{red}\textbf{TODO}} weitere Figuren im hinteren Teil des Stückes
 
 \subsubsection{Klangbild}
-{\color{red}\textbf{TODO}}Beispiel für Rapha ausarbeiten, Art der Synthetisierung ändern, nach anderen violinensounds suchen in den samples
+{\color{red}\textbf{TODO}}auf Raphas Meinung warten
 Bestandteile der Violine: Violine\\
-Art der Synthetisierung: Hierfür wurden Samples Online gesucht da es keine vergleichbaren SuperCollider Sounds gibt oder jemand eine Violine besitzt.\\
+Art der Synthetisierung: Hierfür wurden Samples Online gesucht da wir möglichs viele verschiedene Arten der Soundeinbindung abdecken wollten. Dabei wurde ein großer Datenbestand von Orchesterinstumenten gefunden.{\color{red}\textbf{TODO}}http://virtualplaying.com/virtual-playing-orchestra/ Link einfügen Des weiteren
+wäre es extremst Zeitaufwendig jedes Instrument über den SuperCollider zu synthetisieren weshalb Sound Samples für dieses Instrument gewählt wurden.\\
 \noindent\textbf{Figur 1}\\
 Sound: In dieser Figur steigt die Violine leise in das Stück ein und wird über die Zeit immer lauter, wodurch sie schlussendlich im zweiten Teil 
 zum Hauptinstrument des Abschnittes wird. Im ersten Teil wird die Violine etwas quitschend und langsam gespielt. Im zweiten Teil wird sie hektisch und sauber gespielt.\\
 Problem: Die Violine muss in unserer Vorführung diesen gleichmäßigen Anstieg der Lautstärke vollführen, ohne merkliche Sprünge zu machen.\\
 Lösung:\\
 \begin{lstlisting}
-\\
+p "i6" $ slow 16 $ fastcat [
+midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Violine:5",
+midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Violine:5",
+midinote "[52][][][][][][][45][44][56][][][][][57][56]" # s "Violine:5",
+midinote "[][60][][][][][61][60][][63][][][][][][]" # s "Violine:5"
+]  #gain 0.5 #cut 1 #speed 1.2 # sz 0.8 # orbit 1 # room 0.85
+
 \end{lstlisting}
 \noindent\textbf{Figur 2}\\
 Sound: Wenn die Violine in diese Figur übergeht ist sie das Hauptinstrument des Stückes. Die Violine wird hierbei sehr hektisch aber im gegensatz zu Figur 1 sauber gespielt.\\
 Lösung:\\
 \begin{lstlisting}
-\\
+p "i6" $ slow 2 $ midinote "[[62][60][58][[][60]]][58 57 55 54]" # s "Violine:6" #cut 1 # room 0.85 # sz 0.8 # orbit 1 # speed 1.5
 \end{lstlisting}
 
 
@@ -716,9 +734,21 @@ p1 $ slow 4 $ midinote "[[62][[][][][63]]][62]" # s "gtr" #cut 1 # room 0.85 # s
 {\color{red}\textbf{TODO}} weitere Figuren im hinteren Teil des Stückes
 
 \subsubsection{Klangbild}
-{\color{red}\textbf{TODO}}Figuren einarbeiten, Samples?
+{\color{red}\textbf{TODO}}Figuren einarbeiten, WIE ZUM FICK SOLL ICH DA EIN CELLO RAUSHÖREN ICH HÖRE DA GARNICHTS *gnarf*\\
+Bestandteile: Cello\\
+Art der Synthetisierung: Das Cello wird wie auch die Violine über die Samples realisiert{\color{red}\textbf{TODO}} Quelle einfügen, welches anschließend in den SuperCollider eingefügt wird, synthetisiert.
 Ruhige Parts, Hektik (schnell gespielte Töne)
 
+\noindent\textbf{Figur 1}\\
+Lösung:\\
+\begin{lstlisting}
+p "i7" $ slow 2 $ midinote "[[54][][][[][55]]][54 52 55 54]" # s "Cello:1" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
+\end{lstlisting}
+\noindent\textbf{Figur 2}\\
+Lösung:\\
+\begin{lstlisting}
+p "i7" $ slow 4 $ midinote "[[42][[][][][43]]][42]" # s "Cello:2" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
+\end{lstlisting}
 
 \subsection{Instrument 8: Harfe}
 \subsubsection{Figuren}

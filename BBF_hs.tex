@@ -155,17 +155,18 @@ Tidal oder Euterpea. Eine online verfügbare Live-Aufführung \cite{YT1} soll da
 \section{Umsetzung in Tidal oder Euterpea}\
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
 
-\noindent Dieses Thema soll sich um die Evaluation zwischen Tidal und Eutherpea handeln.\\
-{\color{red}\textbf{TODO}}Was ist Tidal\cite{Tidal} (dazu SuperCollider\cite{SC} erklären) , was ist Euterpea\cite{Euterpea}?\\
-Unsere Entscheidung Tidal zu nehmen beruht gewiss nicht auf einer zufälligen Entscheidung. In diese Entscheidung ist der Programmieraufwand, vorhandenen Informationen
-und die Möglichkeit den Synthesizer zu erweitern.\\
-Bei dem Programmieraufwand wird sehr schnell klar, dass durch das Lied \textit{Pretent} von BrandBrauerFrick Tidal besser geeignet ist als Euterpea. Der erste Gesichtspunkt
-der betrachtet wurde ist die Repetetivität des Songs, welcher in Euterpea zwar auch umsetzbar ist aber in Tidal von Anfang an gegeben ist, da Tidal die Sounds immer in einem
-Loop abspielt. Bei den vorhandenen Informationen stellt sich heraus, dass es keine Offiziellen Notenblätter für das Lied Onlinegibt, wodurch Euterpea etwas an Bedeutung verliert, da Euterpea für genaue Notenbestimmungen perfekt geeignet wäre. Da dieser Fakt aber nicht vorliegt, kann das selbe Maß an Genauigkeit auch mit Tidal erreicht werden.\\
-Der letzte und für uns wichtigste Punkt war die Erweiterbarkeit der Sounds. Die Wichtigkeit darin besteht in der entfremdeten Benutzung der Musikinstrumente in dem Lied.
-In Eutherpea haben wir nach einiger Recherche keinen weg gefunden Sounds hinzuzufügen um diese später zu verwenden. In Tidal allerdings existiert diese Möglichkeit mittels
-des Befehl \textit{}. Mit diesem Befehl lässt sich ein Verzeichnis in Tidal integrieren.
-%~dirt.loadSoundFiles("full/path/to/directory/*") noch in textit einfügen
+\noindent Dieses Thema soll sich um die Evaluation zwischen Tidal und Eutherpea handeln. Bevor es aber zu der Evaluation kommt, werden die eben genannten
+Programme kurz erklärt.\\
+Tidal ist eine Open Source Software mit deren Hilfe es möglich ist Musikpatterns per Code zu generieren. Tidal benutzt den Synthesizer \textit{SuperCollider}.\cite{Tidal}\\
+Der SuperCollider, ebenfalls eine Open Source Software, ist ein Audio-Synthesizer. Dabei können eigene Klänge oder Instrumente mithilfe von unterschiedlichen Oszilatoren, Filtern
+und anderen Hilfsmitteln des SuperColliders erstellt werden. \cite{SC}\\
+Euterpea ist ein in Haskell eingebettetes Programm, welches durch Code u. a. Musik erzeugt, algorithmische Komposition und Sound Synthese ermöglicht.\cite{Euterpea}\\
+Im Endeffekt ist unsere Auswahl des Programmes auf Tidal gefallen. In diese Entscheidung ist der Programmieraufwand, vorhandenen Informationen
+und die Möglichkeit den Synthesizer zu erweitern mit eingeflossen.\\
+Bei dem Programmieraufwand wird sehr schnell klar, dass das sehr repetetive Lied \textit{Pretent} von BrandBrauerFrick für Tidal besser geeignet ist als für Euterpea, da in Tidal die Musikpatterns immer in einem loop abgespielt werden. In Eutherpea kann dieser Effekt nur durch zusätzlichen Programmieraufwand erreicht werden. Bei den vorhandenen Informationen zu dem Musikstück stellt sich heraus, dass keine offiziellen Notenblätter für das Lied Online existieren, wodurch Euterpea etwas an Bedeutung verliert, da Euterpea für genaue Notenbestimmungen perfekt geeignet wäre. Da dieser Fakt aber nicht gegeben ist, kann das selbe Maß an Genauigkeit auch mit Tidal erreicht werden.\\
+Der Letzte und für uns wichtigste Punkt war die Erweiterbarkeit der Sounds. Die Wichtigkeit darin besteht in der entfremdeten Benutzung der Musikinstrumente in dem Lied.
+In Eutherpea haben wir nach einiger Recherche keinen weg gefunden Sounds hinzuzufügen um diese später zu verwenden. In Tidal existiert diese Möglichkeit mittels
+dem Befehl \textit{\textasciitilde dirt.loadSoundFiles(''full/path/to/directory/*'')}. Mit diesem Befehl lässt sich ein Verzeichnis in Tidal integrieren. Anschließend können die Sounds mit dem Ordnernamen benutzt werden.{\color{red}\textbf{TODO}}Quelle einfügen
 \section{Eigenschaften des Stücks Pretend und dessen globale Struktur}\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 

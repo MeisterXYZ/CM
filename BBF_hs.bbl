@@ -14,17 +14,22 @@ The brandt brauer frick ensemble feat. emika - pretend (live at concertgebouw
 \bibitem{Tidal}
 Tidalcycles userbase.
 \newblock \url{https://tidalcycles.org}.
-\newblock Zugriff: 22.01.2019.
+\newblock Zugriff: 26.01.2019.
 
 \bibitem{Euterpea}
 Euterpea - a haskell library for music creation.
 \newblock \url{http://www.euterpea.com}.
-\newblock Zugriff: 22.01.2019.
+\newblock Zugriff: 26.01.2019.
 
 \bibitem{SC}
 Supercollider github-site.
 \newblock \url{https://supercollider.github.io}.
-\newblock Zugriff: 22.01.2019.
+\newblock Zugriff: 26.01.2019.
+
+\bibitem{tidcy}
+Custom superdirt startup.
+\newblock \url{https://tidalcycles.org/index.php/Custom_Samples}.
+\newblock Zugriff: 26.01.2019.
 
 \bibitem{tempo}
 Beats per minute calculator and counter.

@@ -1,6 +1,6 @@
 --Instrument 1: Schlagzeug
 --f1
-p "i1" $ sound "[bd hh]*4" #gain 0.9
+p "i1" $ sound "[bd hh]*4" #gain 0.9 #midinote 58
 
 --f2
 p "i1" $ cat [
@@ -12,22 +12,24 @@ sound "[[bd hh]*4]",
 sound "[[bd hh]*4]",
 stack [ sound "[bd ~]*4", sound "[~ hh ~ hh][~ [hh hh] hh hh]" ],
 stack [ sound "[bd ~]*4", sound "[~ hh ~ hh][~ [hh hh] [hh hh] hh]" ]
-]
+] #midinote 58
 
 hush
 
 --f3
-p "i1" $ slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh] bd hh]"
+p "i1" $ slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh] bd hh]" #midinote 58
 
 
 --f4
 p "i1" $ stack [
-sound "[bd hh]*4" #gain 1.0,
-cat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"] #gain 0.9
+sound "[bd hh]*4" #gain 1.0 #midinote 58,
+cat[
+sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug Schlagzeug]"#gain 1.5 #room 0.15 #orbit 1,
+sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug ~]"#gain 1.5 #room 0.15 #orbit 1] #gain 0.9
 ]
 
 --f5
-p "i1" $ cat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"] #gain 1.3
+p "i1" $ cat[sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug Schlagzeug]", sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug ~]"] #gain 1.5
 
 
 --f6
@@ -43,8 +45,8 @@ p "i1" $ slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh
 p "i1" $ stack [
   sound "[~ hh]*4" #gain 1.3,
   cat[
-    sound "[rm rm rm rm rm]",
-    sound "[rm rm rm rm ~]"] #gain 1.0
+    sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug Schlagzeug]",
+    sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug ~]"] #gain 1.0
 ]
 
 p "i1" $ silence
@@ -179,6 +181,7 @@ p "i8" $ silence
 --f1
 p "i9" $ slow 2 $ sound "[Klavier]" # gain 1.3 # room 0.2
 
+d1 $ sound "[bd:1 hh ~]" #midinote 20 #gain "[1.5 0 0]" # cut 1
 hush
 --f2
 --8Takte
@@ -199,17 +202,16 @@ hush
 p "i9" $ slow 2 $ sound "[Klavier:2 ~][Klavier:2][~] [~] " # room 0.2 #gain 0.9
 
 --f4
-p "i9" $ slow 2 $ cat [
-  midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74  ~ ~ 67 ~ " # s "superpiano",
-  midinote "~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69 ~ 67 68 69  ~ ~ 67 ~ " # s "superpiano",
-  midinote "~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72 ~ 66 67 72  ~ ~ 67 ~ " # s "superpiano",
-  midinote "~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70 ~ 66 67 70  ~ ~ 66 ~ " # s "superpiano"
+p "i9" $ cat [
+  cat [sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5]", sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5  ~ ~ Klavier:3]"],
+  cat [sound "[~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4]", sound "[~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4  ~ ~ Klavier:3]"],
+  cat [sound "[~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8]", sound "[~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8  ~ ~ Klavier:3]"],
+  cat [sound "[~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9]", sound "[~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9  ~ ~ Klavier:7]"]
 ] #gain 1.0 #pan 0.35
 
-
-
 --f5
-p "i9" $ slow 2 $ midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74  ~ ~ 67 ~ " # s "superpiano"
+p "i9" $ cat [sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5]", sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5  ~ ~ Klavier:3 ~] "]
+
 
 p "i9" silence
 
@@ -230,15 +232,9 @@ p "i10" $ slow 2 $ cat [
   midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog"
 ] # cut 1
 
-
-hush
-
 --f2
 --geheimwaffe
 p "i10" $ sound "[[[[BBFMoog:3 ~ ~ BBFMoog:3]][~ BBFMoog:3]][BBFMoog:5 BBFMoog:6 BBFMoog:8 BBFMoog:7]]" # cut 1 # gain 1.5
-
---alt
-p "i10" $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
 
 p "i10" silence
 

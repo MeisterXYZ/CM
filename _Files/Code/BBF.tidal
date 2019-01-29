@@ -1,6 +1,6 @@
 --Instrument 1: Schlagzeug
 --f1
-p "i1" $ sound "[bd hh]*4" #gain 0.9 #midinote 58
+p "i1" $ sound "[bd hh]*4" #midinote 58 #gain 0.9
 
 --f2
 p "i1" $ cat [
@@ -22,56 +22,56 @@ p "i1" $ slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh
 
 --f4
 p "i1" $ stack [
-sound "[bd hh]*4" #gain 1.0 #midinote 58,
+sound "[bd hh]*4"  #midinote 58 #gain 1.0,
 cat[
-sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug Schlagzeug]"#gain 1.5 #room 0.15 #orbit 1,
-sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug ~]"#gain 1.5 #room 0.15 #orbit 1] #gain 0.9
+  sound "[Rim Rim Rim Rim Rim]",
+  sound "[Rim Rim Rim Rim ~]"
+  ] #room 0.15 #orbit 1 #gain 1.5
 ]
 
 --f5
-p "i1" $ cat[sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug Schlagzeug]", sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug ~]"] #gain 1.5
+p "i1" $ cat[sound "[Rim Rim Rim Rim Rim]", sound "[Rim Rim Rim Rim ~]"] #room 0.15 #orbit 1 #gain 1.5
 
 
 --f6
 p "i1" $ stack [
-sound "[bd hh]*4" #gain 1.2,
-cat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"] #gain 1.0
+sound "[bd hh]*4" #gain 1.2 #midinote 58,
+cat[
+  sound "[Rim Rim Rim Rim Rim]",
+  sound "[Rim Rim Rim Rim ~]"
+  ] #room 0.15 #orbit 1 #gain 1.5
 ]
 
 --f7
-p "i1" $ slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh] bd hh]" #gain 1.2
+p "i1" $ slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh] bd hh]" #midinote 58 #gain 1.2
 
 --f8
 p "i1" $ stack [
-  sound "[~ hh]*4" #gain 1.3,
+  sound "[~ hh]*4" #midinote 58 #gain 1.3,
   cat[
-    sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug Schlagzeug]",
-    sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug ~]"] #gain 1.0
+    sound "[Rim Rim Rim Rim Rim]",
+    sound "[Rim Rim Rim Rim ~]"] #gain 1.0
 ]
 
 p "i1" $ silence
 
 
 --Instrument 2: Pauken
-------.....
-
-
+--bewusst nicht implementiert
 
 --Instrument 3: Marimba
 --f1
-p "i3" $ slow 2 $ midinote "[~ [59 57] 59 59][~ [59 54] 59 59][~ [59 57] 59 59][~ 59 ~ 59]" # s "Marimba" # room 0.5
+p "i3" $ slow 2 $ midinote "[~ [65 63] 65 65][~ [65 60] 65 65][~ [65 63] 65 65][~ 65 ~ 65]" # s "Marimba" # room 0.1  #orbit 1
+
 
 --f2
 p "i3" $ stack [
-  slow 2 $ midinote "[~ [59 57] 59 59][~ [59 54] 59 59][~ [59 57] 59 59][~ 59 ~ 59]" # s "Marimba" # room 0.5,
+  slow 2 $ midinote "[~ [65 63] 65 65][~ [65 60] 65 65][~ [65 63] 65 65][~ 65 ~ 65]" # s "Marimba" # room 0.1  #orbit 1,
   slow 2 $ sound "[ ~ [ ~ ~ ~ Glocken ] ~ ~ ][]" # n (irand 11) # cut 1
 ]
 
-
-hush
-
 --f3
-p "i3" $ midinote "[~ 57 59 57]*4" # s "Marimba" #gain 1.6
+p "i3" $ midinote "[~ 63 65 63]*4" # s "Marimba" # room 0.1 #orbit 1 #gain 1.4
 
 p "i3" $ silence
 
@@ -80,38 +80,42 @@ p "i3" $ silence
 --f1
 p "i4" $ sound "[~ cp ~ ~]" #pan 0.2
 
-hush
+--vielleicht was mit stack?
+p "i4" $ sound "~ bd hh ~" # cut 1 # midinote 15 #gain "1.3 0"
+
 
 --f2
-p "i4" $ loopAt 2 $ sound "Atmen" #room 1
+p "i4" $ loopAt 2 $ sound "Atmen" #room 1 #orbit 1 # gain 1.3
 
 --f3
-p "i4" $ sound "[~ Tuba ~ ~]" # room 0.4 # gain 1.1
+p "i4" $ sound "[~ Tuba ~ ~]" # room 0.4 #orbit 1 # gain 1.1
 
 --f4
-p "i4" $ slow 16 $ sound "[TubaOrch:20 TubaOrch:20 TubaOrch:20 TubaOrch:20]*2" # cut 1 #gain " 0.8 0.75 0.7 0.65 0.6 0.5 0.5 0.5"
-
-hush
+p "i4" $ slow 16 $ midinote "[55 50 48 50]*2" # s "TubaOrch:20" # cut 1 #gain " 1 0.95 0.9 0.85 0.8 0.7 0.7 0.7"
+-- ggf TODO: Anstieg bei YT checken
 
 --f5
-p "i4" $ slow 16 $ sound "[TubaOrch:20 TubaOrch:20 TubaOrch:20 TubaOrch:20]*2" # cut 1
+p "i4" $ slow 16 $ midinote "[55 50 48 50]*2" # s "TubaOrch:20" # cut 1
 
 --f6
-p "i4" $ slow 16 $ sound "[TubaOrch:20 TubaOrch:20 TubaOrch:20 TubaOrch:20]*2" # cut 1 #gain 1.3
+p "i4" $ slow 16 $ midinote "[67 62 60 62]*2" # s "TubaOrch:20" # cut 1 #gain 1.1
+
+p "i4" $ silence
 
 
-hush
+
 
 --Instrument 5: Posaune
 --f1
-p "i5" $ sound "[][[][~ Posaune]]" # room 0.3 # gain 1.1
+p "i5" $ sound "[][[][~ Posaune]]" # room 0.3 #orbit 1 # gain 1.2
 
 --f2
   --Frage: Lautstaerke?
-p "i5" $ loopAt 2 $ sound "Atmen" #room 0.6 # gain 1.1
+p "i5" $ loopAt 2 $ sound "Atmen" #room 0.6 #orbit 1 #gain 1.1
+
+p "i5" $ silence
 
 
-hush
 
 --Instrument 6: Violine
 --f1
@@ -120,123 +124,120 @@ midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Violine:5",
 midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Violine:5",
 midinote "[52][][][][][][][45][44][56][][][][][57][56]" # s "Violine:5",
 midinote "[][60][][][][][61][60][][63][][][][][][]" # s "Violine:5"
-]  #gain 0.5 #cut 1 #speed 1.2 # sz 0.8 # orbit 1 # room 0.85
-
-
-p "i6" $ slow 4 $ cat [
-midinote "[82][][][][][][][75][74][82][][][][][][]" # s "gtr",
-midinote "[82][][][][][][][75][74][82][][][][][][]" # s "gtr",
-midinote "[82][][][][][][][75][74][86][][][][][87][86]" # s "gtr",
-midinote "[][90][][][][][91][90][][93][][][][][][]" # s "gtr"
-] #cut 1 # room 0.85 # sz 0.8 # orbit 1
-#gain 0.9
+] #cut 1 #speed 1.2 # sz 0.8 # orbit 1 # room 0.85 #gain 0.9
 
 
 --f2
-p "i6" $ slow 2 $ midinote "[[62][60][58][[][60]]][58 57 55 54]" # s "Violine:6" #cut 1 # room 0.85 # sz 0.8 # orbit 1 # speed 1.5
+p "i6" $ slow 2 $ midinote "[[61][59][57][[][59]]][57 56 54 53]" # s "Violine:6" #cut 1 # room 0.85 # sz 0.8 # orbit 1
 
 p "i6" $ silence
 
+
+
 --Instrument 7: Chello
 --f1
-p "i7" $ slow 2 $ midinote "[[54][][][[][55]]][54 52 55 54]" # s "Cello:1" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
+p "i7" $ slow 2 $ midinote "[[50][][][[][51]]][50 48 51 50]" # s "Cello:1" #cut 2 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
 
 --f2
-p "i7" $ slow 4 $ midinote "[[42][[][][][43]]][42]" # s "Cello:2" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
+p "i7" $ slow 4 $ midinote "[[50][[][][][51]]][50]" # s "Cello:2" #cut 2 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
 
 p "i7" $ silence
 
-hush
+
+
 
 --Instrument 8: Harfe
 --f1
 p "i8" $ slow 2 $ stack [
-	midinote "[62 60]*4" # s "Harp:13",
-	midinote "[50 48]*4" # s "Harp:13",
-	slow 2 $ fastcat [
-		midinote "58 57" # s "Harp:13",
-		midinote "55" # s "Harp:13",
-		midinote "58 57" # s "Harp:13",
-		midinote "54" # s "Harp:13"
-	]
-] #gain 0.75 # room 0.5
-
---alt
-p "i8" $ slow 2 $ stack [
-  midinote "[74 72]*4" # s "gtr",
-  midinote "[62 60]*4" # s "gtr",
+  midinote "[57 55]*4" # s "Harp:13",
+  midinote "[45 43]*4" # s "Harp:13",
   slow 2 $ fastcat [
-    midinote "70 69" # s "gtr",
-    midinote "67" # s "gtr",
-    midinote "70 69" # s "gtr",
-    midinote "66" # s "gtr"
+    midinote "53 52" # s "Harp:13",
+    midinote "50" # s "Harp:13",
+    midinote "53 52" # s "Harp:13",
+    midinote "49" # s "Harp:13"
   ]
-] #gain 0.75 #pan 0.65 #gain 0.8
-
+] #speed 2 # room 0.5 # orbit 1 #gain 0.9
 
 p "i8" $ silence
 
 
 --Instrument 9: Flügel
 --f1
-p "i9" $ slow 2 $ sound "[Klavier]" # gain 1.3 # room 0.2
+p "i9" $ slow 2 $ sound "[K]" # room 0.2 #orbit 1 # gain 1.3
 
-d1 $ sound "[bd:1 hh ~]" #midinote 20 #gain "[1.5 0 0]" # cut 1
-hush
 --f2
 --8Takte
-p "i9"  $ slow 8 $ sound "[[][[][][][Klavier:1]][][]] [] [] [] [[][[][][][Klavier:1]][][]] [] [] []" # room 0.2 #gain 1
+p "i9"  $ slow 8 $ sound "[[][[][][][K:1]][][]] [] [] [] [[][[][][][K:1]][][]] [] [] []" # room 0.2 #orbit 1 #gain 1.2
 
 --16 Takte mit vorne 8 Takte Pause
-p "i9"  $ slow 16 $ sound "[[][[][][][Klavier:1]][][]] [] [] [] [[][[][][][Klavier:1]][][]] [] [] []" # room 0.5 # sz 0.83 # orbit 1 #gain 0.9
-
---16 Takte mit vorne 8 Takte Pause
-p "i9"  $ slow 16 $ stack[
- midinote "[] [[[][[][][][67]][][]] [] [] [] [[][[][][][67]][][]] [] [] []]" #s "superpiano",
- midinote "[] [[[][[][][][62]][][]] [] [] [] [[][[][][][62]][][]] [] [] []]" #s "superpiano"
-] # room 0.5 # sz 0.83 # orbit 1 #gain 0.9
-
-hush
+p "i9"  $ slow 16 $ sound "[[][[][][][K:1]][][]] [] [] [] [[][[][][][K:1]][][]] [] [] []" # room 0.5 # sz 0.83 # orbit 1 #gain 1.2
 
 --f3
-p "i9" $ slow 2 $ sound "[Klavier:2 ~][Klavier:2][~] [~] " # room 0.2 #gain 0.9
+p "i9" $ slow 2 $ sound "[K:2 ~][K:2][~] [~] "  #speed 2 #room 0.4 #orbit 1 #gain 1.5
 
 --f4
-p "i9" $ cat [
-  cat [sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5]", sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5  ~ ~ Klavier:3]"],
-  cat [sound "[~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4]", sound "[~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4  ~ ~ Klavier:3]"],
-  cat [sound "[~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8]", sound "[~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8  ~ ~ Klavier:3]"],
-  cat [sound "[~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9]", sound "[~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9  ~ ~ Klavier:7]"]
-] #gain 1.0 #pan 0.35
+p "i9" $ slow 2 $ cat [
+sound "~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ ~ K:3 ~ ",
+sound "~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ ~ K:3 ~ ",
+sound "~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ ~ K:3 ~ ",
+sound "~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ ~ K:7 ~ "
+] #pan 0.35 #gain 1.0
 
 --f5
-p "i9" $ cat [sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5]", sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5  ~ ~ Klavier:3 ~] "]
-
+p "i9" $ cat [sound "[~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5]", sound "[~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5  ~ ~ K:3 ~] "]
 
 p "i9" silence
 
 
 --Instrument 10: Moog Syntheziser
 --f1
+p "i10" $ slow 2 $ cat [
+  midinote "[[55 55][54 55 ~ ~]]*2" # s "BBFMoog:6",
+  midinote "[[50 50][49 50 ~ ~]]*2" # s "BBFMoog:6",
+  midinote "[[48 48][47 48 ~ ~]]*2" # s "BBFMoog:6",
+  midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "BBFMoog:6"
+] # cut 1 #speed 2 #gain 0.9
+
+
+-- mit einzelnen tönen?
 p "i10" $ slow 8 $ fastcat [sound "[[BBFMoog:5 BBFMoog:5][BBFMoog:4 BBFMoog:5 ~ ~]]*2" # cut 1 ,
 sound "[[BBFMoog:3 BBFMoog:3 ][BBFMoog:2 BBFMoog:3 ~ ~]]*2" # cut 1,
 sound "[[BBFMoog:1 BBFMoog:1 ][BBFMoog:0 BBFMoog:1 ~ ~]]*2" # cut 1,
 sound "[[BBFMoog:7 BBFMoog:6 ][BBFMoog:5 BBFMoog:6 ~ ~]]  [[BBFMoog:6 ~][BBFMoog:5 ~ BBFMoog:6 ~ ~]]" # cut 1
-] #gain 1.5
+] #gain 1.5 #speed 2
 
 --alt
 p "i10" $ slow 2 $ cat [
   midinote "[[55 55][54 55 ~ ~]]*2" # s "moog",
   midinote "[[50 50][49 50 ~ ~]]*2" # s "moog",
   midinote "[[48 48][47 48 ~ ~]]*2" # s "moog",
-  midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "moog"
-] # cut 1
+  midinote "[[58 57][56 57 ~ ~]] [[57 ~][56 57 ~ ~]]" # s "moog"
+] # cut 1 #gain 0.8
+
+
 
 --f2
---geheimwaffe
+p "i10" $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "BBFMoog:6" # cut 1 #speed 2 #gain 1.0
+
+-- einzelne Töne?
 p "i10" $ sound "[[[[BBFMoog:3 ~ ~ BBFMoog:3]][~ BBFMoog:3]][BBFMoog:5 BBFMoog:6 BBFMoog:8 BBFMoog:7]]" # cut 1 # gain 1.5
 
+-- alt
+p "i10" $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
+
+
 p "i10" silence
+
+
+
+
+
+hush
+
+
+
+
 
 
 

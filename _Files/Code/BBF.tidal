@@ -117,15 +117,17 @@ p "i5" $ silence
 
 
 
---Instrument 6: Violine
+--Instrument 6: Violin
 --f1
-p "i6" $ slow 16 $ fastcat [
+p "i6" $ slow 4 $ cat [
 midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Violine:5",
 midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Violine:5",
 midinote "[52][][][][][][][45][44][56][][][][][57][56]" # s "Violine:5",
 midinote "[][60][][][][][61][60][][63][][][][][][]" # s "Violine:5"
 ] #cut 1 #speed 1.2 # sz 0.8 # orbit 1 # room 0.85 #gain 0.9
 
+
+setcps (130/60/4)
 
 --f2
 p "i6" $ slow 2 $ midinote "[[61][59][57][[][59]]][57 56 54 53]" # s "Violine:6" #cut 1 # room 0.85 # sz 0.8 # orbit 1
@@ -162,7 +164,7 @@ p "i8" $ slow 2 $ stack [
 p "i8" $ silence
 
 
---Instrument 9: Flügel
+--Instrument 9: Piano
 --f1
 p "i9" $ slow 2 $ sound "[K]" # room 0.2 #orbit 1 # gain 1.3
 
@@ -185,7 +187,7 @@ sound "~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K
 ] #pan 0.35 #gain 1.0
 
 --f5
-p "i9" $ cat [sound "[~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5]", sound "[~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5  ~ ~ K:3 ~] "]
+p "i9" $ slow 2 $ sound "[~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5  ~ ~ K:3 ~] "
 
 p "i9" silence
 

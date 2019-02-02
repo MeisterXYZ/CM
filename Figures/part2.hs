@@ -2,11 +2,11 @@
 d1 $ stack [
   --Drums2,3,4
   --f2
-  --cat [sound "[[bd  ...  ]]
+  cat [sound "[[bd  ...  ]"]
   --f3
   -- slow 2 $ sound "[bd ... hh]"
   --f4
-  slow 2 $ stack [sound "[bd ... rm ~]"] #gain 0.9]
+  --slow 2 $ stack [sound "[bd ... rm ~]"] #gain 0.9]
   --MOOG1,2
   , slow 2 $ cat [midinote "[[55 ... ~]]" # s "moog" ] # cut 1 #gain 1.0
   --2

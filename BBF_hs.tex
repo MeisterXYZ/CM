@@ -155,7 +155,7 @@ Tidal oder Euterpea. Eine online verfügbare Live-Aufführung \cite{YT1} soll da
 \section{Umsetzung in Tidal oder Euterpea}\
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
 
-\noindent Dieses Thema soll sich um die Evaluation zwischen Tidal und Eutherpea handeln. Bevor es aber zu der Evaluation kommt, werden die eben genannten
+\noindent Dieses Thema soll sich um die Evaluation zwischen Tidal und Eutherpea handeln. Bevor es zu der Evaluation kommt, werden die eben genannten
 Programme kurz erklärt.\\
 Tidal ist eine Open Source Software mit deren Hilfe es möglich ist Musikpatterns per Code zu generieren. Tidal benutzt den Synthesizer \textit{SuperCollider}.\cite{Tidal}\\
 Der SuperCollider, ebenfalls eine Open Source Software, ist ein Audio-Synthesizer. Dabei können eigene Klänge oder Instrumente mithilfe von unterschiedlichen Oszilatoren, Filtern
@@ -163,10 +163,11 @@ und anderen Hilfsmitteln des SuperColliders erstellt werden. \cite{SC}\\
 Euterpea ist ein in Haskell eingebettetes Programm, welches durch Code u. a. Musik erzeugt, algorithmische Komposition und Sound Synthese ermöglicht.\cite{Euterpea}\\
 Im Endeffekt ist unsere Auswahl des Programmes auf Tidal gefallen. In diese Entscheidung ist der Programmieraufwand, vorhandenen Informationen
 und die Möglichkeit den Synthesizer zu erweitern mit eingeflossen.\\
-Bei dem Programmieraufwand wird sehr schnell klar, dass das sehr repetetive Lied \textit{Pretent} von BrandBrauerFrick für Tidal besser geeignet ist als für Euterpea, da in Tidal die Musikpatterns immer in einem loop abgespielt werden. In Eutherpea kann dieser Effekt nur durch zusätzlichen Programmieraufwand erreicht werden. Bei den vorhandenen Informationen zu dem Musikstück stellt sich heraus, dass keine offiziellen Notenblätter für das Lied Online existieren, wodurch Euterpea etwas an Bedeutung verliert, da Euterpea für genaue Notenbestimmungen perfekt geeignet wäre. Da dieser Fakt aber nicht gegeben ist, kann das selbe Maß an Genauigkeit auch mit Tidal erreicht werden.\\
+Bei dem Programmieraufwand wird sehr schnell klar, dass das sehr repetetive Lied \textit{Pretent} von BrandBrauerFrick für Tidal besser geeignet ist als für Euterpea, da in Tidal die Musikpatterns immer in einem loop abgespielt werden. In Eutherpea kann dieser Effekt nur durch zusätzlichen Programmieraufwand erreicht werden.\\ 
+Bei den vorhandenen Informationen zu dem Musikstück stellt sich heraus, dass keine offiziellen Notenblätter für das Lied Online existieren, wodurch Euterpea etwas an Bedeutung verliert, da Euterpea für genaue Notenbestimmungen perfekt geeignet wäre. Durch die absenz dieses Faktors, kann das selbe Maß an Genauigkeit auch mit Tidal erreicht werden.\\
 Der Letzte und für uns wichtigste Punkt war die Erweiterbarkeit der Sounds. Die Wichtigkeit darin besteht in der entfremdeten Benutzung der Musikinstrumente in dem Lied.
 In Eutherpea haben wir nach einiger Recherche keinen weg gefunden Sounds hinzuzufügen um diese später zu verwenden. In Tidal existiert diese Möglichkeit mittels
-dem Befehl \textit{\textasciitilde dirt.loadSoundFiles(''full/path/to/directory/*'')}. Mit diesem Befehl lässt sich ein Verzeichnis in Tidal integrieren. Anschließend können die Sounds mit dem Ordnernamen benutzt werden.\cite{tidcy}
+dem Befehl \textit{\textasciitilde dirt.loadSoundFiles(''full/path/to/directory/*'')}. Mit diesem Befehl lässt sich ein Verzeichnis in Tidal integrieren. Anschließend können die Sounds beim Programmieren mit dem Ordnernamen benutzt werden.\cite{tidcy}
 \section{Eigenschaften des Stücks Pretend und dessen globale Struktur}\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
@@ -309,16 +310,16 @@ cat[sound "[rm rm rm rm rm]", sound "[rm rm rm rm ~]"]
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
 
 \noindent Bestandteile des Schlagzeuges: herkömmliches Schlagzeug\\
-Art der Synthetisierung: Da Bass Drum und High Head normal gespielt werden können die Sounds aus dem Supercollider 
+Art der Synthetisierung: Da Bass Drum und High Hat normal gespielt werden können die Sounds aus dem Supercollider 
 mit minimaler Anpassung benutzt werden. Lediglich die Rim aus Figur 4 muss, wegen ihres hölzernen Sounds, selbst 
 aufgenommen werden.\\
 \noindent \textbf{Figur 1}\\
-Sound BD: Base Drum wird mit zunehmender dauer lauter gespielt\\
-Sound HH: wird Anfangs nur sanft angespielt aber mit zunehmender Zeit etwas lauter\\
-Problem: Base Drum und High Hat müssen mit zunehmender Vorführungszeit lauter werden\\ 
+Sound BD: Die Base Drum wird mit zunehmender dauer lauter gespielt.\\
+Sound HH: Auch die HH wird Anfangs nur sanft angespielt aber mit zunehmender Zeit lauter.\\
+Problem: Base Drum und High Hat müssen mit zunehmender Vorführungszeit lauter werden.\\ 
 Lösung: Die Lautstärkensteigerung der Schlagzeugs wird live, mittels der Erhöhung des \textit{gain}-Parameters, realisiert.
 \begin{lstlisting}
-p "i1" $ sound "[bd hh]*4" #gain 0.9 # midinote 58
+p "i1" $ sound "[bd hh]*4" #midinote 58 #gain 0.9
 \end{lstlisting}
 \noindent \textbf{Figur 2}\\
 Sound: Das Schlagzeug wird in dieser Figur, bis auf die Lautstärkensteigerung, analog zu Figur 1 gespielt. In dieser Figur ist die Lautstärke gleichbleibend.\\
@@ -338,27 +339,28 @@ stack [ sound "[bd ~]*4", sound "[~ hh ~ hh][~ [hh hh] [hh hh] hh]" ]
 \noindent \textbf{Figur 3}\\
 Sound: Die Bass-Drum wird etwas schwächer angespielt um einen zu starken Bass zu vermeiden und um nicht dominant zu wirken. Selbiges gilt fir die High Hat.
 \begin{lstlisting}
-p "i1" $ slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh] bd hh]" # midinote 58
+p "i1" $ slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh] bd hh]" #midinote 58
 \end{lstlisting}
 \noindent \textbf{Figur 4}\\
 Sound: In Figur 4 wurde eine hölzern klingende Rim hinzugefügt. Diese ist nur sehr dezent im Klangbild zu erkennen.\\
 Lösung: Die hölzern klingende Rim wurde durch einen Schlag eines Bleistiftes auf eine kleine hölzerne Kiste erzeugt.
  \begin{lstlisting}
 p "i1" $ stack [
-sound "[bd hh]*4" #gain 1.0 #midinote 58,
+sound "[bd hh]*4"  #midinote 58 #gain 1.0,
 cat[
-sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug Schlagzeug]"#gain 1.5 #room 0.15 #orbit 1, 
-sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug ~]"#gain 1.5 #room 0.15 #orbit 1] #gain 0.9 
+  sound "[Rim Rim Rim Rim Rim]",
+  sound "[Rim Rim Rim Rim ~]"
+  ] #room 0.15 #orbit 1 #gain 1.5
 ]
 \end{lstlisting}
 \noindent \textbf{Figur 5}\\
-Sound: In dieser Figur wird lediglich die hölzerne Rim gespielt. Die Rim wird analog zu FIgur 4 gespielt.\\
+Sound: In dieser Figur wird lediglich die hölzerne Rim gespielt. Die Rim wird analog zu Figur 4 gespielt.\\
 Lösung:
 \begin{lstlisting}
-p "i1" $ cat[sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug Schlagzeug]", sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug ~]"] #gain 1.5
+p "i1" $ cat[sound "[Rim Rim Rim Rim Rim]", sound "[Rim Rim Rim Rim ~]"] #room 0.15 #orbit 1 #gain 1.5
 \end{lstlisting}
-\noindent \textbf{Figur 6}\\
-Sound: \\
+\noindent \textbf{Figur 6 und 7}\\
+Sound: Figur 6 wird wie Figur 4 gespielt und Figur 7 wie Figur 3. In beiden Fällen sind 6 und 7 nur lauter gespielt weshalb hier auf das zeigen von Code verzichtet wird.\\
 
 \noindent \textbf{Figur 8}\\
 Sound: Die letzte Figur des Schlagzeugst ist für \grqq die Ruhe vor dem Sturm\grqq zuständig, welche kurz vor dem zweiten Hauptteil zu hören ist. Dabei sieht diese Figur so aus
@@ -366,13 +368,12 @@ wie Figur 4, jedoch fehlt die Base Drum was für die \grqq Ruhe\grqq sorgt.\\
 Lösung:
 \begin{lstlisting}
 p "i1" $ stack [
-  sound "[~ hh]*4" #gain 1.3,
+  sound "[~ hh]*4" #midinote 58 #gain 1.3,
   cat[
-    sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug Schlagzeug]",
-    sound "[Schlagzeug Schlagzeug Schlagzeug Schlagzeug ~]"] #gain 1.0
+    sound "[Rim Rim Rim Rim Rim]",
+    sound "[Rim Rim Rim Rim ~]"] #gain 1.0
 ]
 \end{lstlisting}
-{\color{red}\textbf{TODO}} Klangbild 6-8 Raphas Meinung zu Figur 8\\
 \subsection{Instrument 2: Pauken}
 \subsubsection{Figuren}
 {\color{red}\textbf{OFFEN}} \\
@@ -416,7 +417,7 @@ p1 $ stack [
 slow 2 $ midinote "[~ [51 49] 51 51][~ [51 46] 51 51][~ [51 49] 51 51][~ 51 ~ 51]" # s "glasstap",
 slow 2 $ midinote "[~[~~~60]~~][]" # s "can" # speed (1 + (irand 10)*0.2)
 ]
-\end{lstlisting}
+\end{lstlisting} 
 
 \noindent \textbf{Figur 3}\\
 Es wurde folgende Figur per Gehör ermittelt. Dabei sind die Tonhöhen wie in Figur 1 angenommen.
@@ -435,9 +436,8 @@ p1 $ midinote "[~ 49 51 49]*4" # s "glasstap"
 \subsubsection{Klangbild}
 Bestandteile der Marimba: Eine Marimba, wobei Kuhglocken zum zufälligem Anspielen enthalten sind.\\
 Art der Synthetisierung: Da keine hölzernen Klänge im SuperCollider enthalten sind müssen diese selbst aufgenommen werden. Dies geschieht mittels 
-einem von \textit{SuperCollider Code} stammenden Code.{\color{red}\textbf{TODO}} Link einfügen\\
-Für die Synthetisierung der Marimba mussten einige kleine Teilschritte unternommen werden. Zuerst die Syntetisierung des Moogs im SuperCollider.\\
-Dazu wurde folgender Code von \textit{SuperCollider Code}{\color{red}\textbf{TODO}} Link einfügen kopiert und leicht abgewandelt, sodass er mer unseren Anforderungen entspricht:
+einem von \textit{SuperCollider Code} stammenden Code.\cite{Marimba}\\
+Folgender Code wurde leicht abgewandelt, sodass er unseren Anforderungen entspricht:
 \begin{lstlisting}
 (
 SynthDef(\bell, {
@@ -468,43 +468,31 @@ Pbind(
 	\pitchy, 1.75,
 	\dur, 0.25
 ).play;)
-
-(
-Pbind(
-	\instrument, \bell,
-	\fs, Pseq( (60..72), 1).midicps,
-	\t60, 3,
-	\pitchy, 2,
-	\dur, 1
-).play;
-)
-
 \end{lstlisting}
-Wobei der erste Teil des Codes einen Ton erzeugt welcher Vergleichbar ist mit dem Kratzen auf einem Microphone.\\
-Der zweite Teil ändert den ersten Sound so ab, sodass dieser mehr Hölzern klingt und der dritte Teil ist für den Sound der Glocken aus Figur 2.\\
-Als nächstes muss dieser Sound aus dem SuperCollider aufgenommen werden. Dies geht mit dem Befehl \textit{Server.default.record;}.\\
-Der dritte Schritt war das zuschneiden der Audisamples. Dazu wurde Audacity{\color{red}\textbf{TODO}} Link einfügen benutzt. Audacity ist ein kostenlosen Audioschnitt-, Editierungs- und Aufnahmeprogramm. Im Anschluss kann dann der Code für die einzelnen Figuren angepasst werden.\\
+Wobei der erste Teil des Codes einen Ton erzeugt welcher Vergleichbar ist mit dem Kratzen auf einem Mikrofon.\\
+Der zweite Teil ändert den ersten Sound so ab, sodass dieser mehr hölzern klingt.\\
+Als nächstes muss dieser Sound aus dem SuperCollider aufgenommen werden. Dies wird mit dem Befehl \textit{Server.default.record;} umgesetzt.\cite{tidcy}\\
+Der dritte Schritt war das Zuschneiden der Audisamples. Dazu wurde Audacity benutzt. Audacity ist ein kostenlosen Audioschnitt-, Editierungs- und Aufnahmeprogramm.\cite{Auda} Im Anschluss kann dann der Code für die einzelnen Figuren angepasst werden.\\
 \noindent \textbf{Figur 1}\\
-Sound Marimba: Die Marimba wird am Anfang des Stücks relativ dominant, im gegensatz zu den restlichen Instrumenten, gespiel\\
+Sound : Die Marimba wird am Anfang des Stücks relativ dominant, im Gegensatz zu den restlichen Instrumenten, gespielt.\\
 Lösung:
 \begin{lstlisting}
-p "i3" $ slow 2 $ midinote "[~ [59 57] 59 59][~ [59 54] 59 59][~ [59 57] 59 59][~ 59 ~ 59]" # s "Marimba" # room 0.5
+p "i3" $ slow 2 $ midinote "[~ [65 63] 65 65][~ [65 60] 65 65][~ [65 63] 65 65][~ 65 ~ 65]" # s "Marimba" # room 0.1  #orbit 1
 \end{lstlisting}
 \noindent \textbf{Figur 2}\\
-Sound: Wird nur schwach angespielt wodurch sie in diesem Teil in den Hintergrund tritt.
-Holzsticks auf Marimba in verschiedenen Tonhöhen wobei eher rhythmisch als melodisch eingesetzt, dazu Kuh-Glocken bereitstellen für Random-Funktion.\\
+Sound: In dieser Figur wird die Marimba eher rythmisch als melodisch eingesetzt. Hinzu kommt das die Marimba nur schwach angespielt wird, wodurch sie in diesem Teil in den Hintergrund tritt. Des weiteren liegen neben der Marimba noch Kuh-Glocken. Die Kuh-Glocken werden zufällig angespielt.\\
 Lösung:
 \begin{lstlisting}
 p "i3" $ stack [
-  slow 2 $ midinote "[~ [59 57] 59 59][~ [59 54] 59 59][~ [59 57] 59 59][~ 59 ~ 59]" # s "Marimba" # room 0.5,
-  slow 2 $ sound "[ ~ [ ~ ~ ~ Glocken ] ~ ~ ][]" # n (irand 11) # cut 1
+  slow 2 $ midinote "[~ [65 63] 65 65][~ [65 60] 65 65][~ [65 63] 65 65][~ 65 ~ 65]" # s "Marimba" # room 0.1  #orbit 1,
+  slow 2 $ midinote "[~[~~~60]~~][]" # s "can" # speed (1 + (irand 10)*0.1) #gain 1.2
 ]
 \end{lstlisting}
 \noindent \textbf{Figur 3}\\
 Sound: In der dritten Figur ist die Marimba nur sehr dezent im Hintergrund zu hören. Sie dient in dieser Figur lediglich als Taktgeber.\\
 Lösung:
 \begin{lstlisting}
-p "i3" $ midinote "[~ 57 59 57]*4" # s "Marimba"
+p "i3" $ midinote "[~ 63 65 63]*4" # s "Marimba" # room 0.1 #orbit 1 #gain 1.4
 \end{lstlisting}
 \subsection{Instrument 4: Tuba}
 \subsubsection{Figuren}
@@ -569,46 +557,46 @@ d1 $ slow 8 $ midinote "55 50 48 50" # s "superpiano" # room 0.85 # sz 0.8 # orb
 
 \subsubsection{Klangbild}
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
-\noindent Bestandteile der Tuba: normale Tuba, welche aber entartet benutzt wird\\
+\noindent Bestandteile der Tuba: Tuba, welche entartet benutzt wird.\\
 Art der Synthetisierung: Da die Tuba ein reales Musikinstrument ist, welches in dieser Form nicht im Supercollider enthalten ist,
-werden hierfür Samples benutzt. Die Samples werden für die entartete Benutzung in Tidal so manipuliert, dass sie die Sounds
+werden hierfür selbst aufgenommene Samples benutzt. Die Samples werden für die entartete Benutzung in Tidal so manipuliert, dass sie die Sounds
 nachempfinden.\\
-Für Figur 2 wurde mit weit gespreitzten Nasenflügeln ausgeatmet und für Figur 3 wurde ein Handscheibenwischer mit hohlem Griff angespielt.\\
+Für Figur 2 wurde mit weit gespreizten Nasenflügeln ausgeatmet und für Figur 3 wurde ein Handscheibenwischer mit hohlem Griff angespielt.\\
 
 \noindent\textbf{Figur 1}\\
  Sound: In dieser Figur wird auf das Mundstück der Tuba geschlagen. Der erzeugte Ton hört sich in etwa an wie eine Base Drum ohne Bass.\\
 Lösung:
 \begin{lstlisting}
-d1 $ sound "~ bd ~ ~" # midinote 15
+p "i4" $ sound "~ bd hh ~" # cut 1 # midinote 15 #gain "1.3 0"
 \end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
-Sound: ähnlich eines Reifens der Luft verliert\\
+Sound: Bei Figur 2 ist das Klangbild vergleichbar eines Reifens der Luft verliert.\\
 Lösung:Der Hall sorgt dafür, dass sich der Sound nach einem größerem Gegenstand und nicht nach einer Nase anhört.
 \begin{lstlisting}
-p "i4" $ loopAt 2 $ sound "Atmen" # room 1
+p "i4" $ loopAt 2 $ sound "Atmen" #room 1 #orbit 1 # gain 1.3
 \end{lstlisting}
 
 \noindent\textbf{Figur 3}\\
-Sound: Wie Sound aus Figur 2 aber mit mehr Druck und nicht durchgehend.\\
+Sound: Der Sound ist wie aus Figur 2 aber er wird mit mehr Druck und nicht durchgehend gespielt.\\
 Lösung: \textit{Room} und \textit{Gain} haben hier den selben Effekt wie in Figur 2
 \begin{lstlisting}
-p "i4" $ sound "[~ Tuba ~ ~]" # room 0.4 # gain 1.1
+p "i4" $ sound "[~ Tuba ~ ~]" # room 0.4 #orbit 1 # gain 1.1
 \end{lstlisting}
 \noindent\textbf{Figur 4, 5, 6}\\
 Sound: Die Tuba wird in Figur 4 mit absteigender Lautstärke gespielt. In Figur 5 und 6 wird sie mit gleichbleibender Lautstärke gespielt wobei jedoch die Lautstärke
 zwischen den Figuren ansteigt.\\
 Lösung Figur 4:
 \begin{lstlisting}
-p "i4" $ slow 16 $ sound "[TubaOrch:20 TubaOrch:20 TubaOrch:20 TubaOrch:20]*2" # cut 1 #gain " 0.8 0.75 0.7 0.65 0.6 0.5 0.5 0.5"
+p "i4" $ slow 16 $ midinote "[55 50 48 50]*2" # s "TubaOrch:20" # cut 1 #gain " 1 0.95 0.9 0.85 0.8 0.7 0.7 0.7"
 \end{lstlisting}
 Lösung Figur 5:
 \begin{lstlisting}
-p "i4" $ slow 16 $ sound "[TubaOrch:20 TubaOrch:20 TubaOrch:20 TubaOrch:20]*2" # cut 1 
+p "i4" $ slow 16 $ midinote "[55 50 48 50]*2" # s "TubaOrch:20" # cut 1
 \end{lstlisting}
 Lösung Figur 6:
 \begin{lstlisting}
-p "i4" $ slow 16 $ sound "[TubaOrch:20 TubaOrch:20 TubaOrch:20 TubaOrch:20]*2" # cut 1 #gain 1.3
+p "i4" $ slow 16 $ midinote "[67 62 60 62]*2" # s "TubaOrch:20" # cut 1 #gain 1.1
 \end{lstlisting}
 
 \subsection{Instrument 5: Posaune}
@@ -636,7 +624,7 @@ d1 $ loopAt 2 $ sound "blasesoundPosaune"
 \end{lstlisting}
 
 \subsubsection{Klangbild}
-Bestandteile der Posaune: normale Posaune, welche aber entartet benutzt wird.\\
+Bestandteile der Posaune: Normale Posaune, welche aber entartet benutzt wird.\\
 Art der Synthetisierung: Da die Posaune ein reales Musikinstrument ist, welches in dieser Form nicht im Supercollider enthalten ist,
 werden hierfür Samples benutzt. Die Samples werden eigens dafür aufgenommen. Die Sound werden wie bei der Tuba erzeugt.
 
@@ -644,14 +632,14 @@ werden hierfür Samples benutzt. Die Samples werden eigens dafür aufgenommen. D
  Sound: In dieser Figur wird auf das Mundstück der Posaune stoßartig angespielt.\\
 Lösung:
 \begin{lstlisting}
-p "i5" $ sound "[][[][~ Posaune]]" # room 0.3 # gain 1.1
+p "i5" $ sound "[][[][~ Posaune]]" # room 0.3 #orbit 1 # gain 1.2
 \end{lstlisting}
 
 \noindent\textbf{Figur 2}\\
-Sound: ähnlich zu Figur 3 der Tuba allerdings mit weniger tief.\\
+Sound: Ähnlich zu Figur 3 der Tuba allerdings ist dieser Sound weniger tief.\\
 Lösung: Für die geringere Tiefe des Sounds wurde der Hall der Posaune angepasst.
 \begin{lstlisting}
-p "i5" $ loopAt 2 $ sound "Atmen" #room 0.7 # gain 1.1
+p "i5" $ loopAt 2 $ sound "Atmen" #room 0.6 #orbit 1 #gain 1.1
 \end{lstlisting}
 
 \subsection{Instrument 6: Violine}
@@ -695,27 +683,25 @@ $ slow 2 $ midinote "[[86][84][82][[][84]]][82 81 79 78]" # s "gtr" #cut 1 # roo
 
 \subsubsection{Klangbild}
 Bestandteile der Violine: Violine\\
-Art der Synthetisierung: Hierfür wurden Samples Online gesucht da wir möglichs viele verschiedene Arten der Soundeinbindung abdecken wollten. Dabei wurde ein großer Datenbestand von Orchesterinstumenten gefunden.{\color{red}\textbf{TODO}}http://virtualplaying.com/virtual-playing-orchestra/ Link einfügen Des weiteren
-wäre es extremst Zeitaufwendig jedes Instrument über den SuperCollider zu synthetisieren weshalb Sound Samples für dieses Instrument gewählt wurden.\\
+Art der Synthetisierung: Hierfür wurden Samples Online gesucht da wir möglichs viele verschiedene Arten der Soundeinbindung abdecken wollten. Dabei wurde ein großer Datenbestand von Orchesterinstumenten gefunden.\cite{Orch} Des weiteren wäre es extremst Zeitaufwendig jedes Instrument über den SuperCollider zu synthetisieren weshalb Sound Samples für dieses Instrument gewählt wurden.\\
 \noindent\textbf{Figur 1}\\
 Sound: In dieser Figur steigt die Violine leise in das Stück ein und wird über die Zeit immer lauter, wodurch sie schlussendlich im zweiten Teil 
-zum Hauptinstrument des Abschnittes wird. Im ersten Teil wird die Violine etwas quitschend und langsam gespielt. Im zweiten Teil wird sie hektisch und sauber gespielt.\\
+zum Hauptinstrument des Abschnittes wird. Im ersten Teil wird die Violine etwas quitschend und langsam gespielt. Teil zwei besteht aus einem hektisch aber sauber gespielt Part.\\
 Problem: Die Violine muss in unserer Vorführung diesen gleichmäßigen Anstieg der Lautstärke vollführen, ohne merkliche Sprünge zu machen.\\
 Lösung:
 \begin{lstlisting}
-p "i6" $ slow 16 $ fastcat [
+p "i6" $ slow 4 $ cat [
 midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Violine:5",
 midinote "[52][][][][][][][45][44][52][][][][][][]" # s "Violine:5",
 midinote "[52][][][][][][][45][44][56][][][][][57][56]" # s "Violine:5",
 midinote "[][60][][][][][61][60][][63][][][][][][]" # s "Violine:5"
-]  #gain 0.5 #cut 1 #speed 1.2 # sz 0.8 # orbit 1 # room 0.85
-
+] #cut 1 #speed 1.2 # sz 0.8 # orbit 1 # room 0.85 #gain 0.9
 \end{lstlisting}
 \noindent\textbf{Figur 2}\\
-Sound: Wenn die Violine in diese Figur übergeht ist sie das Hauptinstrument des Stückes. Die Violine wird hierbei sehr hektisch aber im gegensatz zu Figur 1 sauber gespielt.\\
+Sound: Wenn die Violine in diese Figur übergeht ist sie das Hauptinstrument des Stückes. Die Violine wird hierbei sehr hektisch aber im Gegensatz zu Figur 1 sauber gespielt.\\
 Lösung:
 \begin{lstlisting}
-p "i6" $ slow 2 $ midinote "[[62][60][58][[][60]]][58 57 55 54]" # s "Violine:6" #cut 1 # room 0.85 # sz 0.8 # orbit 1 # speed 1.5
+p "i6" $ slow 2 $ midinote "[[61][59][57][[][59]]][57 56 54 53]" # s "Violine:6" #cut 1 # room 0.85 # sz 0.8 # orbit 1
 \end{lstlisting}
 
 
@@ -754,20 +740,17 @@ p1 $ slow 4 $ midinote "[[62][[][][][63]]][62]" # s "gtr" #cut 1 # room 0.85 # s
 {\color{red}\textbf{TODO}} weitere Figuren im hinteren Teil des Stückes
 
 \subsubsection{Klangbild}
-{\color{red}\textbf{TODO}}Figuren einarbeiten, WIE ZUM FICK SOLL ICH DA EIN CELLO RAUSHÖREN ICH HÖRE DA GARNICHTS *gnarf*\\
 Bestandteile: Cello\\
-Art der Synthetisierung: Das Cello wird wie auch die Violine über die Samples realisiert{\color{red}\textbf{TODO}} Quelle einfügen, welches anschließend in den SuperCollider eingefügt wird, synthetisiert.
-Ruhige Parts, Hektik (schnell gespielte Töne)
-
+Art der Synthetisierung: Das Cello wird wie auch die Violine über die Samples synthetisiert\cite{Orch}, welches anschließend in den SuperCollider eingefügt werden.
 \noindent\textbf{Figur 1}\\
 Lösung:
 \begin{lstlisting}
-p "i7" $ slow 2 $ midinote "[[54][][][[][55]]][54 52 55 54]" # s "Cello:1" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
+p "i7" $ slow 2 $ midinote "[[50][][][[][51]]][50 48 51 50]" # s "Cello:1" #cut 2 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
 \end{lstlisting}
 \noindent\textbf{Figur 2}\\
 Lösung:
 \begin{lstlisting}
-p "i7" $ slow 4 $ midinote "[[42][[][][][43]]][42]" # s "Cello:2" #cut 1 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
+p "i7" $ slow 4 $ midinote "[[50][[][][][51]]][50]" # s "Cello:2" #cut 2 # room 0.85 # sz 0.8 # orbit 1 #gain 0.7
 \end{lstlisting}
 
 \subsection{Instrument 8: Harfe}
@@ -800,21 +783,20 @@ d1 $ stack [
 
 \subsubsection{Klangbild}
 Bestandteile der Harfe: Harfe\\
-Art der Synthetisierung: Die Harfe wird mit Samples synthetisiert da diese nicht über die SuperCollidertöne synthetisierbar ist.\\
-Sound: Die Harfe wird in ihren Teilen sehr deutlich gespielt. Jedoch schwankt die Lautstärke mit der sie gespielt wird von leise zu laut und wieder zurück.\\
-Problem: Die schwankende Lautstärke ist das Hauptproblem bei der Aufführung.\\
+Art der Synthetisierung: Die Harfe wird mit Samples\cite{Orch} synthetisiert da diese nicht über die SuperCollidertöne synthetisierbar ist.\\
+Sound: Die Harfe wird in ihren Teilen sehr dominant gespielt.\\
 Lösung:
 \begin{lstlisting}
 p "i8" $ slow 2 $ stack [
-	midinote "[62 60]*4" # s "Harp:13",
-	midinote "[50 48]*4" # s "Harp:13",
-	slow 2 $ fastcat [
-		midinote "58 57" # s "Harp:13",
-		midinote "55" # s "Harp:13",
-		midinote "58 57" # s "Harp:13",
-		midinote "54" # s "Harp:13"
-	]
-] #gain 0.75 # room 0.5
+  midinote "[57 55]*4" # s "Harp:13",
+  midinote "[45 43]*4" # s "Harp:13",
+  slow 2 $ fastcat [
+    midinote "53 52" # s "Harp:13",
+    midinote "50" # s "Harp:13",
+    midinote "53 52" # s "Harp:13",
+    midinote "49" # s "Harp:13"
+  ]
+] #speed 2 # room 0.5 # orbit 1 #gain 0.9
 \end{lstlisting}
 
 
@@ -900,10 +882,10 @@ d1 $ slow 2 $ midinote "~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~ 67 69 74 ~
 
 \subsubsection{Klangbild}
 Bestandteile des Flügels: Flügel\\
-Art der Synthetisierung: Der Flügel wurde mittels dem SuperCollider syntetisiert. Dazu wurde die Funktion \textit{OteyPianos} benutzt, welche einen Pianoartigen klang besitzt. geschrieben. Da diese Funktion bereits im SuperCollider existiert. Der restliche Teil der geschriebenen Funktion schneidet die Höhen etwas heraus und gibt dem Klang etwas mehr Tiefe. 
+Art der Synthetisierung: Der Flügel wurde mittels dem SuperCollider syntetisiert. Dazu wurde die Funktion \textit{OteyPianos} benutzt, welche einen Pianoartigen klang besitzt. Der restliche Teil der geschriebenen Funktion schneidet die Höhen etwas heraus und gibt dem Klang etwas mehr Tiefe. 
 \begin{lstlisting}
 (
-SynthDef(piano, { |out=0, freq= 391.995,gate=1, amp=0.5,rho=1|
+SynthDef(\piano, { |out=0, freq= 391.995,gate=1, amp=0.5,rho=1|
     var son = OteyPiano.ar(freq, amp, rho:rho)*EnvGen.ar(Env.asr(0,1,0.1),gate,doneAction:2);
     Out.ar(out, Pan2.ar(son * 0.1, LinLin.kr(freq,36.midicps,90.midicps,-0.75,0.75)));
 }).play(s);
@@ -912,38 +894,38 @@ SynthDef(piano, { |out=0, freq= 391.995,gate=1, amp=0.5,rho=1|
 \noindent \textbf{Figur 1}\\
 Sound: Der Sound der Figur wird zur Einleitung in den ersten Hauptabschnitt benutzt. Dabei werden die Tasten des Flügels 
 schnell gedrückt um einen möglichst lauten Ton hervorzubringen.\\
-Lösung:In dieser Figur wurden die zwei Töne die stark angespielt wurden bereits per Audacity zusammengeschnitten um Code einzusparen.
+Lösung: In dieser Figur wurden die zwei Töne die stark angespielt wurden bereits per Audacity zusammengeschnitten um Code einzusparen.
 \begin{lstlisting}
-p "i9" $ slow 2 $ sound "[Klavier]" # gain 1.3 # room 0.2
+p "i9" $ slow 2 $ sound "[K]" # room 0.2 #orbit 1 # gain 1.3
 \end{lstlisting}
 \noindent \textbf{Figur 2}\\
-Sound: Der Sound der Figur wird Hinführung in den ersten Hauptabschnitt benutzt. Dabei werden die Tasten des Flügels 
+Sound: Der Sound der Figur wird zu der Hinführung in den ersten Hauptabschnitt benutzt. Dabei werden die Tasten des Flügels 
 schnell gedrückt um einen möglichst lauten Ton hervorzubringen.\\
 Lösung:
 \begin{lstlisting}
-p "i9"  $ slow 8 $ sound "[[][[][][][Klavier:1]][][]] [] [] [] [[][[][][][Klavier:1]][][]] [] [] []" # room 0.2 
+p "i9"  $ slow 8 $ sound "[[][[][][][K:1]][][]] [] [] [] [[][[][][][K:1]][][]] [] [] []" # room 0.2 #orbit 1 #gain 1.2
 \end{lstlisting}
 \noindent \textbf{Figur 3}\\
-Sound: Der Flügel gefühlvoller angespielt um im Einklang mit der Harfe zu stehen.
+Sound: Der Flügel wird gefühlvoller angespielt um im Einklang mit der Harfe zu stehen.
 \begin{lstlisting}
-p "i9" $ slow 2 $ sound "[Klavier:2 ~][Klavier:2][~] [~] " # room 0.2 #gain 0.9
+p "i9" $ slow 2 $ sound "[K:2 ~][K:2][~] [~] "  #speed 2 #room 0.4 #orbit 1 #gain 1.5
 \end{lstlisting}
 \noindent \textbf{Figur 4}\\
 Sound: Der Flügel wird in dieser Figur normal angespielt und führt den Zuhörer zu dem Höhepunkt des ersten Haupteiles welcher von der Violine gespielt wird.\\
 Lösung:
 \begin{lstlisting}
-p "i9" $ cat [
-  cat [sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5]", sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5  ~ ~ Klavier:3]"],
-  cat [sound "[~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4]", sound "[~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4 ~ Klavier:3 Klavier:6 Klavier:4  ~ ~ Klavier:3]"],
-  cat [sound "[~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8]", sound "[~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8 ~ Klavier:7 Klavier:3 Klavier:8  ~ ~ Klavier:3]"],
-  cat [sound "[~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9]", sound "[~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9 ~ Klavier:7 Klavier:3 Klavier:9  ~ ~ Klavier:7]"]
-] #gain 1.0 #pan 0.35
+p "i9" $ slow 2 $ cat [
+sound "~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ ~ K:3 ~ ",
+sound "~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ K:3 K:6 K:4 ~ ~ K:3 ~ ",
+sound "~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ K:7 K:3 K:8 ~ ~ K:3 ~ ",
+sound "~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ K:7 K:3 K:9 ~ ~ K:7 ~ "
+] #pan 0.35 #gain 1.0
 \end{lstlisting}
 \noindent \textbf{Figur 5}\\
 Sound: In der Figur wird der Flügel normal gespielt.\\
 Lösung:
 \begin{lstlisting}
-p "i9" $ cat [sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5]", sound "[~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5 ~ Klavier:3 Klavier:4 Klavier:5  ~ ~ Klavier:3 ~] "]
+p "i9" $ slow 2 $ sound "[~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5 ~ K:3 K:4 K:5  ~ ~ K:3 ~] "
 \end{lstlisting}
 \subsection{Instrument 10: Moog Syntheziser}
 \subsubsection{Figuren}
@@ -982,8 +964,8 @@ d1 $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
 
 \subsubsection{Klangbild}
 Bestandteile des Moogs: Keyboard, PC, Mischboard\\
-Art der Synthetisierung: Der Moog wird mittels dem SuperCollider programmiert. Der SuperCollider besitzt eine Funktion, welche einen Moog synthetisieren kann.
-Dies ist die \textit{BMoog}-Funktion welche im folgendem Codebeispiel zu sehen ist. Als nächstes müssen dann nurnoch die Sounds für die verschiedenen
+Art der Synthetisierung: Der Moog wird mittels dem SuperCollider programmiert. Der SuperCollider besitzt die Funktion, welche einen Moog synthetisieren kann.
+Dies ist die \textit{BMoog}-Funktion welche im folgendem Codebeispiel zu sehen ist. Als nächstes müssen nurnoch die Sounds für die verschiedenen
 Frequenzen aufgenommen, geschnitten und eingefügt werden.
 \begin{lstlisting}
 x=(
@@ -1003,16 +985,17 @@ SynthDef(\moog, {
 \noindent\textbf{Figur 1}\\
 Lösung:
 \begin{lstlisting}
-p "i10" $ slow 8 $ fastcat [sound "[[BBFMoog:5 BBFMoog:5][BBFMoog:4 BBFMoog:5 ~ ~]]*2" # cut 1 ,
-sound "[[BBFMoog:3 BBFMoog:3 ][BBFMoog:2 BBFMoog:3 ~ ~]]*2" # cut 1,
-sound "[[BBFMoog:1 BBFMoog:1 ][BBFMoog:0 BBFMoog:1 ~ ~]]*2" # cut 1,
-sound "[[BBFMoog:7 BBFMoog:6 ][BBFMoog:5 BBFMoog:6 ~ ~]]  [[BBFMoog:6 ~][BBFMoog:5 ~ BBFMoog:6 ~ ~]]" # cut 1
-] #gain 1.5
+p "i10" $ slow 2 $ cat [
+  midinote "[[55 55][54 55 ~ ~]]*2" # s "BBFMoog:6",
+  midinote "[[50 50][49 50 ~ ~]]*2" # s "BBFMoog:6",
+  midinote "[[48 48][47 48 ~ ~]]*2" # s "BBFMoog:6",
+  midinote "[[58 57][56 57 ~ ~]]  [[57 ~][56 57 ~ ~]]" # s "BBFMoog:6"
+] # cut 1 #speed 2 #gain 0.9
 \end{lstlisting}
 \noindent\textbf{Figur 2}\\
 Lösung:
 \begin{lstlisting}
-p "i10" $ sound "[[[[BBFMoog:3 ~ ~ BBFMoog:3]][~ BBFMoog:3]][BBFMoog:5 BBFMoog:6 BBFMoog:8 BBFMoog:7]]" # cut 1 # gain 1.5
+p "i10" $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "BBFMoog:6" # cut 1 #speed 2 #gain 1.0
 \end{lstlisting}
 
 \section{Performance}
@@ -1059,7 +1042,34 @@ Im Code zu Part 1 findet sich für die Schlagzeugspur in Zeile 4 ein Ausdruck \v
 
 \noindent Der vollständige Code der Performance findet sich in der digitalen Anlage.
 
+\subsection{Abwesenheit von Sounds}
+\textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
+In der Livevorführung sind längst nicht alle Sounds zu hören, welche von uns eigens für die Klangsynthese aufgenommen wurden. Dieser Abschnitt soll erklären wieso einige Sounds von uns nicht verwendet werden.\\
+In Figur 2 der Marimba werden Kuh-Glocken per Zufall angespielt. Die Glockensounds wurden im SuperCollider erzeugt mit folgendem Code:
+\begin{lstlisting}
+-Code Marimba-
+(
+Pbind(
+	\instrument, \bell,
+	\fs, Pseq( (60..72), 1).midicps,
+	\t60, 3,
+	\pitchy, 2,
+	\dur, 1
+).play;
+)
+\end{lstlisting}
+Durch eben gezeigten Code wurden 10 Glockensounds erzeugt. Bei dem zusammenfügen der Liveperformance fiehl uns aber auf das die Sounds das Klangbild zerstören, da diese viel zu hell waren und eher dumpf klingen müssen.\\
+Die nächsten Sounds die nicht eingebunden wurden, waren die des Moogs. Für den Moog wurden extra die Frequenzen mittels dem \textit{Sonic Visualiser}, welches ein kostenloses Programm zur Ansicht und Analyse von Audiodateien ist, ausgelesen.\cite{Sonic} Diese Frequenzen wurden dann im SuperCollider und dem im Moog gezeigten Code erzeugt, geschnitten und in unseren Code geschrieben. Bei der Zusammenführung der Performance hatte der Moog nicht die richtigen Frequenzen getroffen, was daran liegt das der Moog einen ca. 10 Hz großen Bereich in der Visualisierung angezeigt hat. Dies führte zu dem schlechten Klangbild. Um dieses Problem zu lösen wurde sich ein Referenzton aus den erzeugten Samples gesucht, der mit der Liveperformance von \textit{Brandt Brauer Frick} übereinstimmt. Mit diesem Referenzton wurde dann der Moog (Instrument 10) erzeugt. Die restlichen erzeugten Sounds für den Moog wurden als nächstes aus der Performance entfehrnt.\\
+Alle eben genannten selbst erzeugten Töne sind unter \textit{Sounds/Eigene/Instrumentename} zu finden.\\
+Der letzte Sound der nicht in der Lifeperformance zu finden ist, ist die erste Figur der Tuba. Es ist uns nicht gelungen einen ähnlichen Sound wie diesen zu erzeugen, aufzunehmen oder Sounds in Tidal so zu entfremden das sie diesem Sound nahe kommen und eine akzeptierbare Qualität besitzen. Das nächste was an diesen Sound herangekommen ist, ist der aus Figur 1 der Tuba. Dieser Sound hat jedoch das Problem, dass die Qualität des Sounds unzureichend war.Aus diesem Grund benutzen wir eine einfache Clap um diesen Ton nachzustellen, da es der Grundidee des Originalsounds am nächsten kommt.
+\begin{lstlisting}
+Benutzter Sound
+p "i4" $ sound "[~ cp ~ ~]" #pan 0.2
 
+Erstellter Sound
+p "i4" $ sound "~ bd hh ~" # cut 1 # midinote 15 #gain "2 0"
+
+\end{lstlisting}
 \section{Gesang}\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 

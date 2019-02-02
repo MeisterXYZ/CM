@@ -19,7 +19,6 @@ hush
 --f3
 p "i1" $ slow 2 $ sound "[bd hh bd hh][bd [hh ho] bd hh] [bd hh bd hh][bd [hh hh] bd hh]" #midinote 58
 
-
 --f4
 p "i1" $ stack [
 sound "[bd hh]*4"  #midinote 58 #gain 1.0,
@@ -88,7 +87,6 @@ p "i4" $ sound "[~ Tuba ~ ~]" # room 0.4 #orbit 1 # gain 1.1
 
 --f4
 p "i4" $ slow 16 $ midinote "[55 50 48 50]*2" # s "TubaOrch:20" # cut 1 #gain " 1 0.95 0.9 0.85 0.8 0.7 0.7 0.7"
--- ggf TODO: Anstieg bei YT checken
 
 --f5
 p "i4" $ slow 16 $ midinote "[55 50 48 50]*2" # s "TubaOrch:20" # cut 1
@@ -198,55 +196,8 @@ p "i10" $ slow 2 $ cat [
 ] # cut 1 #speed 2 #gain 0.9
 
 
--- mit einzelnen tönen?
-p "i10" $ slow 8 $ fastcat [sound "[[BBFMoog:5 BBFMoog:5][BBFMoog:4 BBFMoog:5 ~ ~]]*2" # cut 1 ,
-sound "[[BBFMoog:3 BBFMoog:3 ][BBFMoog:2 BBFMoog:3 ~ ~]]*2" # cut 1,
-sound "[[BBFMoog:1 BBFMoog:1 ][BBFMoog:0 BBFMoog:1 ~ ~]]*2" # cut 1,
-sound "[[BBFMoog:7 BBFMoog:6 ][BBFMoog:5 BBFMoog:6 ~ ~]]  [[BBFMoog:6 ~][BBFMoog:5 ~ BBFMoog:6 ~ ~]]" # cut 1
-] #gain 1.5 #speed 2
-
---alt
-p "i10" $ slow 2 $ cat [
-  midinote "[[55 55][54 55 ~ ~]]*2" # s "moog",
-  midinote "[[50 50][49 50 ~ ~]]*2" # s "moog",
-  midinote "[[48 48][47 48 ~ ~]]*2" # s "moog",
-  midinote "[[58 57][56 57 ~ ~]] [[57 ~][56 57 ~ ~]]" # s "moog"
-] # cut 1 #gain 0.8
-
-
-
 --f2
 p "i10" $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "BBFMoog:6" # cut 1 #speed 2 #gain 1.0
 
--- einzelne Töne?
-p "i10" $ sound "[[[[BBFMoog:3 ~ ~ BBFMoog:3]][~ BBFMoog:3]][BBFMoog:5 BBFMoog:6 BBFMoog:8 BBFMoog:7]]" # cut 1 # gain 1.5
-
--- alt
-p "i10" $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "moog" # cut 1
-
 
 p "i10" silence
-
-
-
-
-
-hush
-
-
-
-
-
-
-
-
---Gesang
--- Idee:  d1 $ slow 2 $ fastcat[slice 8 "7" $ sound "Voc2", slice 8 "8" $ sound "Voc2" ]
-d1 $ loopAt 8 $ sound "Voc2"
-
-d1 $ loopAt 8 $ sound "Voc2" # room 0.65 # sz 0.8 # orbit 1 #gain 0.9
-
-d1 $ silence
-
-
-hush

@@ -203,7 +203,7 @@ Für die ersten vier Takte wurde bei der Erstellung der MIDI-Regionen eine Annah
 
 \paragraph{Klanganalyse} Per Gehör soll das Klangbild des Instrumentes in der speziellen Figur sowie die Wirkung, welche durch die Figur beim Hörer erzeugt wird, untersucht werden. 
 
-\paragraph{Anpassung der Klangsynthese} Unter Berücksichtigung des Analysierten Klangbildes und des bereits vorliegenden Tidal-Codes soll nun die Art der Klangsynthese derart angepasst werden, dass die beschriebene klangliche Wirkung erzielt wird. Mögliche Arten der Anpassung sind dabei die Auswahl von Tidal-Instrumenten, Einbinden von Samples sowie Erstellen eines SuperCollider-Instrumentes.\\
+\paragraph{Anpassung der Klangsynthese} Unter Berücksichtigung des analysierten Klangbildes und des bereits vorliegenden Tidal-Codes soll nun die Art der Klangsynthese derart angepasst werden, dass die beschriebene klangliche Wirkung erzielt wird. Mögliche Arten der Anpassung sind dabei die Auswahl von Tidal-Instrumenten, Einbinden von fremden und selbst aufgenommenen Samples sowie das Erstellen eines SuperCollider-Instrumentes.\\
 
 \noindent Auf diesem Wege sollen die Figuren aller Instrumente als ausführbarer Tidal-Code mit erwünschter klanglicher Wirkung entstehen.
 Das Verbinden der einzelnen Figuren zu einem live vorführbaren Stück soll in \textit{Kapitel 5 - Performance} beschrieben werden. 
@@ -378,6 +378,8 @@ d1 $ stack [
 ]
 \end{lstlisting}
 
+\subsection{Instrument 2: Pauke}
+Wird wie oben erwähnt nicht synthetisiert.
 
 \subsection{Instrument 3: Marimba}
 \subsubsection{Figuren}
@@ -1080,7 +1082,7 @@ Pbind(
 )
 \end{lstlisting}
 Durch eben gezeigten Code wurden 10 Glockensounds erzeugt. Bei dem zusammenfügen der Liveperformance fiehl uns aber auf das die Sounds das Klangbild zerstören, da diese viel zu hell waren und eher dumpf klingen müssen.\\
-Die nächsten Sounds die nicht eingebunden wurden, waren die des Moogs. Für den Moog wurden extra die Frequenzen mittels dem \textit{Sonic Visualiser}, welches ein kostenloses Programm zur Ansicht und Analyse von Audiodateien ist, ausgelesen.\cite{Sonic} Diese Frequenzen wurden dann im SuperCollider und dem im Moog gezeigten Code erzeugt, geschnitten und in unseren Code geschrieben. Bei der Zusammenführung der Performance hatte der Moog nicht die richtigen Frequenzen getroffen, was daran liegt das der Moog einen ca. 10 Hz großen Bereich in der Visualisierung angezeigt hat. Dies führte zu dem schlechten Klangbild. Um dieses Problem zu lösen wurde sich ein Referenzton aus den erzeugten Samples gesucht, der mit der Liveperformance von \textit{Brandt Brauer Frick} übereinstimmt. Mit diesem Referenzton wurde dann der Moog (Instrument 10) erzeugt. Die restlichen erzeugten Sounds für den Moog wurden als nächstes aus der Performance entfehrnt.\\
+Die nächsten Sounds die nicht eingebunden wurden, waren die des Moogs. Für den Moog wurden extra die Frequenzen mittels dem \textit{Sonic Visualiser}, welches ein kostenloses Programm zur Ansicht und Analyse von Audiodateien ist, ausgelesen.\cite{Sonic} Diese Frequenzen wurden dann im SuperCollider und dem im Moog gezeigten Code erzeugt, geschnitten und in unseren Code geschrieben. Bei der Zusammenführung der Performance hatte der Moog nicht die richtigen Frequenzen getroffen, was daran liegt das der Moog einen ca. 10 Hz großen Bereich in der Visualisierung angezeigt hat. Dies führte zu dem schlechten Klangbild. Um dieses Problem zu lösen wurde sich ein Referenzton aus den erzeugten Samples gesucht, der mit der Liveperformance von \textit{Brandt Brauer Frick} übereinstimmt. Mit diesem Referenzton wurde dann der Moog (Instrument 10) erzeugt. Die restlichen erzeugten Sounds für den Moog wurden als nächstes aus der Performance entfernt.\\
 Alle eben genannten selbst erzeugten Töne sind unter \textit{Sounds/Eigene/Instrumentename} zu finden.\\
 Der letzte Sound der nicht in der Lifeperformance zu finden ist, ist die erste Figur der Tuba. Es ist uns nicht gelungen einen ähnlichen Sound wie diesen zu erzeugen, aufzunehmen oder Sounds in Tidal so zu entfremden das sie diesem Sound nahe kommen und eine akzeptierbare Qualität besitzen. Das nächste was an diesen Sound herangekommen ist, ist der aus Figur 1 der Tuba. Dieser Sound hat jedoch das Problem, dass die Qualität des Sounds unzureichend war.Aus diesem Grund benutzen wir eine einfache Clap um diesen Ton nachzustellen, da es der Grundidee des Originalsounds am nächsten kommt.
 \begin{lstlisting}
@@ -1094,16 +1096,13 @@ p "i4" $ sound "~ bd hh ~" # cut 1 # midinote 15 #gain "2 0"
 \section{Gesang}\
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
-\noindent Neben der Umsetzung der einzelnen Instrumente wurden zusätzlich zusammen mit einer Sängerin Gesangsaufnahmen angefertigt. Diese wurden ebenfalls SuperCollider als Sample zur Verfügung gestellt. 
+\noindent Neben der Umsetzung der einzelnen Instrumente wurden zusätzlich mit der Unterstützung einer Sängerin Gesangsaufnahmen angefertigt. Diese wurden ebenfalls SuperCollider als Sample zur Verfügung gestellt.\\
+Hierbei galt es eine Herausforderung zu überwinden. Die Figuren des Gesangs starten nicht zu Beginn jedes Samples, sondern haben einen Auftakt. Dies wurde darüber gelöst, dass das Sample nicht auf die erste Zählzeit einer acht-Takte Figur startet, sondern um einen Takt nach vorne verlängert (und entsprechend hinten gekürzt) wurde.\\ 
+Über die folgende Zeile Code können diese acht Takte lange Figuren mit dem Timing, welches dem Original entspricht, in der Performance verwendet werden.
 
-\noindent Herausforderung: Auftakt.\\
-Lösung für Live-Vorführung mit ordentlich Timing.
+
 \begin{lstlisting}
-...add some code
-\end{lstlisting}
-Lösung: Integration in Performance Code: Sample 16 Takte hat aber Auftakt. 16 Takte Figur mit Start auf Takt 16. Nur 1x Auswerten. Durch wechsel im Ausdruck für Parts realisiert.
-\begin{lstlisting}
-...add some code
+d1 $ slow 8 $ sound "[[[][[][[][VocP5]]]]]"
 \end{lstlisting}
 
 \pagebreak

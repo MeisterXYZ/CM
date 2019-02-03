@@ -1,0 +1,42 @@
+\contentsline {section}{\numberline {1}Abstract}{3}{section.1}
+\contentsline {section}{\numberline {2}Umsetzung in Tidal oder Euterpea}{3}{section.2}
+\contentsline {section}{\numberline {3}Eigenschaften des St\IeC {\"u}cks Pretend und dessen globale Struktur}{4}{section.3}
+\contentsline {section}{\numberline {4}Analyse und Synthese der einzelnen Instrumente}{5}{section.4}
+\contentsline {paragraph}{Analyse der gespielten Tonh\IeC {\"o}hen und Rhythmen.}{5}{section.4}
+\contentsline {paragraph}{Synthese von Tonh\IeC {\"o}he und Rhythmus}{5}{section.4}
+\contentsline {paragraph}{Klanganalyse}{5}{section.4}
+\contentsline {paragraph}{Anpassung der Klangsynthese}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}Instrument 1: Schlagzeug}{5}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Figuren}{5}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Klangbild}{7}{subsubsection.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Instrument 2: Pauke}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Instrument 3: Marimba}{8}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Figuren}{8}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Klangbild}{9}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Instrument 4: Tuba}{10}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Figuren}{10}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Figuren}{11}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Klangbild}{12}{subsubsection.4.4.3}
+\contentsline {subsection}{\numberline {4.5}Instrument 5: Posaune}{13}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Figuren}{13}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}Klangbild}{13}{subsubsection.4.5.2}
+\contentsline {subsection}{\numberline {4.6}Instrument 6: Violine}{14}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}Figuren}{14}{subsubsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.2}Klangbild}{14}{subsubsection.4.6.2}
+\contentsline {subsection}{\numberline {4.7}Instrument 7: Chello}{15}{subsection.4.7}
+\contentsline {subsubsection}{\numberline {4.7.1}Figuren}{15}{subsubsection.4.7.1}
+\contentsline {subsubsection}{\numberline {4.7.2}Klangbild}{16}{subsubsection.4.7.2}
+\contentsline {subsection}{\numberline {4.8}Instrument 8: Harfe}{16}{subsection.4.8}
+\contentsline {subsubsection}{\numberline {4.8.1}Figuren}{16}{subsubsection.4.8.1}
+\contentsline {subsubsection}{\numberline {4.8.2}Klangbild}{16}{subsubsection.4.8.2}
+\contentsline {subsection}{\numberline {4.9}Instrument 9: Fl\IeC {\"u}gel}{17}{subsection.4.9}
+\contentsline {subsubsection}{\numberline {4.9.1}Figuren}{17}{subsubsection.4.9.1}
+\contentsline {subsubsection}{\numberline {4.9.2}Klangbild}{18}{subsubsection.4.9.2}
+\contentsline {subsection}{\numberline {4.10}Instrument 10: Moog Syntheziser}{19}{subsection.4.10}
+\contentsline {subsubsection}{\numberline {4.10.1}Figuren}{19}{subsubsection.4.10.1}
+\contentsline {subsubsection}{\numberline {4.10.2}Klangbild}{20}{subsubsection.4.10.2}
+\contentsline {section}{\numberline {5}Performance}{21}{section.5}
+\contentsline {subsection}{\numberline {5.1}Umsetzung der Performance}{21}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Abwesenheit von Sounds}{23}{subsection.5.2}
+\contentsline {section}{\numberline {6}Gesang}{24}{section.6}
+\contentsline {section}{\numberline {7}Zusammenfassung}{24}{section.7}

@@ -113,7 +113,7 @@ BCOR5mm, % Binding correction
 \pagebreak
 \setcounter{tocdepth}{2} % Set the depth of the table of contents to show sections and subsections only
 
-%\tableofcontents % Print the table of contents
+\tableofcontents % Print the table of contents
 %\listoffigures % Print the list of figures
 %\listoftables % Print the list of tables
 
@@ -705,7 +705,7 @@ d1 $ slow 4 $ midinote "[[62][[][][][63]]][62]" # s "gtr" #cut 1 # room 0.85 # s
 \end{lstlisting}
 
 \noindent\textbf{Weitere Figuren}\\
-Analog zur Violine existieren im hinteren Teil des Stücks weitere Figuren, auf deren Analyse und Synthese verzichtet wurde.
+Analog zur Violine existieren im hinteren Teil des Stücks weitere Figuren, auf deren Analyse und Synthese ebenfalls verzichtet wurde.
 
 \subsubsection{Klangbild}
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
@@ -789,7 +789,7 @@ d1 $ slow 2 $ stack[midinote "43 " #s "superpiano", midinote "55 " #s "superpian
 \end{lstlisting}
 
 \noindent \textbf{Figur 2}\\
-Analyse-Ergebnis:
+Analyse-Ergebnis:\\
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.3\columnwidth]{Flug_Fig2} 
@@ -887,6 +887,7 @@ d1 $ slow 2 $ sound "[K:2 ~][K:2][~] [~] "  #speed 2 #room 0.4 #orbit 1 #gain 1.
 \end{lstlisting}
 \noindent \textbf{Figur 4}\\
 Sound: Der Flügel wird in dieser Figur normal angespielt und führt den Zuhörer zu dem Höhepunkt des ersten Haupteiles welcher von der Violine gespielt wird.\\
+
 \begin{tabular}{lcr}
 Midinote Superpiano & Soundsample K: \\ 
 66&7\\
@@ -896,9 +897,10 @@ Midinote Superpiano & Soundsample K: \\
 70&9\\
 72&8\\
 74&5\\
-\end{tabular}
-\\
-Melodie: siehe Melodiepart Figur 4 Flügel\\
+\end{tabular}\\
+
+\noindent Melodie: siehe Melodiepart Figur 4 Flügel\\
+
 \noindent \textbf{Figur 5}\\
 Sound: In der Figur wird der Flügel normal gespielt.\\
 Lösung:\\
@@ -979,9 +981,8 @@ p "i10" $ midinote "[[[[50 ~ ~ 50]][~ 50]][55 57 60 58]]" # s "BBFMoog:6" # cut 
 \end{lstlisting}
 
 
-TODO: GANZER CODE IN
-
 \section{Performance}
+\subsection{Umsetzung der Performance}
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent Nachdem die einzelnen Figuren aller Instrumente durch das vorangegangene Kapitel als Tidal-Code umgesetzt sind, soll nun die vorführbare Performance aus den einzelnen Teilen zusammengesetzt werden. Dabei soll im Wesentlichen die in Abbildung 1 gezeigte globale Struktur des Liedes nachempfunden werden.\\
@@ -1030,7 +1031,8 @@ Im Code zu Part 1 findet sich für die Schlagzeugspur in Zeile 4 ein Ausdruck \v
 
 \subsection{Abwesenheit von Sounds}
 \textit{Abschnitt bearbeitet von: Nico Mehlhose}\\
-In der Livevorführung sind nicht alle erzeugten Sounds zu hören, welche von uns eigens für die Klangsynthese aufgenommen wurden. Dieser Abschnitt soll erklären wieso einige Sounds von uns nicht verwendet werden.\\
+
+\noindent In der Livevorführung sind nicht alle erzeugten Sounds zu hören, welche von uns eigens für die Klangsynthese aufgenommen wurden. Dieser Abschnitt soll erklären wieso einige Sounds von uns nicht verwendet werden.\\
 In Figur 2 der Marimba werden Kuh-Glocken per Zufall angespielt. Die Glockensounds wurden im SuperCollider erzeugt mit folgendem Code:
 \begin{lstlisting}
 -Code Marimba-
@@ -1060,8 +1062,7 @@ p "i4" $ sound "~ bd hh ~" # cut 1 # midinote 15 #gain "2 0"
 \textit{Abschnitt bearbeitet von: Raphael Drechsler}\\
 
 \noindent Neben der Umsetzung der einzelnen Instrumente wurden zusätzlich mit der Unterstützung einer Sängerin Gesangsaufnahmen angefertigt. Diese wurden ebenfalls SuperCollider als Sample zur Verfügung gestellt.\\
-Hierbei galt es eine Herausforderung zu überwinden. Die Figuren des Gesangs starten nicht zu Beginn jedes Samples, sondern haben einen Auftakt. Dies wurde darüber gelöst, dass das Sample nicht auf die erste Zählzeit einer acht-Takte Figur startet, sondern um einen Takt nach vorne verlängert (und entsprechend hinten gekürzt) wurde.\\ 
-Über die folgende Zeile Code können diese acht Takte lange Figuren mit dem Timing, welches dem Original entspricht, in der Performance verwendet werden.
+Hierbei galt es eine Herausforderung zu überwinden. Die Figuren des Gesangs sind acht Takte lang, starten jedoch nicht auf den ersten Schlag des ersten Taktes eines acht-Takte Intervalls; sie haben einen Auftakt.\\ Über das Berücksichtigen des Auftaktes bei der Aufnahme und mithilfe der folgenden Zeile Code können die acht Takte lange Samples für den Gesang mit dem Timing, welches dem Original entspricht, in der Performance verwendet werden.
 
 
 \begin{lstlisting}
@@ -1069,14 +1070,14 @@ d1 $ slow 8 $ sound "[[[][[][[][VocP5]]]]]"
 \end{lstlisting}
 
 \section{Zusammenfassung}
-\textit{Bearbeitet von Nico Mehlhose und Raphael Drechsler}
-In diesem Dokument wurde aufgezeigt wieso Tidal für die Umsetzung von dem Lied \textit{Pretend} von \textit{Brand Brauer Frick} besser geeignet ist als Euterpea. Des weiteren wurden die einzelnen Instrumente analysiert hinsichtlich ihrer einzelnen Figuren, Melodien, Klangbild und Umsetzung in Tidal. Die Umsetzung in Tidal basierte dabei auf eigens aufgenommene oder Onlinesamples, Soundmanipulation oder selbst geschriebenen Sounds im SuperCollider.\\
-Zuletzt wurden dann die einzelnen Umsetzungen der Instrumente zu einem ausführbaren Code zusammengemischt, welcher sich im digitalen Anhang befindet. 
+\textit{Bearbeitet von Nico Mehlhose, Raphael Drechsler}
+
+\noindent In diesem Dokument wurde zunächst aufgezeigt, weshalb sich für eine Umsetzung des Liedes \textit{Pretend} von \textit{Brand Brauer Frick} in Tidal anstatt in Euterpea entschieden wurde.\\ 
+Die einzelnen Instrumente und deren Figuren wurden hinsichtlich ihrer Melodik, Rhythmik und ihres Klangbildes analysiert und entsprechend in Tidal Umgesetzt. Um ein originalgetreues Klangbild zu erzielen wurden dabei eigene Samples aufgenommen, Onlinesamples verwendet,  Sounds des SuperColliders manipuliert sowie eigene Sounds in SuperCollider geschrieben.\\
+Die einzelnen Figuren der Instrumente wurden entsprechend der ermittelten globalen Struktur zu einer live ausführbaren Performance zusammengefügt. Dabei wurden die Lautstärken der Instrumente aufeinander angepasst, weitere Effekte zur Verbesserung des Gesamtklanges eingebracht und die zuvor angefertigten Gesangssamples eingefügt.\\
+
+\noindent Die Tidal-Dateien \verb|.tidal|, welche die Figuren der einzelnen Instrumente enthält und \verb|.tidal|, welche die Performance enthält, liegen der Arbeit bei.
 \pagebreak
-
-
-%Link zu den Soundfiles: http://virtualplaying.com/virtual-playing-orchestra/, https://rhythm-lab.com/moog-rogue-bass/
-
 
 
 

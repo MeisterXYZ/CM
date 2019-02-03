@@ -104,7 +104,6 @@ p "i4" $ silence
 p "i5" $ sound "[][[][~ Posaune]]" # room 0.3 #orbit 1 # gain 1.2
 
 --f2
-  --Frage: Lautstaerke?
 p "i5" $ loopAt 2 $ sound "Atmen" #room 0.6 #orbit 1 #gain 1.1
 
 p "i5" $ silence
@@ -120,8 +119,6 @@ midinote "[52][][][][][][][45][44][56][][][][][57][56]" # s "Violine:5",
 midinote "[][60][][][][][61][60][][63][][][][][][]" # s "Violine:5"
 ] #cut 1 #speed 1.2 # sz 0.8 # orbit 1 # room 0.85 #gain 0.9
 
-
-setcps (130/60/4)
 
 --f2
 p "i6" $ slow 2 $ midinote "[[61][59][57][[][59]]][57 56 54 53]" # s "Violine:6" #cut 1 # room 0.85 # sz 0.8 # orbit 1
@@ -163,10 +160,10 @@ p "i8" $ silence
 p "i9" $ slow 2 $ sound "[K]" # room 0.2 #orbit 1 # gain 1.3
 
 --f2
---8Takte
+--als 8 Takte
 p "i9"  $ slow 8 $ sound "[[][[][][][K:1]][][]] [] [] [] [[][[][][][K:1]][][]] [] [] []" # room 0.2 #orbit 1 #gain 1.2
 
---16 Takte mit vorne 8 Takte Pause
+--als 16 Takte mit vorne 8 Takte Pause
 p "i9"  $ slow 16 $ sound "[[][[][][][K:1]][][]] [] [] [] [[][[][][][K:1]][][]] [] [] []" # room 0.5 # sz 0.83 # orbit 1 #gain 1.2
 
 --f3
